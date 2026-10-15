@@ -1,0 +1,239 @@
+/* Caso en versión breve: objetivo · fases · usuarios · wireframes */
+.cs-obj{position:relative;height:400svh}
+.cs-band{position:absolute;left:0;right:0;pointer-events:none}
+.cs-obj-stage{position:sticky;top:0;height:100svh;display:grid;max-width:1440px;margin:0 auto;padding:calc(var(--pad) * 2.2) var(--pad) clamp(26px,5vh,56px);overflow:hidden}
+.cs-act{grid-area:1/1;display:flex;flex-direction:column;justify-content:center;gap:clamp(22px,4.4vh,58px);will-change:transform,opacity}
+.cs-obj-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,90px);align-items:start}
+.cs-obj .sc-h2{font-size:clamp(30px,3.9vw,64px);margin-top:0}
+.cs-obj-body{display:flex;flex-direction:column;gap:clamp(16px,2.6vh,28px);padding-top:clamp(30px,6vh,72px)}
+.cs-obj-body p{font-size:clamp(15px,1.32vw,20px);line-height:1.64;color:var(--ink-soft);max-width:54ch;text-wrap:pretty}
+.cs-obj-body p:first-child{font-size:clamp(17px,1.6vw,24px);line-height:1.5;color:var(--ink)}
+.cs-obj-tool{display:flex}
+.cs-obj-tool .w{display:flex;flex-direction:column;gap:6px}
+.cs-obj-tool .l{font-size:clamp(12px,.95vw,14px);text-transform:uppercase;color:var(--ink-mute);will-change:transform,opacity}
+.cs-tool-word{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .3em;color:var(--accent);font-size:clamp(40px,5.4vw,80px);line-height:.88;font-weight:500}
+.cs-tool-word.is-long{font-size:clamp(30px,3.6vw,54px)}
+.cs-tool-word .wd{display:flex;align-items:baseline;white-space:nowrap}
+.cs-tool-word span{display:block;will-change:transform,opacity}
+.cs-obj .cs-ph-h{font-size:clamp(26px,3.1vw,50px)}
+.cs-ph-names{display:flex;flex-wrap:wrap;align-items:baseline;gap:clamp(14px,2.4vw,40px);font-size:clamp(26px,4.4vw,72px);line-height:.94;font-weight:500}
+.cs-ph-names.is-long{font-size:clamp(24px,3.2vw,50px);gap:clamp(14px,2vw,32px)}
+.cs-ph-names .nm{color:var(--ink-mute);transition:color .7s var(--ease),transform .7s var(--ease);transform-origin:0 80%}
+.cs-ph-names .nm.on{color:var(--accent);transform:scale(1.06)}
+.cs-ph-sets{position:relative;min-height:clamp(140px,24vh,210px)}
+.cs-ph-sets .set{list-style:none;position:absolute;inset:0;display:flex;flex-wrap:wrap;align-content:flex-start;gap:9px 10px;opacity:0;pointer-events:none;transition:opacity .6s var(--ease)}
+.cs-ph-sets .set.on{opacity:1}
+.cs-ph-sets .set li{padding:10px 17px 11px;border-radius:999px;background:color-mix(in oklab,#FFFDF7 84%,var(--bg-2));box-shadow:0 1px 3px color-mix(in oklab,#3A2E1E 8%,transparent);font-size:clamp(14px,1.16vw,17.5px);line-height:1.3;color:var(--ink);will-change:transform,opacity}
+.cs-ph-sets .set li.hd{display:none}
+@media (prefers-reduced-motion:reduce),(max-width:880px){
+.cs-obj{height:auto}
+.cs-obj-stage{position:static;height:auto;display:flex;flex-direction:column;gap:clamp(34px,7vh,64px);padding:calc(var(--pad) * 2.6) var(--pad) clamp(40px,8vh,80px)}
+.cs-act{opacity:1!important;transform:none!important;gap:clamp(22px,4vh,34px)}
+.cs-tool-word span,.cs-obj-tool .l{opacity:1!important;transform:none!important}
+.cs-ph-names{display:none}
+.cs-ph-sets{min-height:0;display:flex;flex-direction:column;gap:clamp(22px,4vh,34px)}
+.cs-ph-sets .set{position:static;opacity:1!important;flex-direction:column;align-items:flex-start;gap:8px}
+.cs-ph-sets .set li{opacity:1!important;transform:none!important}
+.cs-ph-sets .set li.hd{display:block;padding:0;background:none;box-shadow:none;font-size:clamp(24px,5.4vw,34px);line-height:1;font-weight:500;color:var(--accent);margin-bottom:4px}
+}
+
+.cs-usr{padding:clamp(32px,7vh,84px) var(--pad) clamp(36px,8vh,96px);max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(22px,3.8vh,44px)}
+.cs-usr-top{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,90px);align-items:end}
+.cs-usr-top .sc-h2{font-size:clamp(30px,3.9vw,64px);margin-top:0}
+.cs-usr-body{display:flex;flex-direction:column;gap:18px}
+.cs-usr-body p{font-size:clamp(15px,1.32vw,20px);line-height:1.64;color:var(--ink-soft);max-width:54ch;text-wrap:pretty}
+.cs-usr-stat{display:flex;align-items:baseline;gap:14px}
+.cs-usr-stat .n{font-size:clamp(56px,7vw,110px);line-height:.86;color:var(--accent);font-variant-numeric:tabular-nums}
+.cs-usr-stat .l{font-size:14px;color:var(--ink-mute);max-width:14ch;line-height:1.35}
+.cs-usr-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(12px,1.4vw,20px);align-items:start}
+.cs-ergo{display:flex;flex-direction:column;gap:clamp(14px,2vh,22px);margin-top:clamp(26px,4vh,52px)}
+.cs-ergo>span{font-size:12px;text-transform:uppercase;color:var(--ink-mute)}
+.cs-ergo ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.2vw,34px)}
+.cs-ergo li{display:flex;flex-direction:column;gap:9px}
+.cs-ergo .n{font-size:clamp(34px,3.6vw,54px);line-height:.9;color:var(--accent);font-variant-numeric:tabular-nums}
+.cs-ergo .n em{font-style:normal;font-size:.42em;margin-left:.14em;vertical-align:.42em}
+.cs-ergo .l{font-size:13px;line-height:1.5;color:var(--ink-mute);text-wrap:pretty}
+@media (max-width:880px){.cs-ergo ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cs-usr-cell{position:relative;overflow:hidden;border-radius:12px;background:var(--tone-1);box-shadow:0 1px 3px color-mix(in oklab,#3A2E1E 8%,transparent)}
+.cs-usr-cell img{width:100%;height:100%;object-fit:contain;object-position:center}
+.cs-usr-cell figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;font-size:12px;color:#F7F2E8;background:linear-gradient(transparent,rgba(21,18,15,.6))}
+.cs-usr-cell.is-zoom{cursor:pointer;transition:box-shadow .3s ease,transform .3s ease}.cs-usr-cell.is-zoom:hover{box-shadow:0 10px 30px color-mix(in oklab,#3A2E1E 16%,transparent);transform:translateY(-2px)}
+.cs-lb{position:fixed;inset:0;z-index:120;overflow:auto;overscroll-behavior:contain;display:flex;align-items:center;justify-content:center;padding:clamp(16px,3vw,48px);background:rgba(21,18,15,.86);backdrop-filter:blur(6px);cursor:zoom-out;animation:cs-lb-in .18s ease}
+@keyframes cs-lb-in{from{opacity:0}to{opacity:1}}
+.cs-lb img{flex:0 0 auto;max-width:100%;max-height:calc(100svh - 2 * clamp(16px,3vw,48px));width:auto;height:auto;object-fit:contain;border-radius:10px;background:#F7F2E8;cursor:default;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.cs-lb.is-tall{align-items:flex-start}
+.cs-lb.is-tall img{width:min(1080px,92%);height:auto;max-height:none;border-radius:6px}
+.cs-lb-x{position:absolute;top:clamp(12px,2vw,24px);right:clamp(12px,2vw,24px);width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:rgba(247,242,232,.12);color:#F7F2E8;font-size:26px;line-height:1;cursor:pointer;transition:background .2s ease}
+.cs-lb-x:hover{background:rgba(247,242,232,.26)}
+body:has(.cs-usr-cell.is-zoom:hover) .cur2,body:has(.cs-lb) .cur2{opacity:0}
+
+.cs-bench{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,2.4vw,34px);align-items:center;padding:clamp(20px,2.4vw,32px);border-radius:14px;background:color-mix(in oklab,#FFFDF7 78%,var(--bg-2));box-shadow:0 1px 3px color-mix(in oklab,#3A2E1E 8%,transparent)}
+.cs-bench .n{font-size:clamp(48px,6vw,88px);line-height:.85;color:var(--accent);font-variant-numeric:tabular-nums}
+.cs-bench p{font-size:clamp(14.5px,1.16vw,18px);line-height:1.5;color:var(--ink-soft);max-width:52ch;text-wrap:pretty}
+
+.cs-arch{padding:clamp(32px,7vh,84px) var(--pad) clamp(36px,8vh,96px);max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(20px,3.4vh,40px)}
+.cs-arch-top{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,90px);align-items:end}
+.cs-arch-top .sc-h2{font-size:clamp(30px,3.9vw,64px);margin-top:0}
+.cs-arch-top p{font-size:clamp(15px,1.32vw,20px);line-height:1.64;color:var(--ink-soft);max-width:54ch;text-wrap:pretty}
+.cs-flow{display:flex;flex-direction:column;gap:14px}
+.cs-flow .l{font-size:11.5px;text-transform:uppercase;color:var(--ink-mute)}
+.cs-flow ol{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.4vw,20px)}
+.cs-flow li{display:flex;flex-direction:column;gap:8px;padding:clamp(16px,1.7vw,24px);border-radius:12px;background:color-mix(in oklab,#FFFDF7 84%,var(--bg-2));font-size:clamp(14.5px,1.16vw,17px);line-height:1.35;text-wrap:pretty;box-shadow:0 1px 3px color-mix(in oklab,#3A2E1E 8%,transparent)}
+.cs-flow .s{font-size:12px;color:var(--accent);font-variant-numeric:tabular-nums}
+
+/* hallazgos con cifra */
+.cs-find{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.4vw,20px)}
+.cs-find li{display:flex;flex-direction:column;gap:12px;padding:clamp(20px,2.2vw,32px);border-radius:14px;background:color-mix(in oklab,#FFFDF7 78%,var(--bg-2));box-shadow:0 1px 3px color-mix(in oklab,#3A2E1E 8%,transparent)}
+.cs-find .n{font-size:clamp(48px,5.4vw,84px);line-height:.85;color:var(--accent);font-variant-numeric:tabular-nums}
+.cs-find .n em{font-style:normal;font-size:.36em;margin-left:.3em;color:var(--ink-mute)}
+.cs-find .l{font-size:clamp(15px,1.2vw,18px);line-height:1.5;color:var(--ink);text-wrap:pretty}
+.cs-find .to{margin-top:auto;padding-top:6px;font-size:clamp(13.5px,1.02vw,15.5px);line-height:1.5;color:var(--ink-mute);text-wrap:pretty}
+.cs-find .to::before{content:"\2192\00a0";color:var(--accent)}
+
+/* decisiones clave: antes y después */
+.cs-dec-list{margin:clamp(8px,2vh,24px) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:clamp(56px,10vh,120px)}
+.cs-dec-row{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(24px,4vw,64px);align-items:start}
+.cs-dec-txt{position:sticky;top:calc(var(--pad) * 2.6);display:flex;flex-direction:column;gap:12px}
+.cs-dec-txt .s{font-size:12px;color:var(--accent);font-variant-numeric:tabular-nums}
+.cs-dec-txt h3{font-size:clamp(22px,2.2vw,34px);line-height:1.1;font-weight:500;text-wrap:balance}
+.cs-dec-txt p{font-size:clamp(15px,1.2vw,18px);line-height:1.6;color:var(--ink-soft);text-wrap:pretty}
+.cs-dec-media{display:flex;flex-direction:column;gap:clamp(22px,3.4vh,36px);min-width:0}
+.cs-dec-fig{margin:0;display:flex;flex-direction:column;gap:10px}
+.cs-dec-fig .box{position:relative;overflow:hidden;border-radius:12px;background:var(--tone-1);padding:clamp(10px,1.4vw,22px);box-shadow:0 1px 3px color-mix(in oklab,#3A2E1E 8%,transparent)}
+.cs-dec-fig.is-after .box{background:var(--tone-2)}
+.cs-dec-fig .box:has(.cs-flat){aspect-ratio:16/10}
+.cs-dec-fig button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.cs-dec-fig img{display:block;width:auto;max-width:100%;height:auto;max-height:min(60svh,560px);margin:0 auto;border-radius:4px}
+.cs-dec-fig figcaption{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:clamp(13.5px,1.02vw,15.5px);line-height:1.5;color:var(--ink-soft);text-wrap:pretty}
+.cs-dec-fig figcaption b{font-weight:400;font-size:11px;line-height:2.1;text-transform:uppercase;color:var(--ink-mute)}
+.cs-dec-fig.is-after figcaption b{color:var(--accent)}
+body:has(.cs-dec-fig button:hover) .cur2{opacity:0}
+
+/* cierre: aprendizajes y enlaces */
+.cs-learn .cs-usr-top{align-items:start}
+.cs-learn-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.cs-learn-link{display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:999px;border:1px solid var(--ink);font-size:13.5px;text-decoration:none;color:var(--ink);transition:background .3s ease,color .3s ease}
+.cs-learn-link::after{content:"\2197";font-size:14px}
+.cs-learn-link:hover{background:var(--ink);color:var(--bg)}
+.cs-usr-body .cs-learn-cred{margin-top:clamp(8px,2vh,20px);font-size:13px;line-height:1.55;color:var(--ink-mute)}
+
+@media (max-width:700px){.cs-find{grid-template-columns:1fr}}
+@media (max-width:880px){.cs-dec-row{grid-template-columns:1fr}.cs-dec-txt{position:static}}
+@media (max-width:1100px){.cs-flow ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:880px){
+.cs-obj-grid,.cs-usr-top,.cs-arch-top{grid-template-columns:1fr;gap:clamp(20px,4vh,34px)}
+.cs-obj-body{padding-top:0}
+.cs-bench{grid-template-columns:1fr;gap:10px}
+.cs-usr-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+/* wireframes por pantalla */
+.cs-scr{padding:clamp(32px,7vh,84px) var(--pad) clamp(46px,9vh,110px);max-width:1440px;margin:0 auto}
+.cs-scr-list{--frame-w:min(560px,60vw)}
+.cs-scr-list.is-pair{--frame-w:min(330px,40vw)}
+.cs-scr-list.is-pair .cs-scr-row{grid-template-columns:repeat(2,minmax(0,var(--frame-w)))}
+.cs-scr-list.is-pair .cs-scr-frame.is-mobile .win{max-height:none;aspect-ratio:9/17}
+.cs-scr-hint{font-size:12px;color:var(--ink-mute);margin-top:10px}
+.cs-scr-list{display:flex;flex-direction:column;gap:clamp(56px,10vh,132px);margin-top:clamp(28px,5vh,64px);padding:0}
+.cs-scr-row{display:grid;grid-template-columns:minmax(0,var(--frame-w)) clamp(96px,9vw,146px);column-gap:clamp(24px,4vw,56px);row-gap:10px;align-items:start;justify-content:start}
+.cs-scr-hd{grid-column:1/-1;font-size:clamp(17px,1.7vw,23px);font-weight:400;margin:0 0 -4px;color:var(--accent)}
+.cs-scr-col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.cs-scr-frame{position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--tone-1);border:1px solid var(--line);border-radius:8px;margin:0;transition:box-shadow .3s ease,transform .3s ease}
+.cs-scr-frame:hover{box-shadow:0 10px 30px color-mix(in oklab,#3A2E1E 16%,transparent)}
+.cs-scr-frame .bar{display:flex;align-items:center;gap:5px;height:20px;padding:0 9px;border-bottom:1px solid var(--line);background:color-mix(in oklab,var(--tone-2),#FFFDF7 40%)}
+.cs-scr-frame .bar i{width:6px;height:6px;border-radius:50%;background:var(--tone-3)}
+.cs-scr-frame .win{position:relative;overflow-y:auto;overflow-x:hidden;overscroll-behavior-x:contain;display:grid;place-items:center;scrollbar-width:none;-ms-overflow-style:none}
+.cs-scr-frame .win::-webkit-scrollbar{width:0;height:0}
+.cs-scr-frame .win[data-cursor="scroll"]{cursor:ns-resize}
+.cs-scr-frame.is-desktop .win{aspect-ratio:16/10}
+.cs-scr-frame.fits .win{aspect-ratio:auto}
+.cs-scr-frame.is-mobile .win{max-height:400px}
+.cs-scr-frame.is-mobile{border-radius:10px}
+.cs-scr-frame.is-mobile .win{aspect-ratio:9/17}
+.cs-scr-frame img{display:block;width:100%;height:auto;align-self:start;grid-area:1/1}
+.cs-scr-zoom{position:absolute;right:9px;bottom:9px;width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:color-mix(in oklab,#FFFDF7 82%,transparent);color:var(--ink);font-size:14px;line-height:1;cursor:pointer;opacity:.6;transition:opacity .22s ease,background .22s ease}
+.cs-scr-frame:hover .cs-scr-zoom,.cs-scr-zoom:focus-visible{opacity:1}
+.cs-scr-zoom:hover{background:#FFFDF7}
+.cs-scr-frame .cs-ghost{font-size:12px;color:var(--ink-mute);text-align:center;padding:0 10%}
+.cs-scr-cap{font-size:11px;text-transform:uppercase;color:var(--ink-mute)}
+@media (max-width:780px){.cs-scr-row{grid-template-columns:1fr}.cs-scr-col.is-narrow{max-width:230px}}
+
+@media (min-width:881px) and (max-height:700px){
+.cs-obj-stage{padding-top:calc(var(--pad) * 1.5)}
+.cs-obj-body{padding-top:clamp(14px,2.6vh,32px);gap:clamp(10px,1.8vh,18px)}
+.cs-obj-body p{font-size:clamp(14px,1.05vw,16px);line-height:1.55}
+.cs-obj-body p:first-child{font-size:clamp(15px,1.25vw,19px);line-height:1.45}
+.cs-obj .sc-h2{font-size:clamp(28px,3vw,44px)}
+.cs-act{gap:clamp(14px,2.6vh,26px)}
+.cs-pipe-st p{font-size:clamp(12px,.92vw,14px);line-height:1.5}
+.cs-pipe-st h3{font-size:clamp(17px,1.7vw,26px)}
+}
+
+/* Pantallas grandes: el mismo sistema que la home (ver scrolly.css, «Pantallas
+   grandes»). Cada medida es max(la de antes, N × --u) y los textos pequeños
+   van por --fz; en portátil manda siempre la de antes y nada cambia. */
+@media (min-width:1500px) and (min-height:701px){
+.cs-obj-stage{max-width:max(1440px,calc(100 * var(--u)))}
+.cs-obj-grid{gap:max(clamp(28px,5vw,90px),calc(5 * var(--u)))}
+.cs-obj .sc-h2{font-size:max(clamp(30px,3.9vw,64px),calc(3.9 * var(--u)))}
+.cs-obj-body p{font-size:max(clamp(15px,1.32vw,20px),calc(1.32 * var(--u)))}
+.cs-obj-body p:first-child{font-size:max(clamp(17px,1.6vw,24px),calc(1.6 * var(--u)))}
+.cs-obj-tool .l{font-size:max(clamp(12px,.95vw,14px),calc(.95 * var(--u)))}
+.cs-tool-word{font-size:max(clamp(40px,5.4vw,80px),calc(5.4 * var(--u)))}
+.cs-tool-word.is-long{font-size:max(clamp(30px,3.6vw,54px),calc(3.6 * var(--u)))}
+.cs-obj .cs-ph-h{font-size:max(clamp(26px,3.1vw,50px),calc(3.1 * var(--u)))}
+.cs-ph-names{gap:max(clamp(14px,2.4vw,40px),calc(2.4 * var(--u)));font-size:max(clamp(26px,4.4vw,72px),calc(4.4 * var(--u)))}
+.cs-ph-names.is-long{font-size:max(clamp(24px,3.2vw,50px),calc(3.2 * var(--u)));gap:max(clamp(14px,2vw,32px),calc(2 * var(--u)))}
+.cs-ph-sets .set li{font-size:max(clamp(14px,1.16vw,17.5px),calc(1.16 * var(--u)))}
+.cs-usr{max-width:max(1440px,calc(100 * var(--u)))}
+.cs-usr-top{gap:max(clamp(28px,5vw,90px),calc(5 * var(--u)))}
+.cs-usr-top .sc-h2{font-size:max(clamp(30px,3.9vw,64px),calc(3.9 * var(--u)))}
+.cs-usr-body p{font-size:max(clamp(15px,1.32vw,20px),calc(1.32 * var(--u)))}
+.cs-usr-stat .n{font-size:max(clamp(56px,7vw,110px),calc(7 * var(--u)))}
+.cs-usr-stat .l{font-size:calc(14px * var(--fz))}
+.cs-usr-grid{gap:max(clamp(12px,1.4vw,20px),calc(1.4 * var(--u)))}
+.cs-ergo>span{font-size:calc(12px * var(--fz))}
+.cs-ergo ul{gap:max(clamp(16px,2.2vw,34px),calc(2.2 * var(--u)))}
+.cs-ergo .n{font-size:max(clamp(34px,3.6vw,54px),calc(3.6 * var(--u)))}
+.cs-ergo .l{font-size:calc(13px * var(--fz))}
+.cs-usr-cell figcaption{font-size:calc(12px * var(--fz))}
+.cs-lb{padding:max(clamp(16px,3vw,48px),calc(3 * var(--u)))}
+.cs-lb img{max-height:calc(100svh - 2 * max(clamp(16px,3vw,48px),calc(3 * var(--u))))}
+.cs-bench{gap:max(clamp(18px,2.4vw,34px),calc(2.4 * var(--u)));padding:max(clamp(20px,2.4vw,32px),calc(2.4 * var(--u)))}
+.cs-bench .n{font-size:max(clamp(48px,6vw,88px),calc(6 * var(--u)))}
+.cs-bench p{font-size:max(clamp(14.5px,1.16vw,18px),calc(1.16 * var(--u)))}
+.cs-arch{max-width:max(1440px,calc(100 * var(--u)))}
+.cs-arch-top{gap:max(clamp(28px,5vw,90px),calc(5 * var(--u)))}
+.cs-arch-top .sc-h2{font-size:max(clamp(30px,3.9vw,64px),calc(3.9 * var(--u)))}
+.cs-arch-top p{font-size:max(clamp(15px,1.32vw,20px),calc(1.32 * var(--u)))}
+.cs-flow .l{font-size:calc(11.5px * var(--fz))}
+.cs-flow ol{gap:max(clamp(10px,1.4vw,20px),calc(1.4 * var(--u)))}
+.cs-flow li{padding:max(clamp(16px,1.7vw,24px),calc(1.7 * var(--u)));font-size:max(clamp(14.5px,1.16vw,17px),calc(1.16 * var(--u)))}
+.cs-flow .s{font-size:calc(12px * var(--fz))}
+.cs-scr{max-width:max(1440px,calc(100 * var(--u)))}
+.cs-scr-hint{font-size:calc(12px * var(--fz))}
+.cs-scr-row{grid-template-columns:minmax(0,var(--frame-w)) max(clamp(96px,9vw,146px),calc(9 * var(--u)));column-gap:max(clamp(24px,4vw,56px),calc(4 * var(--u)))}
+.cs-scr-hd{font-size:max(clamp(17px,1.7vw,23px),calc(1.7 * var(--u)))}
+.cs-scr-frame .cs-ghost{font-size:calc(12px * var(--fz))}
+.cs-scr-cap{font-size:calc(11px * var(--fz))}
+.cs-scr-list{--frame-w:min(max(560px,calc(38.9 * var(--u))),60vw)}
+.cs-scr-list.is-pair{--frame-w:min(max(330px,calc(22.9 * var(--u))),40vw)}
+.cs-scr-frame.is-mobile .win{max-height:max(400px,calc(27.8 * var(--u)))}
+.cs-ph-sets{min-height:max(clamp(140px,24vh,210px),calc(14.6 * var(--u)))}
+.cs-ph-sets .set li{padding:calc(10px * var(--fz)) calc(17px * var(--fz)) calc(11px * var(--fz))}
+.cs-usr-body{gap:calc(18px * var(--fz))}
+.cs-find{gap:max(clamp(12px,1.4vw,20px),calc(1.4 * var(--u)))}
+.cs-find li{padding:max(clamp(20px,2.2vw,32px),calc(2.2 * var(--u)));gap:calc(12px * var(--fz))}
+.cs-find .n{font-size:max(clamp(48px,5.4vw,84px),calc(5.4 * var(--u)))}
+.cs-find .l{font-size:max(clamp(15px,1.2vw,18px),calc(1.2 * var(--u)))}
+.cs-find .to{font-size:max(clamp(13.5px,1.02vw,15.5px),calc(1.02 * var(--u)))}
+.cs-dec-row{gap:max(clamp(24px,4vw,64px),calc(4 * var(--u)))}
+.cs-dec-txt .s{font-size:calc(12px * var(--fz))}
+.cs-dec-txt h3{font-size:max(clamp(22px,2.2vw,34px),calc(2.2 * var(--u)))}
+.cs-dec-txt p{font-size:max(clamp(15px,1.2vw,18px),calc(1.2 * var(--u)))}
+.cs-dec-fig .box{padding:max(clamp(10px,1.4vw,22px),calc(1.4 * var(--u)))}
+.cs-dec-fig img{max-height:min(60svh,max(560px,calc(39 * var(--u))))}
+.cs-dec-fig figcaption{font-size:max(clamp(13.5px,1.02vw,15.5px),calc(1.02 * var(--u)))}
+.cs-dec-fig figcaption b{font-size:calc(11px * var(--fz))}
+.cs-learn-link{font-size:calc(13.5px * var(--fz));padding:calc(14px * var(--fz)) calc(22px * var(--fz))}
+.cs-usr-body .cs-learn-cred{font-size:calc(13px * var(--fz))}
+}

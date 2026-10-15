@@ -1,0 +1,439 @@
+/* Iris García — portfolio scrollytelling */
+:root{--t:0;--m1:0%;--m2:0%;--m2c:0%;--nav-bg:color-mix(in oklab,color-mix(in oklab,rgba(251,250,245,.68),rgba(238,238,238,.72) var(--m1)),rgba(224,224,224,.74) var(--m2));--nav-line:color-mix(in oklab,rgba(31,26,20,.1),rgba(31,26,20,.16) var(--m2));--bg:color-mix(in oklab,color-mix(in oklab,#FBFAF5,#EEEEEE var(--m1)),#E0E0E0 var(--m2));--bg-2:color-mix(in oklab,color-mix(in oklab,#F3EFE4,#E6E6E6 var(--m1)),#D5D5D5 var(--m2c));--ink:#1F1A14;--ink-soft:#463C2E;--ink-mute:color-mix(in oklab,#776A56,#665941 var(--m2));--line:color-mix(in oklab,color-mix(in oklab,#DED5C4,#C8C8C8 var(--m1)),#BABABA var(--m2));--accent:#7C2FA8;--accent-fixed:#7C2FA8;--tone-1:color-mix(in oklab,color-mix(in oklab,#EDE7DA,#DCDCDC var(--m1)),#CECECE var(--m2c));--tone-2:color-mix(in oklab,color-mix(in oklab,#E3DBCB,#D0D0D0 var(--m1)),#C2C2C2 var(--m2c));--tone-3:color-mix(in oklab,color-mix(in oklab,#D2C9B5,#BDBDBD var(--m1)),#B0B0B0 var(--m2c));--font:"Bricolage Grotesque","Helvetica Neue",Helvetica,sans-serif;--font-display:var(--font);--font-mono:var(--font);--ease:cubic-bezier(.22,.61,.36,1);--pad:clamp(20px,3.6vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--font);font-feature-settings:"ss01","ss02";-webkit-font-smoothing:antialiased;overflow-x:clip}
+body{position:relative;cursor:none;transition:background-color .25s linear,color .5s var(--ease)}
+@media (hover:none){body{cursor:auto}.cur2{display:none}}
+img{max-width:100%;display:block}
+button{font:inherit;background:transparent;border:0;color:inherit;cursor:none;text-align:left}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+em{font-style:normal}
+:where(a,button,[tabindex]):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:5px}
+html.kb body,html.kb button{cursor:auto}
+html.kb .cur2{opacity:0}
+.sc-skip{position:fixed;top:12px;left:12px;z-index:200;padding:11px 18px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;transform:translateY(-180%);transition:transform .3s var(--ease)}
+.sc-skip:focus-visible,.sc-skip:hover{color:var(--bg)}
+.sc-skip:focus-visible{transform:none}
+.num,.tnum{font-variant-numeric:tabular-nums}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:1;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>")}
+
+/* cursor: anillo fino con retardo, sin etiquetas */
+.cur2{position:fixed;top:0;left:0;z-index:100;pointer-events:none}
+.cur2 .ring{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border:1px solid var(--ink);border-radius:50%;opacity:.55;transition:width .32s var(--ease),height .32s var(--ease),margin .32s var(--ease),opacity .3s,background .3s}
+.cur2 .dot{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--accent);transition:opacity .25s}
+.cur2.on .ring{width:58px;height:58px;margin:-29px 0 0 -29px;opacity:1;background:rgba(124,47,168,.12)}
+.cur2.on .dot{opacity:0}
+.cur2.tx .ring{width:2px;height:26px;margin:-13px 0 0 -1px;border-radius:2px;background:var(--ink);opacity:.8}
+.cur2 .sy-g{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:16px;line-height:1;color:var(--ink);opacity:0;transition:opacity .2s var(--ease)}
+.cur2 .sy-g::before{content:"\2195"}
+.cur2.sy .ring{width:46px;height:46px;margin:-23px 0 0 -23px;opacity:1;background:color-mix(in oklab,var(--bg) 78%,transparent);backdrop-filter:blur(2px)}
+.cur2.sy .sy-g{opacity:.9}
+.cur2.sy .dot{opacity:0}
+/* sobre superficies oscuras ([data-surface="dark"]) el anillo pasa a claro */
+.cur2.dk .ring{border-color:#FAFAFA}
+.cur2.dk.tx .ring{background:#FAFAFA}
+
+/* chrome */
+.sc-progress{position:fixed;top:0;left:0;right:0;height:1px;z-index:60;pointer-events:none;background:var(--line)}
+.sc-progress i{display:block;height:100%;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+.sc-nav{position:fixed;top:clamp(10px,1.4vw,18px);left:50%;transform:translateX(-50%);width:min(calc(100% - clamp(20px,2.8vw,36px)),700px);z-index:55;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:6px 8px 6px 18px;border-radius:999px;background:var(--nav-bg);border:1px solid var(--nav-line);backdrop-filter:blur(4px) saturate(1.15);-webkit-backdrop-filter:blur(4px) saturate(1.15);transition:background .6s var(--ease),border-color .6s var(--ease)}
+.sc-nav-home{justify-self:start;font-size:16px;font-weight:500;padding:6px 2px;transition:color .25s}
+.sc-nav-links{justify-self:center;display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);font-size:15px}
+.sc-nav-links button{position:relative;color:var(--ink-mute);opacity:.55;font-weight:400;padding:6px 0;transition:color .25s,opacity .25s,font-weight .25s}
+/* Etiqueta central: en móvil es el botón que despliega las secciones */
+.sc-nav-now{display:none;position:relative;justify-self:center;min-width:0}
+.sc-nav-now-btn{display:flex;align-items:center;gap:8px;max-width:100%;padding:10px 4px;font-size:12px;text-transform:uppercase;color:var(--ink-mute);transition:color .25s}
+.sc-nav-now-btn>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sc-nav-now-btn i{flex:0 0 auto;width:6px;height:6px;margin-top:-3px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);transition:transform .25s var(--ease),margin-top .25s var(--ease)}
+.sc-nav-now-btn.open{color:var(--ink)}
+.sc-nav-now-btn.open i{margin-top:2px;transform:rotate(-135deg)}
+.sc-nav-sheet{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);min-width:200px;display:flex;flex-direction:column;gap:2px;padding:8px;border-radius:20px;background:var(--bg);border:1px solid var(--nav-line);box-shadow:0 14px 36px -20px rgba(31,26,20,.5);animation:sc-sheet .24s var(--ease) both}
+.sc-nav-sheet button{padding:12px 16px;border-radius:14px;font-size:16px;color:var(--ink-soft);white-space:nowrap;transition:color .25s}
+.sc-nav-sheet button.on{color:var(--accent);font-weight:600}
+@keyframes sc-sheet{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
+.sc-nav-links button::first-letter{text-transform:uppercase}
+.sc-nav-links button:hover{color:var(--ink);opacity:1}
+.sc-nav-links button.on{color:var(--accent);opacity:1;font-weight:600}
+.sc-nav-right{display:flex;align-items:center;gap:10px;justify-self:end}
+.sc-lang{display:flex;gap:2px;padding:3px;border-radius:999px;background:rgba(31,26,20,.06);font-size:13px}
+.sc-lang button{padding:5px 12px;border-radius:999px;color:var(--ink-mute);transition:color .25s,background .25s}
+.sc-lang button.on{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px rgba(31,26,20,.08)}
+.sc-nav-cv{padding:8px 17px;border-radius:999px;background:var(--accent);color:#FBFAF5;font-size:14px;transition:background .3s,color .3s}
+.sc-nav-cv:hover{background:var(--ink);color:var(--bg)}
+
+/* cabecera de sección */
+.sc-kick{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:14px;padding-bottom:4px;font-size:13px;color:var(--ink-mute);font-variant-numeric:tabular-nums}
+.sc-kick .lbl{color:var(--ink)}
+.sc-kick .note{text-align:right;max-width:46ch}
+.sc-h2{font-size:clamp(34px,5.4vw,84px);line-height:1;font-weight:500;text-wrap:balance}
+.sc-h2 em{color:var(--ink-mute)}
+.sc-lead{font-size:clamp(16px,1.5vw,20px);line-height:1.55;color:var(--ink-soft);max-width:46ch}
+.sc-rev{opacity:0;transform:translateY(26px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
+.sc-rev.in{opacity:1;transform:none}
+
+/* hero */
+/* Hero en pantallas grandes: cada medida es max(la de antes, una que sigue creciendo
+   con la pantalla). Antes todo tenia un tope fijo (foto 584 px, nombre 176 px) y a
+   partir de ~1700 px de ancho el centro se vaciaba. La parte que escala se limita
+   tambien por el alto (svh), para que la composicion quepa en vertical. En
+   portatil no cambia nada: ahi manda siempre la medida de antes. */
+.sc-hero{--figw:clamp(270px,max(min(35vw,584px),min(35vw,68svh)),980px);min-height:100svh;padding:calc(clamp(10px,1.4vw,18px) + 54px + clamp(12px,1.7vh,26px)) calc(var(--figw) + var(--pad) * 1.4) var(--pad) var(--pad);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+
+.sc-hero-title{display:flex;flex-direction:column;margin:clamp(30px,12vh,140px) 0 clamp(10px,1.4vh,18px);font-size:clamp(60px,max(min(10.6vw,176px),min(10.6vw,19.5svh)),300px);line-height:.86;font-weight:500;position:relative;z-index:3;color:var(--ink)}
+.sc-hero-title span{display:block;will-change:transform}
+.sc-hero-title .l2{align-self:flex-start;padding-left:.07em}
+.sc-hero-origin{margin:0 0 auto;padding-left:.09em;font-size:clamp(18px,max(min(1.9vw,29px),min(1.9vw,3.5svh)),54px);line-height:1;font-weight:400;color:var(--accent);position:relative;z-index:3;will-change:transform}
+.sc-hero-figure{position:absolute;right:calc(var(--pad) * .55);bottom:0;width:var(--figw);max-height:min(92svh,1190px);z-index:1;animation:figIn 1.2s var(--ease) both}
+.sc-hero-figure .stage{display:block;perspective:1500px;perspective-origin:50% 42%}
+.sc-hero-figure .body{position:relative;display:block;transform-origin:50% 46%;transform-style:preserve-3d;animation:jitter .62s linear infinite;animation-play-state:paused}
+.sc-hero-figure img{width:100%;height:auto;display:block;will-change:transform}
+.sc-hero-figure .f1{position:relative}
+.sc-hero-figure .f2,.sc-hero-figure .f3{position:absolute;top:0;left:0}
+.sc-hero-figure .f1{animation:stopA 1.24s steps(1,end) infinite;animation-play-state:paused}
+.sc-hero-figure .f2{animation:stopB 1.24s steps(1,end) infinite;animation-play-state:paused}
+.sc-hero-figure .f3{animation:stopC 1.24s steps(1,end) infinite;animation-play-state:paused}
+.sc-hero-figure .f2,.sc-hero-figure .f3{opacity:0}
+@keyframes stopA{0%,43.9%{opacity:1}44%,100%{opacity:0}}
+@keyframes stopB{0%,43.9%{opacity:0}44%,71.9%{opacity:1}72%,100%{opacity:0}}
+@keyframes stopC{0%,71.9%{opacity:0}72%,100%{opacity:1}}
+.sc-hero-figure:hover .body,.sc-hero-figure:hover .fr{animation-play-state:running}
+@media (hover:none){.sc-hero-figure .body,.sc-hero-figure .fr{animation-play-state:running}}
+@media (prefers-reduced-motion:reduce){.sc-hero-figure .fr{animation:none}.sc-hero-figure .f2,.sc-hero-figure .f3{opacity:0}}
+@keyframes figIn{from{opacity:0;clip-path:inset(0 0 14% 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes jitter{0%,37.9%{transform:none}38%,71.9%{transform:rotateY(-2.2deg) translateX(-.35%) scale(1.006)}72%,100%{transform:rotateY(2.6deg) translateX(.3%) scale(1.009)}}
+.sc-hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(24px,4vw,64px);position:relative;z-index:3}
+.sc-hero-tag{font-size:clamp(17px,max(min(1.85vw,25px),min(1.4vw,2.8svh)),38px);font-weight:400;line-height:1.34;max-width:56ch;color:var(--ink-soft);text-wrap:balance}
+.sc-hero-tag mark{background:none;color:var(--accent);padding:0}
+.sc-hero-scroll{display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-size:13px;color:var(--ink-mute)}
+.sc-hero-scroll i{width:1px;height:54px;background:currentColor;transform-origin:top;animation:drip 2.4s var(--ease) infinite}
+@keyframes drip{0%,100%{transform:scaleY(.25);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+/* enfoque */
+.sc-story{height:400vh;position:relative}
+.sc-story-sticky{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:minmax(0,1fr) clamp(230px,25vw,330px);align-items:center;gap:clamp(28px,4.4vw,72px);padding:0 var(--pad);max-width:1240px;margin:0 auto}
+.sc-lines{display:flex;flex-direction:column;font-size:clamp(24px,3.5vw,52px);line-height:1.16;font-weight:500}
+.sc-ficha{align-self:center;min-width:0}
+.sc-ficha-card{display:flex;flex-direction:column;gap:clamp(18px,2.4vh,28px);padding:clamp(16px,1.5vw,22px) clamp(16px,1.5vw,22px) clamp(18px,1.8vw,24px);border:1px solid var(--line);border-radius:22px;background:color-mix(in oklab,#fff 62%,var(--bg-2));box-shadow:0 1px 1px rgba(255,255,255,.7) inset,0 10px 30px -22px rgba(31,26,20,.35);will-change:transform,opacity}
+.sc-ficha-card .l{font-size:10.5px;text-transform:uppercase;color:var(--ink-mute)}
+.sc-ficha-card .edu ol{list-style:none;display:flex;flex-direction:column;gap:clamp(10px,1.5vh,15px)}
+.sc-ficha-card .edu li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:9px;transition:opacity .3s var(--ease)}
+.sc-ficha-card .ix{font-size:10.5px;color:var(--ink-mute);padding-top:3px}
+.sc-ficha-card .tx{display:flex;flex-direction:column;gap:2px;font-size:13.5px;line-height:1.28;color:var(--ink);text-wrap:pretty}
+.sc-ficha-card .tx b{font-size:10.5px;font-weight:500;text-transform:uppercase;color:var(--accent)}
+/* base, idiomas y modalidad en una sola fila: en dos, la ficha no cabía en móviles cortos */
+.sc-ficha-card .meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sc-ficha-card .meta>div{display:flex;flex-direction:column;gap:5px;min-width:0;transition:opacity .3s var(--ease)}
+.sc-ficha-card .v{font-size:13px;line-height:1.3;color:var(--ink);text-wrap:pretty}
+.sc-ln{display:block;overflow:hidden}
+.sc-ln>span{display:block;will-change:transform}
+.sc-ln mark{background:none;color:var(--accent);padding-bottom:.06em}
+.sc-facts{display:grid;grid-template-columns:2.1fr .8fr .6fr .7fr}
+.sc-fact{transition:opacity .35s var(--ease)}
+.sc-fact{padding:clamp(20px,2.4vw,32px) clamp(12px,1.4vw,24px) clamp(20px,2.4vw,32px) 0;display:flex;flex-direction:column;gap:7px;min-width:0}
+.sc-fact+.sc-fact{padding-left:clamp(12px,1.4vw,24px)}
+.sc-fact:first-child{padding-left:var(--pad)}
+.sc-fact .k{font-size:12px;color:var(--ink-mute)}
+.sc-fact .v{white-space:pre-line;font-size:16px;line-height:1.4;text-wrap:pretty}
+
+/* recorrido: índice de etapas + detalle; bajo el título, el indicador físico → digital */
+.sc-journey{position:relative}
+.sc-journey-stage{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(30px,5.6vh,64px);padding:calc(clamp(10px,1.4vw,18px) + 54px) var(--pad) 0;overflow:hidden}
+.sc-jy-head{display:flex;flex-direction:column;gap:clamp(18px,2.6vh,28px)}
+.sc-jy-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.sc-jy-count{font-size:15px;color:var(--ink-mute);white-space:nowrap;padding-bottom:.4em}
+.sc-jy-scale{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;font-size:13px;color:var(--ink-mute)}
+.sc-jy-scale span:last-child{color:var(--accent)}
+.sc-jy-gauge{--pos:0;position:relative;height:6px;border-radius:999px;background:var(--tone-1)}
+.sc-jy-gauge i{position:absolute;inset:0 auto 0 0;width:calc(var(--pos) * 100%);border-radius:inherit;background:linear-gradient(90deg,var(--ink-mute),var(--accent))}
+.sc-jy-gauge b{position:absolute;top:50%;left:calc(var(--pos) * 100%);width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--bg);box-shadow:0 0 0 2px var(--accent),0 2px 8px color-mix(in oklab,var(--accent) 30%,transparent)}
+.sc-jy-body{display:grid;grid-template-columns:minmax(220px,.78fr) minmax(0,1.5fr);gap:clamp(32px,6vw,120px);align-items:start}
+.sc-jy-index{list-style:none;display:flex;flex-direction:column;gap:2px}
+.sc-jy-index button{display:grid;grid-template-columns:5em minmax(0,1fr);gap:14px;align-items:baseline;width:100%;padding:9px 0;font-size:16px;line-height:1.3;color:var(--ink-mute);opacity:.5;transition:opacity .4s var(--ease),color .4s var(--ease)}
+.sc-jy-index button.past{opacity:.78}
+.sc-jy-index button:hover{opacity:1;color:var(--ink)}
+.sc-jy-index button.on{opacity:1;color:var(--ink)}
+.sc-jy-index button.on .y{color:var(--accent);font-weight:600}
+.sc-jy-index .y{font-size:14px;white-space:nowrap}
+.sc-jy-detail{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0}
+.sc-jy-detail>*{animation:jyIn .6s var(--ease) both;animation-delay:calc(var(--i) * 70ms)}
+@keyframes jyIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.sc-jy-detail .kind{padding:4px 10px 5px;border-radius:999px;background:color-mix(in oklab,var(--accent) 10%,#fff);color:var(--accent);font-size:12px;text-transform:uppercase}
+.sc-jy-detail .kind-row{display:flex;align-items:center;gap:12px}
+.sc-jy-detail .yr-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px clamp(18px,2.2vw,34px);margin-top:4px}
+.sc-jy-detail .yr{color:var(--accent);font-weight:500;font-size:clamp(52px,6.4vw,104px);line-height:.9}
+.sc-jy-detail .logos{--h:clamp(40px,3.9vw,62px);display:flex;align-items:center;gap:calc(var(--h) * .3)}
+.sc-jy-detail .logos-m{display:none;--h:24px}
+.sc-jy-detail .lg{flex:0 0 auto;width:calc(var(--h) * var(--w) * var(--s));height:calc(var(--h) * var(--s));background:var(--ink);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.sc-jy-detail h3{margin-top:6px;font-size:clamp(26px,2.5vw,40px);font-weight:500;line-height:1.1;text-wrap:balance}
+.sc-jy-detail .org{font-size:15px;color:var(--ink-mute)}
+.sc-jy-detail p{margin-top:6px;max-width:54ch;font-size:clamp(16px,1.25vw,19px);line-height:1.6;color:var(--ink-soft);text-wrap:pretty}
+.sc-jy-detail p strong{font-weight:inherit;color:var(--accent)}
+
+/* trabajo */
+.sc-work{--nav-h:calc(clamp(10px,1.4vw,18px) + 54px);--title-h:clamp(34px,5.4vw,84px)}
+.sc-work-head{position:sticky;top:calc(var(--nav-h) - 20vh);z-index:6;padding:20vh var(--pad) 3.2vh;display:flex;flex-direction:column;gap:20px;background:var(--bg)}
+.sc-work-head .sc-lead{max-width:none;white-space:nowrap}
+@media (max-width:880px){.sc-work-head .sc-lead{white-space:normal}}
+.sc-work-panel{height:168vh;position:relative}
+.sc-work-panel.last{height:112vh}
+.sc-work-card{--cw:calc(100vw - 2 * var(--pad));--h:min(60vh,calc(var(--cw) * .38),540px);position:sticky;top:calc(var(--nav-h) + var(--title-h) + 5vh);height:var(--h);margin:2.6vh var(--pad) 0;border-radius:14px;overflow:hidden;background:color-mix(in oklab,#FFFFFF 86%,var(--bg-2));border:1px solid color-mix(in oklab,var(--line),#FFFFFF 30%);box-shadow:0 2px 14px color-mix(in oklab,#3A2E1E 11%,transparent);display:grid;grid-template-columns:minmax(0,1.52fr) minmax(280px,1fr);will-change:transform;transition:background-color .25s linear,border-color .25s linear}
+.sc-work-card:hover{color:inherit;border-color:color-mix(in oklab,var(--ink-mute),#FFFFFF 20%)}
+.sc-work-media{position:relative;overflow:hidden;background:var(--tone-1);display:grid;place-items:center;transition:background-color .25s linear}
+.sc-work-media img{align-self:stretch;justify-self:stretch;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;padding:clamp(10px,1.4vw,22px);transition:opacity .8s var(--ease)}
+.sc-work-media img.is-cover{object-fit:cover;padding:0}
+.sc-work-media .ghost{font-size:clamp(38px,6.4vw,104px);line-height:.9;color:var(--tone-3);text-align:center}
+.sc-work-info{position:relative;padding:clamp(24px,2.6vw,44px);padding-right:clamp(24px,2.6vw,44px);display:flex;flex-direction:column;gap:clamp(12px,1.4vh,18px);border-left:1px solid color-mix(in oklab,var(--line),#FFFFFF 40%)}
+.sc-work-info h3{margin-top:clamp(6px,1.2vh,14px)}
+.sc-work-info h3{font-size:clamp(30px,3.2vw,54px);line-height:1.02;font-weight:500}
+.sc-work-info h3 em{display:block;color:var(--ink-mute)}
+.sc-work-year{position:absolute;top:clamp(24px,2.6vw,44px);right:clamp(24px,2.6vw,44px);font-size:13px;color:var(--ink-mute);font-variant-numeric:tabular-nums}
+.sc-work-tags{font-size:14px;line-height:1.6;color:var(--ink-soft);text-wrap:pretty}
+.sc-work-go{margin-top:auto;font-size:15px;color:var(--accent);display:inline-flex;align-items:center;gap:9px}
+.sc-work-go i{display:block;width:15px;height:1px;background:currentColor;transition:width .4s var(--ease)}
+.sc-work-card:hover .sc-work-go i{width:34px}
+
+/* herramientas */
+.sc-toolkit{padding:18vh var(--pad);display:flex;flex-direction:column;gap:18px;overflow:clip}
+.sc-tool-rows{display:flex;flex-direction:column;gap:clamp(18px,2.6vh,30px);margin-top:clamp(32px,6vh,64px)}
+.sc-tool-row{display:flex;justify-content:center;transform:translateX(var(--shift,0));will-change:transform}
+.sc-tool{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;padding:0 clamp(16px,2.2vw,34px);border-left:1px solid var(--line)}
+.sc-tool:first-child{border-left:0}
+.sc-tool-br{display:none}
+.sc-tool .n{font-size:clamp(19px,2.1vw,32px);white-space:nowrap;transition:color .3s}
+.sc-tool .c{font-size:12px;color:var(--ink-mute);white-space:nowrap}
+.sc-tool:hover .n{color:var(--accent)}
+
+/* contacto */
+.sc-contact{min-height:100svh;padding:18vh var(--pad) 0;display:flex;flex-direction:column;gap:clamp(20px,3.4vh,36px);background:var(--accent-fixed);color:#FDFBF6;--ink:#FDFBF6;--ink-soft:rgba(253,251,246,.84);--ink-mute:rgba(253,251,246,.76);--line:rgba(253,251,246,.28);--accent:#FDFBF6}
+.sc-contact a:hover{color:rgba(253,251,246,.68)}
+.sc-contact-h{font-size:clamp(60px,12.5vw,196px);line-height:.88;font-weight:500;color:var(--ink)}
+.sc-contact-h em{color:rgba(253,251,246,.62)}
+.sc-contact-mail{align-self:flex-start;font-size:clamp(19px,2.9vw,42px);font-weight:500;border-bottom:1px solid currentColor;padding-bottom:6px}
+.sc-contact-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:24px clamp(24px,5vw,72px);margin-top:auto;padding-top:clamp(40px,7vh,80px)}
+.sc-contact-grid>:last-child{justify-self:end;align-items:flex-end;text-align:right}
+/* «¿Hablamos?» con el espaciado de la tipografía mide 5,25 veces su tamaño: en
+   móviles estrechos el tamaño se ajusta al ancho para no cortar la interrogación */
+@media (max-width:640px){.sc-contact-h{font-size:min(60px,16vw)}.sc-contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sc-contact-grid>:last-child{justify-self:start;align-items:flex-start;text-align:left}}
+.sc-contact-block{display:flex;flex-direction:column;gap:5px}
+.sc-contact-block .l{font-size:12px;color:var(--ink-mute)}
+.sc-contact-block .v{font-size:16px;overflow-wrap:anywhere}
+.sc-footer{display:flex;justify-content:space-between;gap:16px;margin-top:clamp(40px,7vh,72px);padding:20px 0;border-top:1px solid var(--line);font-size:12px;color:var(--ink-mute)}
+.sc-contact button.sc-contact-block:hover{color:rgba(253,251,246,.68)}
+
+/* ventana del CV (scrolly/sc-cv.jsx). Va en <body>, fuera de #root: queda por
+   encima de todo salvo el cursor propio, que tiene z-index 100. */
+.sc-cv-veil{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:16px;background:rgba(31,26,20,.34);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:sc-cv-veil .3s var(--ease) both}
+.sc-cv-veil.out{pointer-events:none;animation:sc-cv-veil-out .22s var(--ease) both}
+.sc-cv{width:min(100%,600px);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;padding:clamp(20px,2.6vw,30px);border-radius:28px;background:var(--bg);color:var(--ink);box-shadow:0 40px 90px -40px rgba(31,26,20,.7);animation:sc-cv-in .45s var(--ease) both}
+.sc-cv-veil.out .sc-cv{animation:sc-cv-out .22s var(--ease) both}
+.sc-cv-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sc-cv-t{font-size:clamp(26px,3vw,34px);line-height:1.05;font-weight:500}
+.sc-cv-x{flex:0 0 auto;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:rgba(31,26,20,.06);color:var(--ink-soft);transition:background .25s,color .25s}
+.sc-cv-x:hover{background:var(--ink);color:var(--bg)}
+.sc-cv-ic{width:16px;height:16px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* las dos maquetas, como tarjetas; la miniatura es la primera página del PDF */
+.sc-cv-kinds{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(18px,2.4vw,26px)}
+.sc-cv-kind{position:relative;display:flex;flex-direction:column;border-radius:20px;background:var(--bg-2);transition:background .3s,box-shadow .3s}
+.sc-cv-kind input,.sc-cv-langs input{position:absolute;top:0;left:0;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+.sc-cv-kind:has(input:focus-visible),.sc-cv-langs label:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+/* elegida: contorno de la propia tarjeta, no un filete */
+.sc-cv-kind.on{background:color-mix(in oklab,var(--accent) 8%,var(--bg-2));box-shadow:inset 0 0 0 1.5px var(--accent)}
+.sc-cv-sheet{display:block;height:clamp(120px,19vw,172px);padding:18px 13% 0;overflow:hidden}
+.sc-cv-sheet img{width:100%;height:auto;border-radius:3px 3px 0 0;box-shadow:0 10px 26px -12px rgba(31,26,20,.42);transform:translateY(10px);transition:transform .5s var(--ease)}
+.sc-cv-kind:hover .sc-cv-sheet img,.sc-cv-kind.on .sc-cv-sheet img{transform:none}
+.sc-cv-kn{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 0;font-size:17px;font-weight:500}
+.sc-cv-kn i{flex:0 0 auto;width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--ink-mute);transition:box-shadow .25s,background .25s}
+.sc-cv-kind.on .sc-cv-kn i{background:var(--bg);box-shadow:inset 0 0 0 5.5px var(--accent)}
+.sc-cv-kd{padding:4px 16px 16px;font-size:13px;line-height:1.4;color:var(--ink-mute);text-wrap:pretty}
+/* idioma y acciones */
+.sc-cv-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:clamp(18px,2.4vw,24px)}
+.sc-cv-langs{display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(31,26,20,.06);font-size:14px}
+.sc-cv-langs label{position:relative;padding:8px 16px;border-radius:999px;color:var(--ink-mute);transition:color .25s,background .25s}
+.sc-cv-langs label.on{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px rgba(31,26,20,.08)}
+.sc-cv-acts{display:flex;gap:8px}
+.sc-cv-acts a{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:15px;white-space:nowrap;transition:background .3s,color .3s}
+.sc-cv-open{background:rgba(31,26,20,.06);color:var(--ink)}
+.sc-cv-open:hover{background:rgba(31,26,20,.12);color:var(--ink)}
+.sc-cv-go{background:var(--accent);color:#FBFAF5}
+.sc-cv-go:hover{background:var(--ink);color:var(--bg)}
+@keyframes sc-cv-veil{from{opacity:0}}
+@keyframes sc-cv-veil-out{to{opacity:0}}
+@keyframes sc-cv-in{from{opacity:0;transform:translateY(22px) scale(.98)}}
+@keyframes sc-cv-out{to{opacity:0;transform:translateY(12px) scale(.99)}}
+@keyframes sc-cv-up{from{transform:translateY(100%)}}
+@keyframes sc-cv-down{to{transform:translateY(100%)}}
+/* en el móvil, hoja que sube desde abajo */
+@media (max-width:640px){
+.sc-cv-veil{place-items:end stretch;padding:0}
+.sc-cv{width:100%;max-height:calc(100dvh - 20px);border-radius:26px 26px 0 0;padding:20px 16px calc(16px + env(safe-area-inset-bottom));animation-name:sc-cv-up}
+.sc-cv-veil.out .sc-cv{animation-name:sc-cv-down}
+.sc-cv-kinds{gap:10px}
+.sc-cv-kn{padding:12px 12px 0;font-size:16px}
+.sc-cv-kd{padding:3px 12px 14px}
+.sc-cv-foot{flex-direction:column;align-items:stretch}
+.sc-cv-langs label{flex:1;text-align:center}
+.sc-cv-acts a{flex:1}
+}
+
+@media (max-width:1100px){
+.sc-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sc-fact:nth-child(2n+1){padding-left:var(--pad)}
+}
+@media (max-width:880px){
+/* Abajo se reserva el alto exacto de la foto (980 × 1188 px, de ahí el 1,2122)
+   más un respiro: así el texto nunca queda debajo de ella, ni en pantallas
+   cortas. Si no cabe todo, el hero crece y la foto se acaba de ver al deslizar.
+   En tablet vertical sobra alto: la foto crece hasta llenar lo que deja libre el
+   texto (unos 460 px), sin bajar nunca de 360 px, así que en móvil no cambia. */
+.sc-hero{--figw:min(72vw,max(360px,calc((100svh - 460px) / 1.2122)));padding-right:var(--pad);padding-bottom:calc(var(--figw) * 1.2122 + 14px)}
+.sc-hero-figure{width:var(--figw);right:calc(var(--pad) * .5)}
+/* El texto va todo junto arriba y deja aire sobre la foto. En escritorio la
+   frase se ancla abajo; aquí eso la dejaba tocando el pelo. */
+.sc-hero{justify-content:flex-start}
+.sc-hero-title{font-size:clamp(56px,19vw,140px);margin-top:clamp(4px,1.2vh,24px)}
+.sc-hero-origin{margin-bottom:0}
+.sc-hero-bottom{margin-top:clamp(14px,2.4vh,22px)}
+.sc-hero-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+/* «desliza» a la derecha, a la altura de la frase: debajo de ella empujaba la
+   foto 80 px hacia abajo */
+.sc-hero-scroll{position:absolute;right:0;bottom:0}
+.sc-hero-tag{padding-right:56px}
+.sc-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sc-fact:nth-child(2n+1){padding-left:var(--pad);border-left:0}
+.sc-story{height:340vh}
+/* se centra en el hueco que deja la barra, no en toda la pantalla: en móviles
+   cortos la primera frase quedaba tapada por ella */
+.sc-story-sticky{display:flex;flex-direction:column;justify-content:center;gap:clamp(26px,4vh,44px);padding-top:calc(clamp(10px,1.4vw,18px) + 54px)}
+.sc-ficha-card{gap:16px;border-radius:18px}
+/* recorrido en móvil: el índice se queda en una fila de años y el año grande
+   sobra, porque ya está marcado en esa fila */
+/* arriba fijo (así el título no salta al cambiar de etapa), pero en pantallas
+   altas, como la tablet en vertical, baja hasta quedar más o menos centrado */
+.sc-journey-stage{justify-content:flex-start;gap:clamp(18px,3vh,28px);padding-top:max(calc(clamp(10px,1.4vw,18px) + 74px),calc((100svh - 640px) / 2))}
+.sc-jy-count{display:none}
+.sc-jy-scale{grid-template-columns:1fr 1fr;row-gap:10px;font-size:12px}
+.sc-jy-scale span:last-child{text-align:right}
+.sc-jy-gauge{grid-column:1 / -1;grid-row:1}
+.sc-jy-body{grid-template-columns:1fr;gap:clamp(16px,2.6vh,24px)}
+.sc-jy-index{flex-direction:row;justify-content:space-between;gap:6px}
+.sc-jy-index button{display:block;padding:6px 0;font-size:13px}
+.sc-jy-index .tl{display:none}
+.sc-jy-index .y{font-size:13px}
+.sc-jy-index .y-end{display:none}
+.sc-jy-detail{gap:10px}
+.sc-jy-detail .yr-row{display:none}
+.sc-jy-detail .logos-m{display:flex}
+.sc-jy-detail h3{margin-top:2px;font-size:clamp(22px,6.4vw,30px)}
+.sc-jy-detail .org{font-size:14px}
+.sc-jy-detail p{margin-top:2px;font-size:15px;line-height:1.55}
+.sc-work-panel{height:150vh}
+.sc-work-card{grid-template-columns:1fr;grid-template-rows:minmax(0,1.05fr) auto;top:calc(var(--nav-h) + var(--title-h) + 3vh);--h:min(66vh,calc(var(--cw) * 1.18),620px)}
+.sc-work-info{border-left:0;border-top:0}
+/* Las herramientas se reparten en varias lineas y se queda quieto el
+desplazamiento lateral del scroll. En una sola linea la fila mide 746px y
+el desplazamiento se llevaba 8 de las 12 fuera de la pantalla. */
+.sc-tool-rows{gap:clamp(24px,3.2vh,34px)}
+.sc-tool-row{justify-content:center;flex-wrap:wrap;transform:translateY(var(--shift-y,0));column-gap:clamp(18px,5vw,30px);row-gap:clamp(14px,2.4vh,22px)}
+.sc-tool-br{display:block;flex:0 0 100%;height:0;margin:0}
+.sc-tool{padding:0;border-left:0;--k:0;align-items:center;text-align:center;
+transform:translateY(calc(var(--k) * -7px)) scale(calc(1 + var(--k) * .055));transform-origin:center bottom;
+opacity:calc(.68 + var(--k) * .32)}
+/* encendido: el nombre pasa de gris a tinta y la categoria se tine de morado.
+   Sin transicion: --k ya cambia en cada fotograma y una transicion lo emborrona. */
+.sc-tool .n{color:color-mix(in oklab,var(--ink-mute),var(--ink) calc(var(--k) * 100%));transition:none}
+.sc-tool .c{color:color-mix(in oklab,var(--ink-mute),var(--accent) calc(var(--k) * 100%))}
+.sc-nav{grid-template-columns:auto minmax(0,1fr) auto;padding-left:16px}
+.sc-nav-links{display:none}
+.sc-nav-now{display:block}
+.sc-kick{grid-template-columns:1fr;gap:12px}
+.sc-kick .note{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+*{animation-duration:.01ms!important;transition-duration:.05ms!important}
+html{scroll-behavior:auto}
+body,button{cursor:auto}
+.cur2{display:none}
+.sc-rev,.sc-ln>span,.sc-chip,.sc-chip-group .l,.sc-hero-bottom,.sc-hero-origin,.sc-work-media img,.sc-tool-row{opacity:1!important;transform:none!important}
+.sc-jy-detail>*{animation:none}
+}
+
+.sc-work-media video{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.sc-work-veil{position:absolute;inset:0;background:rgba(0,0,0,.6);pointer-events:none}
+.sc-work-media img.sc-work-logo{position:absolute!important;top:50%;left:50%;width:clamp(140px,42%,460px)!important;height:auto!important;max-height:58%;padding:0;place-self:center;transform:translate(-50%,-50%);object-fit:contain}
+
+/* =====================================================================
+   Pantallas grandes (desde 1500 px de ancho)
+   El diseño está pensado para portátil (~1440 × 800) y casi todo tenía un
+   tope fijo en px: en un monitor de 2560 la página se quedaba pequeña en el
+   centro y con mucho vacío alrededor. Aquí sigue creciendo en proporción.
+
+   --u es «un 1 % del portátil»: vale 14,4 px en 1440 × 800 y crece con la
+   pantalla, pero limitado también por el alto (1,8svh), para que lo que crece
+   siga cabiendo en vertical. Cada medida es max(la de antes, N × --u): en
+   portátil manda siempre la de antes y nada cambia.
+   --fz es el factor para los textos pequeños y las tarjetas; va a saltos,
+   y más suave, porque un texto de lectura no necesita crecer tanto.
+   El hero va aparte, en sus propias reglas, arriba del todo.
+   ===================================================================== */
+@media (min-width:1500px){
+:root{--u:min(1vw,1.8svh,25px);--fz:1}
+/* --pad: en pantallas ultrapanorámicas (más de 2,1 veces más anchas que
+   altas) el margen lateral crece para que la composición no se estire de lado
+   a lado; en 16:9 y 16:10 sigue siendo el de siempre. Solo en las secciones de
+   la home, que lo usan en horizontal: las páginas de caso lo usan también en
+   vertical y ahí crecería el espacio entre bloques. */
+.sc-hero,.sc-story,.sc-work,.sc-journey,.sc-toolkit,.sc-contact{--pad:max(clamp(20px,3.6vw,64px),calc((100vw - 210svh) / 2 + 64px))}
+.sc-hero{padding-bottom:clamp(20px,3.6vw,64px)}
+.sc-h2{font-size:max(clamp(34px,5.4vw,84px),calc(5.4 * var(--u)))}
+.sc-lead{font-size:max(clamp(16px,1.5vw,20px),calc(1.39 * var(--u)))}
+.sc-kick{font-size:calc(13px * var(--fz))}
+/* enfoque: las frases y la ficha */
+.sc-story-sticky{max-width:max(1240px,calc(86 * var(--u)));grid-template-columns:minmax(0,1fr) calc(clamp(230px,25vw,330px) * var(--fz));gap:max(clamp(28px,4.4vw,72px),calc(4.4 * var(--u)))}
+.sc-lines{font-size:max(clamp(24px,3.5vw,52px),calc(3.5 * var(--u)))}
+.sc-ficha-card{gap:calc(clamp(18px,2.4vh,28px) * var(--fz));padding:calc(22px * var(--fz)) calc(22px * var(--fz)) calc(24px * var(--fz));border-radius:calc(22px * var(--fz))}
+.sc-ficha-card .l,.sc-ficha-card .ix,.sc-ficha-card .tx b{font-size:calc(10.5px * var(--fz))}
+.sc-ficha-card .edu ol{gap:calc(clamp(10px,1.5vh,15px) * var(--fz))}
+.sc-ficha-card .edu li{grid-template-columns:calc(20px * var(--fz)) minmax(0,1fr);gap:calc(9px * var(--fz))}
+.sc-ficha-card .tx{font-size:calc(13.5px * var(--fz))}
+.sc-ficha-card .meta{gap:calc(12px * var(--fz))}
+.sc-ficha-card .v{font-size:calc(13px * var(--fz))}
+.sc-fact .k{font-size:calc(12px * var(--fz))}
+.sc-fact .v{font-size:calc(16px * var(--fz))}
+/* recorrido */
+.sc-jy-count{font-size:calc(15px * var(--fz))}
+.sc-jy-scale{font-size:calc(13px * var(--fz));gap:calc(16px * var(--fz))}
+.sc-jy-gauge{height:calc(6px * var(--fz))}
+.sc-jy-gauge b{width:calc(16px * var(--fz));height:calc(16px * var(--fz));margin:calc(-8px * var(--fz)) 0 0 calc(-8px * var(--fz))}
+.sc-jy-body{grid-template-columns:minmax(calc(220px * var(--fz)),.78fr) minmax(0,1.5fr);gap:max(clamp(32px,6vw,120px),calc(6 * var(--u)))}
+.sc-jy-index button{font-size:calc(16px * var(--fz));padding:calc(9px * var(--fz)) 0}
+.sc-jy-index .y{font-size:calc(14px * var(--fz))}
+.sc-jy-detail{gap:calc(14px * var(--fz))}
+.sc-jy-detail .kind{font-size:calc(12px * var(--fz))}
+.sc-jy-detail .yr{font-size:max(clamp(52px,6.4vw,104px),calc(6.4 * var(--u)))}
+.sc-jy-detail .logos{--h:max(clamp(40px,3.9vw,62px),calc(3.9 * var(--u)))}
+.sc-jy-detail h3{font-size:max(clamp(26px,2.5vw,40px),calc(2.5 * var(--u)))}
+.sc-jy-detail .org{font-size:calc(15px * var(--fz))}
+.sc-jy-detail p{font-size:max(clamp(16px,1.25vw,19px),calc(1.25 * var(--u)))}
+/* proyectos: la tarjeta y su imagen crecen con la pantalla */
+.sc-work{--title-h:max(clamp(34px,5.4vw,84px),calc(5.4 * var(--u)))}
+.sc-work-card{--h:min(60vh,calc(var(--cw) * .38),max(540px,calc(37.5 * var(--u))));grid-template-columns:minmax(0,1.52fr) minmax(calc(280px * var(--fz)),1fr);border-radius:calc(14px * var(--fz))}
+.sc-work-info{padding:max(clamp(24px,2.6vw,44px),calc(2.6 * var(--u)));gap:calc(clamp(12px,1.4vh,18px) * var(--fz))}
+.sc-work-year{top:max(clamp(24px,2.6vw,44px),calc(2.6 * var(--u)));right:max(clamp(24px,2.6vw,44px),calc(2.6 * var(--u)));font-size:calc(13px * var(--fz))}
+.sc-work-info h3{font-size:max(clamp(30px,3.2vw,54px),calc(3.2 * var(--u)))}
+.sc-work-tags{font-size:calc(14px * var(--fz))}
+.sc-work-go{font-size:calc(15px * var(--fz))}
+/* herramientas */
+.sc-tool{padding:0 max(clamp(16px,2.2vw,34px),calc(2.2 * var(--u)))}
+.sc-tool .n{font-size:max(clamp(19px,2.1vw,32px),calc(2.1 * var(--u)))}
+.sc-tool .c{font-size:calc(12px * var(--fz))}
+/* contacto */
+.sc-contact-h{font-size:max(clamp(60px,12.5vw,196px),calc(12.5 * var(--u)))}
+.sc-contact-mail{font-size:max(clamp(19px,2.9vw,42px),calc(2.9 * var(--u)))}
+.sc-contact-block .l{font-size:calc(12px * var(--fz))}
+.sc-contact-block .v{font-size:calc(16px * var(--fz))}
+.sc-footer{font-size:calc(12px * var(--fz))}
+}
+@media (min-width:1800px) and (min-height:1000px){:root{--fz:1.2}}
+@media (min-width:2200px) and (min-height:1150px){:root{--fz:1.4}}

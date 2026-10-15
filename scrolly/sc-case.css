@@ -1,0 +1,214 @@
+/* Iris García — páginas de caso (scrollytelling). Hereda tokens de scrolly.css */
+:root{--stripe:color-mix(in oklab,rgba(31,26,20,.055),rgba(31,26,20,.075) var(--m2));--hl:rgba(124,47,168,.26);--nav-band:calc(clamp(10px,1.4vw,18px) + 60px)}
+.cs-prose em{color:var(--accent)}
+.cs-cover-box,.cs-proc-media,.cs-proc-slide .cell,.cs-gcard .box{transition:background-color .25s linear,border-color .25s linear}
+.cs-prose mark{background:none;color:var(--accent);padding:0}
+
+/* marcador de imagen pendiente */
+.cs-flat{position:absolute;inset:0;display:grid;place-items:center;padding:8% 10%;background-image:repeating-linear-gradient(135deg,transparent 0 10px,var(--stripe) 10px 20px)}
+.cs-ghost{font-size:clamp(12px,1vw,15px);text-transform:uppercase;color:var(--ink-mute);text-align:center;line-height:1.6;text-wrap:balance}
+
+/* portada */
+.cs-hero{min-height:100svh;display:flex;flex-direction:column;padding-top:calc(var(--pad) * 3.4)}
+.cs-hero-in{flex:1;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(26px,4.4vh,52px);padding:clamp(40px,13vh,150px) var(--pad) clamp(30px,5.4vh,66px)}
+.cs-hero-title{display:flex;flex-direction:column;margin-top:0;font-size:clamp(54px,10.4vw,180px);line-height:.86;font-weight:500}
+.cs-hero-title span{display:block;will-change:transform}
+.cs-hero-title em{display:block;align-self:flex-start;color:var(--ink-mute);font-size:.28em;line-height:1;margin-top:.34em;padding-left:.06em;will-change:transform}
+.cs-hero-title.logo{font-size:clamp(54px,10.4vw,180px);margin-bottom:0}
+.cs-hero-logo{display:block;width:min(76vw,730px);height:auto;will-change:transform}
+.cs-hero-title.logo em{font-size:clamp(19px,2.3vw,32px);line-height:1.24;color:var(--ink-soft);margin-top:.62em;padding-left:.02em;text-wrap:balance}
+.cs-hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(24px,4vw,64px);margin-top:auto}
+.cs-hero-sub{font-size:clamp(17px,1.75vw,24px);line-height:1.42;color:var(--ink-soft);max-width:46ch;text-wrap:balance}
+
+.cs-hero .sc-facts{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.cs-hero .sc-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* cubierta a sangre */
+.cs-cover{height:170vh;position:relative}
+.cs-cover-in{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden;padding:var(--nav-band) 0 clamp(14px,2.4vh,26px)}
+.cs-cover-box{position:relative;overflow:hidden;background:var(--tone-1);will-change:width,height}
+.cs-cover-box img,.cs-cover-box video{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.cs-cover-in.is-full{padding:0}
+.cs-cover-box video.is-fill{object-fit:cover;will-change:transform}
+.cs-cover-veil{position:absolute;inset:0;background:rgba(0,0,0,.6);pointer-events:none}
+.cs-cover-box img.cs-cover-logo{position:absolute;top:50%;left:50%;width:clamp(180px,46%,620px)!important;height:auto!important;max-height:62%;transform:translate(-50%,-50%);object-fit:contain}
+.cs-cover-cap{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;gap:16px;padding:14px 18px;font-size:12px;color:#F7F2E8;background:linear-gradient(transparent,rgba(21,18,15,.55))}
+
+/* bloque de texto anclado */
+.cs-pin{position:relative}
+.cs-pin-stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,5vw,88px);align-items:center;padding:calc(var(--pad) * 2.2) var(--pad) var(--pad);max-width:1440px;margin:0 auto}
+.cs-pin-side{display:flex;flex-direction:column;gap:clamp(14px,2.2vh,26px)}
+.cs-pin-side .sc-h2{font-size:clamp(30px,3.7vw,60px)}
+.cs-pin-body{display:flex;flex-direction:column;gap:clamp(16px,2.8vh,32px)}
+.cs-pin-body p{font-size:clamp(15px,1.32vw,20px);line-height:1.64;color:var(--ink-soft);max-width:54ch;will-change:opacity,transform}
+.cs-pin-body p:first-child{font-size:clamp(17px,1.6vw,24px);line-height:1.5;color:var(--ink)}
+
+/* proceso: media fija + pasos */
+.cs-proc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);padding:0 var(--pad) 14vh;align-items:start}
+.cs-proc-col{position:sticky;top:0;height:100svh;display:grid;place-items:center;padding:calc(var(--pad) * 2.4) 0 var(--pad)}
+.cs-proc-media{position:relative;width:100%;aspect-ratio:16/9;max-height:min(70svh,720px);border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--tone-1)}
+.cs-proc-slide{position:absolute;inset:0;display:grid;grid-template-columns:repeat(var(--c,1),minmax(0,1fr));gap:1px;opacity:0;transform:scale(1.035);transition:opacity .6s var(--ease),transform 1s var(--ease);pointer-events:none}
+.cs-proc-slide.on{opacity:1;transform:none}
+.cs-proc-slide .cell{position:relative;overflow:hidden;background:var(--tone-1)}
+.cs-proc-slide .cell+.cell{border-left:1px solid var(--line)}
+.cs-proc-slide img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.cs-proc-slide .cell.is-wide img{object-fit:contain;object-position:center}
+.cs-proc-rail{position:absolute;left:16px;bottom:16px;display:flex;gap:6px;z-index:2}
+.cs-proc-rail i{width:20px;height:2px;background:rgba(247,242,232,.45);border-radius:2px;transition:background .4s}
+.cs-proc-rail i.on{background:var(--accent)}
+.cs-proc-text{display:flex;flex-direction:column}
+.cs-proc-head{min-height:64svh;display:flex;flex-direction:column;gap:clamp(14px,2.2vh,26px);justify-content:flex-end;padding-bottom:clamp(20px,4vh,44px)}
+.cs-proc-head .sc-h2{font-size:clamp(30px,3.7vw,60px)}
+.cs-step{min-height:78vh;display:grid;grid-template-columns:auto 1fr;gap:clamp(12px,1.4vw,22px);align-content:center;transition:opacity .5s var(--ease)}
+.cs-step .s{font-size:12px;color:var(--ink-mute);padding-top:.5em;font-variant-numeric:tabular-nums}
+.cs-step p{font-size:clamp(15px,1.32vw,20px);line-height:1.64;color:var(--ink-soft);max-width:52ch;transition:color .5s var(--ease)}
+.cs-step.on p{color:var(--ink)}
+
+/* testimonio */
+.cs-quote{height:190vh;position:relative}
+.cs-quote-in{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,3.2vh,38px);padding:0 var(--pad);max-width:1240px;margin:0 auto}
+.cs-quote-kick{font-size:13px;color:var(--ink-mute)}
+.cs-quote-h{font-size:clamp(27px,4.4vw,70px);line-height:1.12;font-weight:500;text-wrap:balance;will-change:opacity,transform}
+.cs-quote-h mark{background-color:transparent;color:inherit;background-image:linear-gradient(var(--accent),var(--accent));background-repeat:no-repeat;background-position:0 100%;background-size:var(--sw,0%) 3px;padding-bottom:.06em}
+.cs-quote-after{font-size:clamp(14px,1.15vw,17px);line-height:1.6;color:var(--ink-mute);max-width:56ch}
+
+/* galería horizontal */
+.cs-gal{position:relative}
+.cs-gal-stage{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.6vh,30px);overflow:hidden;padding:var(--nav-band) 0 clamp(14px,2.4vh,26px)}
+.cs-gal-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:0 var(--pad);font-size:13px;color:var(--ink-mute)}
+.cs-gal-head .l{color:var(--ink)}
+.cs-gal-rail{margin:0 var(--pad);height:1px;background:var(--line)}
+.cs-gal-rail i{display:block;height:1px;background:var(--accent);transform-origin:left}
+.cs-gal-track{display:flex;gap:clamp(12px,1.4vw,24px);padding:0 var(--pad);will-change:transform}
+.cs-gcard{flex:0 0 auto;height:min(56svh,620px);opacity:.4;transition:opacity .5s var(--ease)}
+.cs-gcard.on,.cs-gcard.past{opacity:1}
+.cs-gcard.past{opacity:.62}
+.cs-gcard .box{position:relative;height:calc(100% - 30px);aspect-ratio:var(--r,16/9);max-width:min(84vw,1200px);overflow:hidden;border-radius:4px;border:1px solid var(--line);background:var(--tone-1)}
+.cs-gcard img{width:100%;height:100%;object-fit:contain;object-position:center}
+.cs-gcard .cap{display:flex;gap:10px;align-items:baseline;height:30px;padding-top:9px;font-size:12px;color:var(--ink-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* resultados */
+.cs-res{padding:16vh var(--pad) 13vh;display:flex;flex-direction:column;gap:clamp(30px,6vh,70px)}
+.cs-res-top{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,5vw,88px);align-items:end}
+.cs-res-side{display:flex;flex-direction:column;gap:clamp(14px,2.2vh,26px)}
+.cs-res-side .sc-h2{font-size:clamp(30px,3.7vw,60px)}
+.cs-res-body{display:flex;flex-direction:column;gap:clamp(14px,2.2vh,26px)}
+.cs-res-body p{font-size:clamp(15px,1.32vw,20px);line-height:1.64;color:var(--ink-soft);max-width:54ch}
+.cs-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.cs-metric{padding:clamp(20px,2.6vw,34px) clamp(14px,1.6vw,26px) clamp(22px,3vw,40px) 0;display:flex;flex-direction:column;gap:12px;min-width:0;will-change:opacity,transform}
+.cs-metric+.cs-metric{padding-left:clamp(14px,1.6vw,26px)}
+.cs-metric .n{font-size:clamp(34px,4.4vw,74px);line-height:.94;font-weight:500;font-variant-numeric:tabular-nums}
+.cs-metric .n em{color:var(--accent)}
+.cs-metric .l{font-size:13px;line-height:1.5;color:var(--ink-mute);text-wrap:pretty}
+
+/* siguiente proyecto */
+.cs-next{padding:clamp(40px,7vh,80px) var(--pad) clamp(20px,3.6vh,40px);display:flex;flex-direction:column}
+.cs-next-row{display:flex;align-items:baseline;justify-content:flex-end;gap:24px;font-size:14px;color:var(--accent)}
+.cs-next-row a{color:var(--accent)}
+.cs-next-row a:hover{color:var(--ink)}
+.cs-next .sc-footer{margin-top:clamp(14px,2.2vh,24px)}
+.cs-next-link{margin-top:clamp(40px,10vh,120px);display:flex;flex-direction:column;gap:clamp(10px,1.6vh,18px);padding-bottom:clamp(30px,6vh,70px)}
+.cs-next-link .k{font-size:13px;color:var(--ink-mute)}
+.cs-next-name{font-size:clamp(46px,9.6vw,164px);line-height:.86;font-weight:500;transition:color .35s var(--ease)}
+.cs-next-name em{display:block;color:var(--ink-mute);font-size:.2em;margin-top:.5em;transition:color .35s var(--ease)}
+.cs-next-link:hover .cs-next-name,.cs-next-link:hover .cs-next-name em{color:var(--accent)}
+
+@media (max-width:1100px){.cs-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.cs-metric:nth-child(2n+1){padding-left:0}.cs-metric:nth-child(-n+2){}}
+@media (max-width:880px){
+.cs-hero-title{font-size:clamp(50px,17vw,130px)}
+.cs-hero-title.logo{font-size:clamp(50px,17vw,130px);margin-bottom:0}
+.cs-hero-logo{width:min(86vw,480px)}
+.cs-hero-title.logo em{font-size:clamp(17px,4.4vw,22px);margin-top:.7em}
+.cs-hero-bottom{flex-direction:column;align-items:flex-start;gap:18px}
+.sc-hero-scroll{align-self:flex-end}
+.cs-cover{height:130vh}
+.cs-pin{height:auto!important}
+.cs-pin-stage{position:static;height:auto;grid-template-columns:1fr;padding:14vh var(--pad);gap:clamp(24px,4vh,40px)}
+.cs-pin-body p,.cs-res-body p,.cs-step p{opacity:1!important;transform:none!important}
+.cs-proc{grid-template-columns:1fr;gap:0;padding-bottom:10vh}
+.cs-proc-col{top:auto;height:auto;position:relative;padding:0;order:2}
+.cs-proc-media{aspect-ratio:16/9;max-height:44svh;position:sticky;top:78px}
+.cs-proc-text{order:1}
+.cs-proc-head{min-height:0;padding:14vh 0 4vh}
+.cs-step{min-height:62vh}
+.cs-quote{height:150vh}
+.cs-gcard{height:min(44svh,480px)}
+.cs-res-top{grid-template-columns:1fr;gap:clamp(24px,4vh,40px);align-items:start}
+.cs-metric{opacity:1!important;transform:none!important}
+}
+@media (max-width:560px){.cs-metrics{grid-template-columns:1fr}.cs-metric{padding-right:0}.cs-metric+.cs-metric{padding-left:0}}
+
+/* enlace al entregable en vivo — final de caso */
+.cs-live{display:flex;flex-direction:column;gap:clamp(10px,1.6vh,18px);padding-bottom:clamp(34px,7vh,86px);color:var(--ink)}
+.cs-live .k{font-size:13px;color:var(--ink-mute)}
+.cs-live-name{font-size:clamp(40px,8vw,132px);line-height:.88;font-weight:500;text-wrap:balance;transition:color .35s var(--ease)}
+.cs-live-name em{display:block;color:var(--ink-mute);font-size:.22em;margin-top:.6em;font-style:normal;transition:color .35s var(--ease)}
+.cs-live .m{font-size:14px;line-height:1.5;color:var(--ink-soft);max-width:52ch;text-wrap:pretty}
+.cs-live-name em i{font-style:normal;color:var(--accent);display:inline-block;margin-left:.45em;transition:transform .35s var(--ease)}
+.cs-live:hover .cs-live-name em i{transform:translate(3px,-3px)}
+.cs-live:hover .cs-live-name,.cs-live:hover .cs-live-name em{color:var(--accent)}
+
+.cs-hero-sub mark{background:none;color:var(--accent-fixed);font-weight:500}
+
+/* cadena de proceso — reemplaza las fases en casos con pipeline */
+.cs-pipe{list-style:none;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(18px,3.2vw,58px);margin-top:clamp(28px,5.5vh,70px)}
+.cs-pipe-st{position:relative;display:flex;flex-direction:column;gap:clamp(7px,1vh,13px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.cs-pipe-st .s{font-size:12px;color:var(--ink-mute);font-variant-numeric:tabular-nums}
+.cs-pipe-st h3{font-size:clamp(19px,2.05vw,34px);line-height:1.04;font-weight:500;color:var(--ink);transition:color .45s var(--ease)}
+.cs-pipe-st p{font-size:clamp(13px,1vw,16px);line-height:1.62;color:var(--ink-soft);text-wrap:pretty}
+.cs-pipe-st.on h3{color:var(--accent)}
+.cs-pipe-st+.cs-pipe-st::before{content:"\2192";position:absolute;left:calc(clamp(18px,3.2vw,58px) / -2);top:2.1em;transform:translateX(-50%);color:var(--ink-mute);font-size:14px;line-height:1}
+@media(max-width:860px){.cs-pipe{grid-template-columns:1fr;gap:clamp(22px,3.6vh,38px)}.cs-pipe-st+.cs-pipe-st::before{display:none}}
+
+/* Pantallas grandes: el mismo sistema que la home (ver scrolly.css, «Pantallas
+   grandes»). Cada medida es max(la de antes, N × --u) y los textos pequeños
+   van por --fz; en portátil manda siempre la de antes y nada cambia. */
+@media (min-width:1500px){
+.cs-ghost{font-size:max(clamp(12px,1vw,15px),calc(1 * var(--u)))}
+.cs-hero-title{font-size:max(clamp(54px,10.4vw,180px),calc(10.4 * var(--u)))}
+.cs-hero-title.logo{font-size:max(clamp(54px,10.4vw,180px),calc(10.4 * var(--u)))}
+.cs-hero-title.logo em{font-size:max(clamp(19px,2.3vw,32px),calc(2.3 * var(--u)))}
+.cs-hero-bottom{gap:max(clamp(24px,4vw,64px),calc(4 * var(--u)))}
+.cs-hero-sub{font-size:max(clamp(17px,1.75vw,24px),calc(1.75 * var(--u)))}
+.cs-cover-cap{font-size:calc(12px * var(--fz))}
+.cs-pin-stage{gap:max(clamp(28px,5vw,88px),calc(5 * var(--u)));max-width:max(1440px,calc(100 * var(--u)))}
+.cs-pin-side .sc-h2{font-size:max(clamp(30px,3.7vw,60px),calc(3.7 * var(--u)))}
+.cs-pin-body p{font-size:max(clamp(15px,1.32vw,20px),calc(1.32 * var(--u)))}
+.cs-pin-body p:first-child{font-size:max(clamp(17px,1.6vw,24px),calc(1.6 * var(--u)))}
+.cs-proc{gap:max(clamp(24px,4vw,72px),calc(4 * var(--u)))}
+.cs-proc-head .sc-h2{font-size:max(clamp(30px,3.7vw,60px),calc(3.7 * var(--u)))}
+.cs-step{gap:max(clamp(12px,1.4vw,22px),calc(1.4 * var(--u)))}
+.cs-step .s{font-size:calc(12px * var(--fz))}
+.cs-step p{font-size:max(clamp(15px,1.32vw,20px),calc(1.32 * var(--u)))}
+.cs-quote-in{max-width:max(1240px,calc(86.1 * var(--u)))}
+.cs-quote-kick{font-size:calc(13px * var(--fz))}
+.cs-quote-h{font-size:max(clamp(27px,4.4vw,70px),calc(4.4 * var(--u)))}
+.cs-quote-after{font-size:max(clamp(14px,1.15vw,17px),calc(1.15 * var(--u)))}
+.cs-gal-head{font-size:calc(13px * var(--fz))}
+.cs-gal-track{gap:max(clamp(12px,1.4vw,24px),calc(1.4 * var(--u)))}
+.cs-gcard .cap{font-size:calc(12px * var(--fz))}
+.cs-res-top{gap:max(clamp(28px,5vw,88px),calc(5 * var(--u)))}
+.cs-res-side .sc-h2{font-size:max(clamp(30px,3.7vw,60px),calc(3.7 * var(--u)))}
+.cs-res-body p{font-size:max(clamp(15px,1.32vw,20px),calc(1.32 * var(--u)))}
+.cs-metric{padding:max(clamp(20px,2.6vw,34px),calc(2.6 * var(--u))) max(clamp(14px,1.6vw,26px),calc(1.6 * var(--u))) max(clamp(22px,3vw,40px),calc(3 * var(--u))) 0}
+.cs-metric+.cs-metric{padding-left:max(clamp(14px,1.6vw,26px),calc(1.6 * var(--u)))}
+.cs-metric .n{font-size:max(clamp(34px,4.4vw,74px),calc(4.4 * var(--u)))}
+.cs-metric .l{font-size:calc(13px * var(--fz))}
+.cs-next-row{font-size:calc(14px * var(--fz))}
+.cs-next-link .k{font-size:calc(13px * var(--fz))}
+.cs-next-name{font-size:max(clamp(46px,9.6vw,164px),calc(9.6 * var(--u)))}
+.cs-live .k{font-size:calc(13px * var(--fz))}
+.cs-live-name{font-size:max(clamp(40px,8vw,132px),calc(8 * var(--u)))}
+.cs-live .m{font-size:calc(14px * var(--fz))}
+.cs-pipe{gap:max(clamp(18px,3.2vw,58px),calc(3.2 * var(--u)))}
+.cs-pipe-st .s{font-size:calc(12px * var(--fz))}
+.cs-pipe-st h3{font-size:max(clamp(19px,2.05vw,34px),calc(2.05 * var(--u)))}
+.cs-pipe-st p{font-size:max(clamp(13px,1vw,16px),calc(1 * var(--u)))}
+.cs-pipe-st+.cs-pipe-st::before{left:calc(max(clamp(18px,3.2vw,58px),calc(3.2 * var(--u))) / -2);font-size:calc(14px * var(--fz))}
+.cs-hero-logo{width:min(76vw,max(730px,calc(50.7 * var(--u))))}
+.cs-proc-media{max-height:min(70svh,max(720px,calc(50 * var(--u))))}
+.cs-gcard{height:min(56svh,max(620px,calc(43 * var(--u))))}
+.cs-gcard .box{height:calc(100% - 30px * var(--fz));max-width:min(84vw,max(1200px,calc(83.3 * var(--u))))}
+.cs-gcard .cap{height:calc(30px * var(--fz));padding-top:calc(9px * var(--fz))}
+.cs-proc-rail i{width:calc(20px * var(--fz))}
+}

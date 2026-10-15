@@ -1,0 +1,44 @@
+.cs-proto{padding:clamp(32px,7vh,84px) var(--pad) clamp(46px,9vh,110px);max-width:1440px;margin:0 auto}
+.cs-proto-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);gap:clamp(28px,5vw,84px);align-items:center;margin-top:clamp(26px,4.5vh,58px)}
+.cs-proto-phone{position:relative;margin:0;justify-self:center;width:min(420px,100%,33vh);aspect-ratio:390/844;border-radius:26px;overflow:hidden;background:var(--tone-1);border:1px solid var(--line);box-shadow:0 24px 60px -28px color-mix(in oklab,#3A2E1E 34%,transparent),0 2px 6px color-mix(in oklab,#3A2E1E 10%,transparent)}
+.cs-proto-phone iframe{display:block;width:100%;height:100%;border:0}
+.cs-proto-play{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#FAFAFA}
+.cs-proto-play[disabled]{cursor:default}
+.cs-proto-play img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.cs-proto-play .ov{position:absolute;inset:0;background:color-mix(in oklab,#0D0D0D 52%,transparent);transition:background .4s ease}
+.cs-proto-play:not([disabled]):hover .ov{background:color-mix(in oklab,#0D0D0D 34%,transparent)}
+.cs-proto-play .ico{position:relative;display:grid;place-items:center;width:66px;height:66px;border-radius:999px;background:var(--accent);color:#262626;font-size:19px;padding-left:4px;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.cs-proto-play:not([disabled]):hover .ico{transform:scale(1.08)}
+.cs-proto-play .tx{position:relative;font-size:12.5px;text-transform:uppercase}
+.cs-proto-side{display:flex;flex-direction:column;gap:clamp(20px,3vh,32px);align-items:flex-start}
+.cs-proto-metaL{font-size:12px;text-transform:uppercase;color:var(--ink-mute);margin-bottom:calc(clamp(20px,3vh,32px) * -.55)}
+.cs-proto-meta{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:clamp(11px,1.6vh,17px);width:100%}
+.cs-proto-meta li{display:grid;grid-template-columns:9.5em 1fr;gap:14px;padding-top:2px;font-size:13.5px;line-height:1.5}
+.cs-proto-meta b{font-weight:400;font-size:11px;text-transform:uppercase;color:var(--ink-mute);padding-top:2px}
+.cs-proto-meta span{color:var(--ink);text-wrap:pretty}
+.cs-proto-link{display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:999px;border:1px solid var(--ink);font-size:13.5px;text-decoration:none;color:var(--ink);transition:background .3s ease,color .3s ease}
+.cs-proto-link::after{content:"\2197";font-size:14px}
+.cs-proto-link:hover{background:var(--ink);color:var(--bg)}
+@media (max-width:920px){
+.cs-proto-stage{grid-template-columns:1fr;gap:clamp(24px,4vh,40px)}
+.cs-proto-phone{width:min(420px,100%,40vh)}
+.cs-proto-side{align-items:stretch}
+}
+
+/* Pantallas grandes: el mismo sistema que la home (ver scrolly.css, «Pantallas
+   grandes»). Cada medida es max(la de antes, N × --u) y los textos pequeños
+   van por --fz; en portátil manda siempre la de antes y nada cambia. */
+@media (min-width:1500px){
+.cs-proto{max-width:max(1440px,calc(100 * var(--u)))}
+.cs-proto-stage{gap:max(clamp(28px,5vw,84px),calc(5 * var(--u)))}
+.cs-proto-play .ico{font-size:calc(19px * var(--fz))}
+.cs-proto-play .tx{font-size:calc(12.5px * var(--fz))}
+.cs-proto-metaL{font-size:calc(12px * var(--fz))}
+.cs-proto-meta li{font-size:calc(13.5px * var(--fz))}
+.cs-proto-meta b{font-size:calc(11px * var(--fz))}
+.cs-proto-link{font-size:calc(13.5px * var(--fz))}
+.cs-proto-link::after{font-size:calc(14px * var(--fz))}
+.cs-proto-phone{width:min(max(420px,calc(29.2 * var(--u))),100%,33vh)}
+.cs-proto-play .ico{width:calc(66px * var(--fz));height:calc(66px * var(--fz))}
+.cs-proto-link{padding:calc(14px * var(--fz)) calc(22px * var(--fz))}
+}

@@ -1,0 +1,91 @@
+/* Horizonte · portada en bucle (tarjeta de la home y portada del caso).
+   Medidas en unidades de diseño de Figma × --u; tiempos y curvas, los de la línea de tiempo. */
+
+/* tarjeta: composición 1920×1080 que cubre su caja (como object-fit: cover) */
+.hz-loop{position:absolute;inset:0;overflow:hidden;background:#262626;container-type:size;--ax:.15;--ay:.5}
+.hz-stage{--u:max(100cqw / 1920,100cqh / 1080);position:absolute;width:calc(1920 * var(--u));height:calc(1080 * var(--u));left:calc((100cqw - 1920 * var(--u)) * var(--ax));top:calc((100cqh - 1080 * var(--u)) * var(--ay))}
+.hz-stage>*{position:absolute}
+/* dentro de la tarjeta, las imágenes del bucle no heredan el relleno ni el contain de .sc-work-media img */
+.hz-loop img{max-width:none;min-height:0;padding:0;object-fit:cover;object-position:center;transition:none}
+.hz-stage .hz-photo{left:0;top:0;width:100%;height:100%;object-fit:cover}
+.hz-veil-band{inset:0;background:linear-gradient(180deg,rgba(38,38,38,0) 0%,rgba(38,38,38,0) 46%,rgba(38,38,38,.89) 64.8%,#262626 100%)}
+.hz-veil-sky{inset:0;background:linear-gradient(180deg,rgba(38,38,38,.35) 0%,rgba(38,38,38,0) 22%)}
+.hz-stage .hz-sun{left:calc(131 * var(--u));top:calc(630.8 * var(--u));width:calc(96 * var(--u));height:calc(71.287 * var(--u));color:#FAFAFA}
+.hz-stage .hz-title{left:calc(112 * var(--u));top:calc(714 * var(--u));font:600 calc(140 * var(--u))/calc(168 * var(--u)) Lora,Georgia,serif;color:#FAFAFA;white-space:nowrap}
+.hz-stage .hz-sub{left:calc(120 * var(--u));top:calc(883 * var(--u));font:500 calc(38 * var(--u))/calc(48 * var(--u)) Roboto,"Helvetica Neue",Arial,sans-serif;color:#FAFAFA;white-space:nowrap}
+.hz-stage .hz-chips{left:calc(120 * var(--u));top:calc(961 * var(--u));display:flex;gap:calc(12 * var(--u))}
+.hz-stage .hz-chips span{display:flex;align-items:center;height:calc(48 * var(--u));padding:0 calc(20 * var(--u));border-radius:calc(24 * var(--u));background:#333;font:500 calc(24 * var(--u))/calc(32 * var(--u)) Roboto,"Helvetica Neue",Arial,sans-serif;color:#FAFAFA;white-space:nowrap}
+.hz-stage .hz-line{left:0;top:calc(698 * var(--u));width:100%;height:calc(4 * var(--u));background:#CAEE11}
+.hz-stage-cl{left:calc(978 * var(--u));top:0}
+
+/* grupo de teléfonos: 732×985 con el trasero; 448 de ancho sin él */
+.hz-cl{position:absolute;width:calc(732 * var(--u));height:calc(985 * var(--u))}
+.hz-cl.no-back{width:calc(448 * var(--u))}
+.hz-cl-in{position:absolute;left:0;top:0;width:calc(732 * var(--u));height:calc(985 * var(--u))}
+.hz-cl.no-back .hz-cl-in{left:calc(-284 * var(--u))}
+.hz-cl-in>*{position:absolute}
+.hz-ph{display:block;overflow:hidden;background:#262626;border-radius:calc(var(--pw) * .0674);box-shadow:0 calc(12 * var(--u)) calc(12 * var(--u)) rgba(0,0,0,.25),calc(-28 * var(--u)) calc(48 * var(--u)) calc(48 * var(--u)) rgba(0,0,0,.5)}
+.hz-ph::after{content:"";position:absolute;inset:0;z-index:3;border:calc(var(--pw) * .019) solid #B2B2B2;border-radius:inherit;pointer-events:none}
+.hz-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hz-ph-back{--pw:calc(297 * var(--u));left:0;top:calc(318 * var(--u));width:var(--pw);height:calc(660 * var(--u))}
+.hz-ph-front{--pw:calc(371 * var(--u));left:calc(284 * var(--u));top:calc(160 * var(--u));width:var(--pw);height:calc(825 * var(--u))}
+.hz-ph .hz-done{opacity:0}
+.hz-tap{position:absolute;z-index:2;left:calc(243 * var(--u));top:calc(522 * var(--u));width:calc(91.8 * var(--u));height:calc(43.2 * var(--u));border-radius:calc(21.6 * var(--u));overflow:hidden}
+.hz-tap i{position:absolute;left:calc(-.1 * var(--u));top:calc(-24.4 * var(--u));width:calc(92 * var(--u));height:calc(92 * var(--u));border-radius:50%;background:#515F07;opacity:0;scale:.2}
+.hz-stk{z-index:4;left:calc(293.1 * var(--u));top:calc(68.1 * var(--u));width:calc(349.9 * var(--u));height:calc(119.8 * var(--u));display:flex;align-items:center;justify-content:center}
+.hz-stk-pill{display:block;rotate:-4deg;padding:calc(16 * var(--u)) calc(32 * var(--u));border:calc(4 * var(--u)) solid #CAEE11;border-radius:calc(32 * var(--u));background:#CAEE11;box-shadow:calc(-8 * var(--u)) calc(18 * var(--u)) calc(36 * var(--u)) rgba(0,0,0,.4);font:500 calc(56 * var(--u))/calc(64 * var(--u)) Roboto,"Helvetica Neue",Arial,sans-serif;color:#262626;white-space:nowrap}
+.hz-conf{z-index:4;left:calc(622 * var(--u));top:0;width:calc(110 * var(--u));height:calc(110 * var(--u))}
+.hz-conf i{position:absolute;display:flex;align-items:center;justify-content:center}
+.hz-conf b{display:block;flex:none}
+.hz-conf b.pt{width:100%;height:100%;border-radius:50%}
+.hz-conf b.ry{width:calc(24 * var(--u));height:calc(8 * var(--u));border-radius:calc(4 * var(--u))}
+
+/* modo pasos: pantallas con eje compartido y pegatina que entra con rebote */
+.hz-ph .hz-scr{opacity:0;translate:7% 0;transition:opacity .3s cubic-bezier(.2,0,0,1),translate .3s cubic-bezier(.2,0,0,1)}
+.hz-ph .hz-scr.is-prev{translate:-7% 0}
+.hz-ph .hz-scr.is-on{opacity:1;translate:0 0}
+.hz-cl .hz-stk{transition:opacity .2s ease-out,scale .5s cubic-bezier(.45,1.45,.8,1),translate .5s cubic-bezier(.45,1.45,.8,1)}
+.hz-cl:not(.is-pop) .hz-stk{opacity:0;scale:.6;translate:0 calc(32 * var(--u))}
+.hz-cl .hz-conf i{transition:scale .3s cubic-bezier(.45,1.45,.8,1)}
+.hz-cl:not(.is-pop) .hz-conf i{scale:0;transition-duration:.15s}
+.hz-cl.is-pop .hz-conf i:nth-child(1){transition-delay:.2s}
+.hz-cl.is-pop .hz-conf i:nth-child(2){transition-delay:.26s}
+.hz-cl.is-pop .hz-conf i:nth-child(3){transition-delay:.32s}
+.hz-cl.is-pop .hz-conf i:nth-child(4){transition-delay:.38s}
+.hz-cl.is-pop .hz-conf i:nth-child(5){transition-delay:.44s}
+.hz-cl.is-pop .hz-conf i:nth-child(6){transition-delay:.5s}
+
+/* bucle de 6 s */
+.hz-anim .hz-photo{animation:hzPhoto 6s infinite}
+.hz-anim .hz-ph-front{animation:hzLift 6s linear infinite}
+.hz-anim .hz-done{animation:hzDone 6s linear infinite}
+.hz-anim .hz-tap i{animation:hzTapO 6s linear infinite,hzTapS 6s linear infinite}
+.hz-anim .hz-stk{animation:hzStkT 6s linear infinite,hzStkS 6s linear infinite,hzStkO 6s linear infinite}
+.hz-anim .hz-stk-pill{animation:hzStkR 6s linear infinite}
+.hz-anim .hz-conf{animation:hzConfO 6s linear infinite,hzConfS 6s linear infinite}
+.hz-anim .hz-conf i:nth-child(1){animation:hzC1 6s linear infinite}
+.hz-anim .hz-conf i:nth-child(2){animation:hzC2 6s linear infinite}
+.hz-anim .hz-conf i:nth-child(3){animation:hzC3 6s linear infinite}
+.hz-anim .hz-conf i:nth-child(4){animation:hzC4 6s linear infinite}
+.hz-anim .hz-conf i:nth-child(5){animation:hzC5 6s linear infinite}
+.hz-anim .hz-conf i:nth-child(6){animation:hzC6 6s linear infinite}
+.hz-anim.is-paused,.hz-anim.is-paused *{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){.hz-anim,.hz-anim *{animation:none!important}}
+
+@keyframes hzPhoto{0%,100%{translate:0 0;animation-timing-function:cubic-bezier(.42,0,.58,1)}50%{translate:0 -2.222%;animation-timing-function:cubic-bezier(.42,0,.58,1)}}
+@keyframes hzLift{0%,27.5%{translate:0 0;animation-timing-function:cubic-bezier(.42,0,.58,1)}47.5%{translate:0 calc(-12 * var(--u));animation-timing-function:cubic-bezier(.42,0,.58,1)}67.5%,100%{translate:0 0}}
+@keyframes hzDone{0%,20.83%{opacity:0;animation-timing-function:cubic-bezier(.05,.7,.1,1)}27.5%,60%{opacity:1;animation-timing-function:cubic-bezier(.3,0,.8,.15)}65%,100%{opacity:0}}
+@keyframes hzTapO{0%,19.17%{opacity:0;animation-timing-function:cubic-bezier(0,0,.58,1)}20%{opacity:.16;animation-timing-function:cubic-bezier(0,0,.58,1)}24.17%,100%{opacity:0}}
+@keyframes hzTapS{0%,19.17%{scale:.2;animation-timing-function:cubic-bezier(0,0,.58,1)}24.17%,100%{scale:1}}
+@keyframes hzStkT{0%,10%{translate:0 0;animation-timing-function:cubic-bezier(.3,0,.8,.15)}19.17%,67.49%{translate:calc(105 * var(--u)) calc(576 * var(--u))}67.5%{translate:0 calc(32 * var(--u));animation-timing-function:cubic-bezier(.45,1.45,.8,1)}75.83%,100%{translate:0 0}}
+@keyframes hzStkS{0%,10%{scale:1;animation-timing-function:cubic-bezier(.3,0,.8,.15)}19.17%,67.49%{scale:.4}67.5%{scale:.6;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}75.83%,100%{scale:1}}
+@keyframes hzStkO{0%,18.33%{opacity:1;animation-timing-function:cubic-bezier(0,0,.58,1)}20.83%,67.5%{opacity:0;animation-timing-function:cubic-bezier(0,0,.58,1)}70%,100%{opacity:1}}
+@keyframes hzStkR{0%,10%{rotate:-4deg;animation-timing-function:cubic-bezier(.3,0,.8,.15)}19.17%,67.5%{rotate:0deg;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}75.83%,100%{rotate:-4deg}}
+@keyframes hzConfO{0%,10%{opacity:1;animation-timing-function:cubic-bezier(.3,0,.8,.15)}15%,70.82%{opacity:0}70.83%,100%{opacity:1}}
+@keyframes hzConfS{0%,10%{scale:1;animation-timing-function:cubic-bezier(.3,0,.8,.15)}15%,67.49%{scale:.5}67.5%,100%{scale:1}}
+@keyframes hzC1{0%,67.49%{scale:1}67.5%,70.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}75.83%,100%{scale:1}}
+@keyframes hzC2{0%,67.49%{scale:1}67.5%,71.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}76.83%,100%{scale:1}}
+@keyframes hzC3{0%,67.49%{scale:1}67.5%,72.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}77.83%,100%{scale:1}}
+@keyframes hzC4{0%,67.49%{scale:1}67.5%,73.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}78.83%,100%{scale:1}}
+@keyframes hzC5{0%,67.49%{scale:1}67.5%,74.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}79.83%,100%{scale:1}}
+@keyframes hzC6{0%,67.49%{scale:1}67.5%,75.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}80.83%,100%{scale:1}}

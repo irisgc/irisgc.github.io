@@ -1,0 +1,98 @@
+/* REVERB · portada en bucle (tarjeta de la home) y piezas que comparte con el caso:
+   el relleno térmico, el collage de componentes y sus bucles. Colores y tipografía,
+   los del UI kit v2 del prototipo (primitivas violeta, naranja y amarillo; Unbounded
+   y Sora). Las medidas del collage van en unidades de diseño × --u. */
+
+.rv-loop,.rv,.rv-modal{--rv-950:#120826;--rv-900:#201042;--rv-800:#2B1659;--rv-700:#361A6F;--rv-600:#4B2396;--rv-500:#6A3BE0;--rv-400:#9270F0;--rv-300:#BBA6F7;--rv-200:#DCD1FB;--rv-or:#EB5A16;--rv-or4:#FF7D3B;--rv-y:#F7CF0B;--rv-y4:#FFDD45;--rv-glass:rgba(18,8,38,.66);--rv-edge:rgba(255,255,255,.16);--rv-disp:Unbounded,"Bricolage Grotesque","Helvetica Neue",sans-serif;--rv-text:Sora,"Bricolage Grotesque","Helvetica Neue",sans-serif;--rv-ease:cubic-bezier(.2,.7,.2,1)}
+
+/* relleno térmico: el degradado de respaldo se ve si no hay WebGL */
+.rv-th{position:absolute;inset:0;display:block;overflow:hidden;background:radial-gradient(60% 70% at 32% 40%,#F7CF0B 0%,#EB5A16 22%,#6A3BE0 52%,#361A6F 78%,#120826 100%)}
+.rv-th canvas{display:block;width:100%;height:100%}
+
+/* tarjeta: composición 1920 × 1080 que cubre su caja (como object-fit: cover) */
+.rv-loop{position:absolute;inset:0;overflow:hidden;background:var(--rv-950);container-type:size}
+.rv-stage{--u:max(100cqw / 1920,100cqh / 1080);position:absolute;width:calc(1920 * var(--u));height:calc(1080 * var(--u));left:calc((100cqw - 1920 * var(--u)) * .5);top:calc((100cqh - 1080 * var(--u)) * .5)}
+.rv-stage>*{position:absolute}
+/* dentro de la tarjeta, las imágenes no heredan el relleno ni el contain de .sc-work-media img */
+.rv-loop img{max-width:none;min-height:0;padding:0;transition:none;align-self:auto;justify-self:auto;object-fit:cover}
+.rv-loop .rv-stage-logo{left:calc(130 * var(--u));top:calc(250 * var(--u));width:calc(820 * var(--u));height:auto;object-fit:contain;filter:drop-shadow(0 calc(10 * var(--u)) calc(40 * var(--u)) rgba(18,8,38,.45))}
+.rv-stage-sub{left:calc(136 * var(--u));top:calc(720 * var(--u));width:calc(760 * var(--u));font:500 calc(40 * var(--u))/1.25 var(--rv-text);color:#fff;text-shadow:0 2px 24px rgba(18,8,38,.5)}
+.rv-stage-chips{left:calc(136 * var(--u));top:calc(860 * var(--u));display:flex;gap:calc(12 * var(--u))}
+.rv-stage-chips span{display:flex;align-items:center;height:calc(54 * var(--u));padding:0 calc(24 * var(--u));border-radius:calc(27 * var(--u));background:var(--rv-glass);box-shadow:inset 0 0 0 calc(1.5 * var(--u)) var(--rv-edge);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font:600 calc(23 * var(--u))/1 var(--rv-text);color:#fff;white-space:nowrap}
+.rv-stage-col{left:calc(1060 * var(--u));top:calc(150 * var(--u))}
+@container (aspect-ratio < 1.15){
+.rv-stage{--u:max(100cqw / 1080,100cqh / 1350);width:calc(1080 * var(--u));height:calc(1350 * var(--u));left:calc((100cqw - 1080 * var(--u)) * .5);top:calc((100cqh - 1350 * var(--u)) * .5)}
+.rv-loop .rv-stage-logo{left:calc(150 * var(--u));top:calc(90 * var(--u));width:calc(780 * var(--u))}
+.rv-stage-sub{left:calc(150 * var(--u));top:calc(500 * var(--u));width:calc(780 * var(--u));font-size:calc(44 * var(--u));text-align:center}
+.rv-stage-chips{display:none}
+.rv-stage-col{left:calc(160 * var(--u));top:calc(560 * var(--u))}
+}
+
+/* collage: caja de 760 × 800 */
+.rv-col{position:relative;width:calc(760 * var(--u));height:calc(800 * var(--u));font-family:var(--rv-text);color:#fff}
+.rv-col>*{position:absolute}
+.rv-glassy,.rv-col-count,.rv-col-quiz,.rv-col-tag,.rv-player{background:var(--rv-glass);box-shadow:inset 0 0 0 calc(1.5 * var(--u)) var(--rv-edge),0 calc(24 * var(--u)) calc(60 * var(--u)) calc(-20 * var(--u)) rgba(18,8,38,.8);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2)}
+
+/* burbuja de Laura: aro amarillo y ondas de eco */
+.rv-col-bub{left:calc(380 * var(--u));top:calc(20 * var(--u));width:calc(300 * var(--u));height:calc(300 * var(--u))}
+.rv-col-bub img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;box-shadow:0 0 0 calc(4 * var(--u)) var(--rv-y),0 0 calc(70 * var(--u)) calc(6 * var(--u)) rgba(247,207,11,.35)}
+.rv-col-bub .w{position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 calc(2 * var(--u)) rgba(255,255,255,.34);scale:1.18;opacity:.5}
+.rv-col-bub .w:nth-child(2){scale:1.38;opacity:.3}
+.rv-col-bub .w:nth-child(3){scale:1.6;opacity:.16}
+.rv-col-tag{left:calc(520 * var(--u));top:calc(290 * var(--u));display:flex;flex-direction:column;align-items:flex-start;gap:calc(10 * var(--u));padding:calc(18 * var(--u)) calc(24 * var(--u)) calc(20 * var(--u));border-radius:calc(24 * var(--u))}
+.rv-col-tag b{font:700 calc(44 * var(--u))/1 var(--rv-disp)}
+.rv-pill{display:inline-flex;align-items:center;height:calc(34 * var(--u));padding:0 calc(14 * var(--u));border-radius:999px;background:var(--rv-y);color:var(--rv-950);font:600 calc(15 * var(--u))/1 var(--rv-disp);text-transform:uppercase;white-space:nowrap}
+
+/* cuenta atrás del eco festival */
+.rv-count{display:flex;flex-direction:column;gap:calc(10 * var(--u))}
+.rv-count .k{font:500 calc(15 * var(--u))/1 var(--rv-disp);text-transform:uppercase;color:rgba(255,255,255,.82)}
+.rv-count .v{font:800 calc(58 * var(--u))/1 var(--rv-disp);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rv-count .v i{font-style:normal;padding:0 .12em;opacity:.8}
+.rv-col-count{left:0;top:calc(110 * var(--u));padding:calc(24 * var(--u)) calc(28 * var(--u));border-radius:calc(28 * var(--u))}
+
+/* dato del quiz: 20 % y las diez barras */
+.rv-col-quiz{left:calc(0 * var(--u));top:calc(440 * var(--u));width:calc(680 * var(--u));height:calc(230 * var(--u));padding:calc(30 * var(--u)) calc(34 * var(--u));border-radius:calc(32 * var(--u));overflow:hidden;background:linear-gradient(120deg,rgba(32,16,66,.86),rgba(54,26,111,.72) 60%,rgba(235,90,22,.32))}
+.rv-col-quiz .k{display:block;font:600 calc(15 * var(--u))/1 var(--rv-disp);text-transform:uppercase;color:var(--rv-y)}
+.rv-col-quiz .n{display:block;margin-top:calc(18 * var(--u));font:800 calc(104 * var(--u))/.9 var(--rv-disp);color:var(--rv-y);white-space:nowrap}
+.rv-col-quiz .n span{font-size:.62em}
+.rv-col-quiz .rv-bars{position:absolute;right:calc(34 * var(--u));top:calc(34 * var(--u));bottom:calc(34 * var(--u));--bw:calc(14 * var(--u));--bg:calc(9 * var(--u))}
+.rv-bars{display:flex;gap:var(--bg,8px);height:100%}
+.rv-bars i{display:block;width:var(--bw,14px);height:100%;border-radius:999px;background:rgba(255,255,255,.16);transition:background-color .5s var(--rv-ease),box-shadow .5s var(--rv-ease)}
+.rv-bars i.on{background:var(--rv-y);box-shadow:0 0 calc(var(--bw,14px) * 1.2) rgba(247,207,11,.55)}
+.rv-bars i.gs{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7);outline:0}
+
+/* reproductor mini */
+.rv-player{display:flex;align-items:center;gap:calc(16 * var(--u));border-radius:999px;font-family:var(--rv-text);color:#fff}
+.rv-player img{flex:none;border-radius:50%;object-fit:cover}
+.rv-player .t{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .5em;flex:1;min-width:0}
+.rv-player .t b{font-weight:600}
+.rv-player .t>span:not(.bar){color:var(--rv-300)}
+.rv-player .bar{position:relative;flex-basis:100%;height:3px;margin-top:.55em;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden}
+.rv-player .bar i{position:absolute;left:0;top:0;bottom:0;width:42%;border-radius:3px;background:var(--rv-y)}
+.rv-player .eco{flex:none;color:var(--rv-y)}
+.rv-player .pause{flex:none;display:flex;align-items:center;justify-content:center;gap:16%;border-radius:50%;background:var(--rv-y)}
+.rv-player .pause i{display:block;width:12%;height:34%;border-radius:2px;background:var(--rv-950)}
+.rv-col-player{left:calc(120 * var(--u));top:calc(712 * var(--u));width:calc(620 * var(--u));height:calc(88 * var(--u));padding:0 calc(14 * var(--u))}
+.rv-col-player img{width:calc(60 * var(--u));height:calc(60 * var(--u))}
+.rv-col-player .t{font-size:calc(22 * var(--u))}
+.rv-col-player .eco{width:calc(30 * var(--u));height:calc(30 * var(--u))}
+.rv-col-player .pause{width:calc(60 * var(--u));height:calc(60 * var(--u))}
+
+/* bucles: las ondas de la burbuja, las barras de las mujeres, la canción y el vaivén */
+.rv-col-bub .w{animation:rvWave 3.6s cubic-bezier(.2,.6,.35,1) infinite}
+.rv-col-bub .w:nth-child(2){animation-delay:1.2s}
+.rv-col-bub .w:nth-child(3){animation-delay:2.4s}
+.rv-col-quiz .rv-bars i.on{animation:rvBar 6s var(--rv-ease) infinite;animation-delay:calc(var(--i) * .25s)}
+.rv-col-player .bar i{animation:rvSong 14s linear infinite}
+.rv-col-count{animation:rvBob 7s ease-in-out infinite}
+.rv-col-quiz{animation:rvBob 8s ease-in-out -2.5s infinite}
+.rv-col-player{animation:rvBob 6.5s ease-in-out -4s infinite}
+.rv-col-tag{animation:rvBob 7.5s ease-in-out -1s infinite}
+.rv-loop.is-paused *,.rv-hero.is-paused .rv-col *,.rv-hero.is-paused .rv-col{animation-play-state:paused!important}
+html.rv-calm .rv-col,html.rv-calm .rv-col *{animation:none!important}
+@media (prefers-reduced-motion:reduce){.rv-col,.rv-col *{animation:none!important}}
+
+@keyframes rvWave{0%{scale:1;opacity:.6}100%{scale:1.75;opacity:0}}
+@keyframes rvBar{0%,8%{background:rgba(255,255,255,.16);box-shadow:none}18%,82%{background:var(--rv-y);box-shadow:0 0 calc(var(--bw,14px) * 1.2) rgba(247,207,11,.55)}94%,100%{background:rgba(255,255,255,.16);box-shadow:none}}
+@keyframes rvSong{from{width:6%}to{width:96%}}
+@keyframes rvBob{0%,100%{translate:0 0}50%{translate:0 calc(-10 * var(--u,1px))}}

@@ -58,18 +58,8 @@
 .vr-tap{position:absolute;z-index:2;width:24%;aspect-ratio:1;margin:-12% 0 0 -12%;border-radius:50%;background:rgba(246,245,244,.55);box-shadow:0 0 0 .3cqw rgba(215,30,23,.8);opacity:0;animation:vrTap .62s cubic-bezier(0,0,.4,1) forwards}
 @keyframes vrTap{0%{opacity:.95;scale:.25}100%{opacity:0;scale:1.25}}
 
-/* la pulsera entra al confirmar la compra */
-.vr-dev-pulsera{left:13cqw;top:17cqw;width:42cqw;height:5.8cqw;z-index:3;opacity:0;rotate:-26deg;scale:.6;translate:0 -9cqw;transition:opacity .2s ease-out,rotate .6s cubic-bezier(.45,1.45,.8,1),scale .6s cubic-bezier(.45,1.45,.8,1),translate .6s cubic-bezier(.45,1.45,.8,1);filter:drop-shadow(0 1.4cqw 1.6cqw rgba(0,0,0,.45))}
-.vr-dev-pulsera.is-on{opacity:1;rotate:-14deg;scale:1;translate:0 0;transition-delay:.35s}
-.vr-pulsera{position:relative;display:flex;width:100%;height:100%}
-.vr-pulsera-band{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:space-between;padding:0 1.8cqw 0 5.4cqw;overflow:hidden;border-radius:.9cqw;background:repeating-linear-gradient(90deg,rgba(0,0,0,.1) 0 .25cqw,transparent .25cqw .6cqw),repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 .15cqw,transparent .15cqw .5cqw),#D71E17}
-.vr-pulsera-band b{font:800 2.3cqw/1 Saira,"Bricolage Grotesque",sans-serif;font-stretch:80%;color:#F6F5F4;white-space:nowrap}
-.vr-pulsera-clip{position:absolute;z-index:2;left:-1.6cqw;top:-1cqw;width:6.4cqw;height:7.8cqw;border-radius:1.2cqw;background:linear-gradient(180deg,#2F2F2F,#151515);box-shadow:inset 0 .2cqw 0 rgba(255,255,255,.14)}
-.vr-pulsera-clip i{position:absolute;left:1.2cqw;right:1.2cqw;top:50%;height:.8cqw;margin-top:-.4cqw;border-radius:.4cqw;background:#0A0A0A}
-.vr-pulsera-tail{position:absolute;left:-10cqw;top:12%;width:9.4cqw;height:76%;border-radius:.8cqw 0 0 .8cqw;background:repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 .25cqw,transparent .25cqw .6cqw),#B3150F}
-
 .vr-loop.is-paused *,.vr-loop.is-paused{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){
 .vr-ticker-in,.vr-dev.is-on .vr-win-scr img,.vr-tap{animation:none!important}
-.vr-ph-scr img,.vr-dev-pulsera{transition:none!important}
+.vr-ph-scr img{transition:none!important}
 }

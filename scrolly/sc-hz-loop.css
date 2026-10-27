@@ -18,23 +18,24 @@
 .hz-stage .hz-line{left:0;top:calc(698 * var(--u));width:100%;height:calc(4 * var(--u));background:#CAEE11}
 .hz-stage-cl{left:calc(978 * var(--u));top:0}
 
-/* grupo de teléfonos: 732×985 con el trasero; 448 de ancho sin él */
-.hz-cl{position:absolute;width:calc(732 * var(--u));height:calc(985 * var(--u))}
+/* grupo de teléfonos: 761×985 con el trasero; 448 de ancho sin él. Los dos van uno al
+   lado del otro, a 16 de distancia: el delantero no se mete dentro del trasero */
+.hz-cl{position:absolute;width:calc(761 * var(--u));height:calc(985 * var(--u))}
 .hz-cl.no-back{width:calc(448 * var(--u))}
-.hz-cl-in{position:absolute;left:0;top:0;width:calc(732 * var(--u));height:calc(985 * var(--u))}
-.hz-cl.no-back .hz-cl-in{left:calc(-284 * var(--u))}
+.hz-cl-in{position:absolute;left:0;top:0;width:calc(761 * var(--u));height:calc(985 * var(--u))}
+.hz-cl.no-back .hz-cl-in{left:calc(-313 * var(--u))}
 .hz-cl-in>*{position:absolute}
 .hz-ph{display:block;overflow:hidden;background:#262626;border-radius:calc(var(--pw) * .0674);box-shadow:0 calc(12 * var(--u)) calc(12 * var(--u)) rgba(0,0,0,.25),calc(-28 * var(--u)) calc(48 * var(--u)) calc(48 * var(--u)) rgba(0,0,0,.5)}
 .hz-ph::after{content:"";position:absolute;inset:0;z-index:3;border:calc(var(--pw) * .019) solid #B2B2B2;border-radius:inherit;pointer-events:none}
 .hz-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hz-ph-back{--pw:calc(297 * var(--u));left:0;top:calc(318 * var(--u));width:var(--pw);height:calc(660 * var(--u))}
-.hz-ph-front{--pw:calc(371 * var(--u));left:calc(284 * var(--u));top:calc(160 * var(--u));width:var(--pw);height:calc(825 * var(--u))}
+.hz-ph-front{--pw:calc(371 * var(--u));left:calc(313 * var(--u));top:calc(160 * var(--u));width:var(--pw);height:calc(825 * var(--u))}
 .hz-ph .hz-done{opacity:0}
 .hz-tap{position:absolute;z-index:2;left:calc(243 * var(--u));top:calc(522 * var(--u));width:calc(91.8 * var(--u));height:calc(43.2 * var(--u));border-radius:calc(21.6 * var(--u));overflow:hidden}
 .hz-tap i{position:absolute;left:calc(-.1 * var(--u));top:calc(-24.4 * var(--u));width:calc(92 * var(--u));height:calc(92 * var(--u));border-radius:50%;background:#515F07;opacity:0;scale:.2}
-.hz-stk{z-index:4;left:calc(293.1 * var(--u));top:calc(68.1 * var(--u));width:calc(349.9 * var(--u));height:calc(119.8 * var(--u));display:flex;align-items:center;justify-content:center}
+.hz-stk{z-index:4;left:calc(322.1 * var(--u));top:calc(68.1 * var(--u));width:calc(349.9 * var(--u));height:calc(119.8 * var(--u));display:flex;align-items:center;justify-content:center}
 .hz-stk-pill{display:block;rotate:-4deg;padding:calc(16 * var(--u)) calc(32 * var(--u));border:calc(4 * var(--u)) solid #CAEE11;border-radius:calc(32 * var(--u));background:#CAEE11;box-shadow:calc(-8 * var(--u)) calc(18 * var(--u)) calc(36 * var(--u)) rgba(0,0,0,.4);font:500 calc(56 * var(--u))/calc(64 * var(--u)) Roboto,"Helvetica Neue",Arial,sans-serif;color:#262626;white-space:nowrap}
-.hz-conf{z-index:4;left:calc(622 * var(--u));top:0;width:calc(110 * var(--u));height:calc(110 * var(--u))}
+.hz-conf{z-index:4;left:calc(651 * var(--u));top:0;width:calc(110 * var(--u));height:calc(110 * var(--u))}
 .hz-conf i{position:absolute;display:flex;align-items:center;justify-content:center}
 .hz-conf b{display:block;flex:none}
 .hz-conf b.pt{width:100%;height:100%;border-radius:50%}
@@ -55,9 +56,7 @@
 .hz-cl.is-pop .hz-conf i:nth-child(5){transition-delay:.44s}
 .hz-cl.is-pop .hz-conf i:nth-child(6){transition-delay:.5s}
 
-/* bucle de 6 s */
-.hz-anim .hz-photo{animation:hzPhoto 6s infinite}
-.hz-anim .hz-ph-front{animation:hzLift 6s linear infinite}
+/* bucle de 6 s: solo lo de dentro del móvil. La foto y los teléfonos no se mueven */
 .hz-anim .hz-done{animation:hzDone 6s linear infinite}
 .hz-anim .hz-tap i{animation:hzTapO 6s linear infinite,hzTapS 6s linear infinite}
 .hz-anim .hz-stk{animation:hzStkT 6s linear infinite,hzStkS 6s linear infinite,hzStkO 6s linear infinite}
@@ -72,8 +71,6 @@
 .hz-anim.is-paused,.hz-anim.is-paused *{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){.hz-anim,.hz-anim *{animation:none!important}}
 
-@keyframes hzPhoto{0%,100%{translate:0 0;animation-timing-function:cubic-bezier(.42,0,.58,1)}50%{translate:0 -2.222%;animation-timing-function:cubic-bezier(.42,0,.58,1)}}
-@keyframes hzLift{0%,27.5%{translate:0 0;animation-timing-function:cubic-bezier(.42,0,.58,1)}47.5%{translate:0 calc(-12 * var(--u));animation-timing-function:cubic-bezier(.42,0,.58,1)}67.5%,100%{translate:0 0}}
 @keyframes hzDone{0%,20.83%{opacity:0;animation-timing-function:cubic-bezier(.05,.7,.1,1)}27.5%,60%{opacity:1;animation-timing-function:cubic-bezier(.3,0,.8,.15)}65%,100%{opacity:0}}
 @keyframes hzTapO{0%,19.17%{opacity:0;animation-timing-function:cubic-bezier(0,0,.58,1)}20%{opacity:.16;animation-timing-function:cubic-bezier(0,0,.58,1)}24.17%,100%{opacity:0}}
 @keyframes hzTapS{0%,19.17%{scale:.2;animation-timing-function:cubic-bezier(0,0,.58,1)}24.17%,100%{scale:1}}

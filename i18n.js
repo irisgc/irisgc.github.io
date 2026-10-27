@@ -22,13 +22,17 @@ const DICT = {
     workTitle: "Proyectos destacados",
     workTitleEm: "",
     work: [
-      { num: "01", name: "Horizonte", nameEm: "Aventura", tags: ["App móvil para Android", "UX/UI", "Turismo activo"], year: "2025", href: "projects/horizonte.html", coverFit: "cover",
+      // las dos webs publicadas de Mañez y Lozano: van primero, enlazan fuera y
+      // en el hueco del año llevan el dominio. Portadas en sc-copy.js, covers.
+      { num: "01", name: "Mañez y Lozano", nameEm: "Web oficial", tags: ["Web corporativa", "WordPress", "Claude Code"], year: "manezylozano.com", href: "https://manezylozano.com/", external: true, coverFit: "cover", coverPos: "top" },
+      { num: "02", name: "Mañez y Lozano", nameEm: "Tienda de repuestos", tags: ["Tienda online", "WooCommerce", "Claude Code"], year: "tienda.manezylozano.com", href: "https://tienda.manezylozano.com/", external: true, coverFit: "cover", coverPos: "top" },
+      { num: "03", name: "Horizonte", nameEm: "Aventura", tags: ["App móvil para Android", "UX/UI", "Turismo activo"], year: "2025", href: "projects/horizonte.html", coverFit: "cover",
         // portada en bucle (la de Figma, reconstruida en sc-hz-loop.jsx)
-        coverLoop: { sub: "Experiencias de aventura con impacto local", chips: ["App móvil para Android", "UX/UI", "Turismo activo"], img: { photo: "projects/assets/horizonte/foto-escalada.webp", back: "projects/assets/horizonte/pantalla-explorar.webp", front: "projects/assets/horizonte/pantalla-ganar-oscuro.webp", done: "projects/assets/horizonte/pantalla-mision-oscuro.webp" } } },
-      { num: "02", name: "Viña Rock", nameEm: "Festival", tags: ["Investigación UX", "Test de usabilidad", "Arquitectura de la información"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
+        coverLoop: { sub: "App de aventuras con impacto local", img: { photo: "projects/assets/horizonte/foto-escalada.webp", back: "projects/assets/horizonte/pantalla-explorar.webp", front: "projects/assets/horizonte/pantalla-ganar-oscuro.webp", done: "projects/assets/horizonte/pantalla-mision-oscuro.webp" } } },
+      { num: "04", name: "Viña Rock", nameEm: "Festival", tags: ["Investigación UX", "Test de usabilidad", "Arquitectura de la información"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
         // portada en bucle: la home y la compra del prototipo v2 sobre la foto del festival (sc-vr-loop.jsx)
-        coverVr: { sub: "Rediseño UX de la web del festival", chips: ["Caso de estudio UX", "Investigación con usuarios", "Web responsive"], ticker: ["1-3 mayo 2025", "Villarrobledo, Albacete", "Viña Rock"], pulsera: "VIÑA ROCK 2025", img: { photo: "projects/assets/vinarock/foto-festival.webp", logo: "projects/assets/vinarock/logo.svg", desk: "projects/assets/vinarock/v2/loop/d-home.webp", phone: ["projects/assets/vinarock/v2/loop/m-home.webp", "projects/assets/vinarock/v2/loop/m-compra1.webp", "projects/assets/vinarock/v2/loop/m-compra2.webp", "projects/assets/vinarock/v2/loop/m-compra3.webp", "projects/assets/vinarock/v2/loop/m-confirmacion.webp"] } } },
-      { num: "03", name: "REVERB", nameEm: "Mujeres en la música", tags: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
+        coverVr: { sub: "Rediseño UX de la web del festival", ticker: ["1-3 mayo 2025", "Villarrobledo, Albacete", "Viña Rock"], img: { photo: "projects/assets/vinarock/foto-festival.webp", logo: "projects/assets/vinarock/logo.svg", desk: "projects/assets/vinarock/v2/loop/d-home.webp", phone: ["projects/assets/vinarock/v2/loop/m-home.webp", "projects/assets/vinarock/v2/loop/m-compra1.webp", "projects/assets/vinarock/v2/loop/m-compra2.webp", "projects/assets/vinarock/v2/loop/m-compra3.webp", "projects/assets/vinarock/v2/loop/m-confirmacion.webp"] } } },
+      { num: "05", name: "REVERB", nameEm: "Mujeres en la música", tags: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
         // portada en bucle: el shader térmico del prototipo con componentes del UI kit encima (sc-rv-loop.jsx)
         coverRv: { sub: "Un altavoz para las mujeres de la industria musical", chips: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"], ui: { tag: "Técnica de sonido", name: "Laura", next: "Próxima voz en", real: "La realidad · 2024", song: "La fiesta", artist: "shego" }, img: { logo: "projects/assets/reverb/logo.svg", laura: "projects/assets/reverb/v2/laura.webp", shego: "projects/assets/reverb/v2/shego.webp" } } },
     ],
@@ -50,41 +54,22 @@ const DICT = {
     ],
     portraitPlaceholder: "Retrato →",
 
-    journeyLabel: "Mi recorrido",
-    journeyTitle: "De la ingeniería",
-    journeyTitleEm: "al producto digital.",
-    journey: [
-      {
-        year: "2017",
-        title: "Grado en Ingeniería en Diseño Industrial",
-        body: "Empiezo el grado en <strong>Ingeniería en Diseño Industrial y Desarrollo de Productos</strong> en la <strong>Universitat Politècnica de València (UPV)</strong>. Aprendo a pensar en sistemas, materiales y usuarios.",
-      },
-      {
-        year: "2021",
-        title: "Prácticas + contrato indefinido",
-        body: "Me gradúo y hago prácticas extracurriculares como <strong>diseñadora gráfica en Mañez y Lozano</strong>, que terminan en un contrato indefinido: catálogos, manuales, tarifas y stands de ferias.",
-      },
-      {
-        year: "2022",
-        title: "Máster en Ingeniería del Diseño",
-        body: "Profundizo en metodología, investigación de mercados y usuarios y experimentación con el <strong>máster en Ingeniería del Diseño en la UPV</strong>.",
-      },
-      {
-        year: "2024",
-        title: "Erasmus del máster en Amberes",
-        body: "<strong>Erasmus de seis meses en Amberes</strong> para realizar mi Trabajo Final de Máster. El producto digital empieza a ganar peso en mi forma de proyectar.",
-      },
-      {
-        year: "2024",
-        title: "Trabajo como Ingeniera y Máster en Diseño UX/UI",
-        body: "Vuelvo a Mañez y Lozano como <strong>diseñadora de producto digital e industrial</strong>: web oficial, tienda online, un configurador 3D y el diseño de producto con toda su comunicación. A la vez, curso el <strong>Máster en Diseño Web y App: UX/UI en LABASAD</strong>, que termino en 2025.",
-      },
-      {
-        year: "2026",
-        title: "Ahora",
-        body: "Con el máster terminado, quiero enfocar mi trayectoria al <strong>producto digital</strong>: busco un rol de diseño UX/UI donde sumar mi base en ingeniería y mi forma de crear con inteligencia artificial.",
-      },
-    ],
+    // Sobre mí: quién soy en un párrafo y tres destacados con logo. El detalle
+    // (fechas, puestos, titulaciones) está en el CV. photo: ruta del retrato;
+    // mientras sea null se ve el marco vacío.
+    aboutSum: {
+      title: "Quién soy",
+      photo: null,
+      photoAlt: "Retrato de Iris García",
+      body: "Llevo cinco años trabajando como ingeniera en diseño industrial en una empresa de fabricación de maquinaria agrícola. Allí he llevado el diseño gráfico y el diseño de producto. Mis últimos proyectos se han centrado en la parte web: diseñé la web oficial y la tienda de repuestos, usando WordPress y Claude Code, la herramienta que me está permitiendo hacer realidad cualquier proyecto digital.",
+      // cierre de la presentación: va en su propia línea, en tinta
+      close: "Ahora, busco un puesto de diseño de producto digital en el que usar la IA con criterio: yo planteo propuestas y tomo decisiones, ella ejecuta.",
+      highlights: [
+        { logo: "ml", l: "Mañez y Lozano", v: "Web oficial y tienda de repuestos, con WordPress y Claude Code." },
+        { logo: "lb", l: "LABASAD", v: "Máster en Diseño Web y App: UX/UI (2025)." },
+        { logo: "ua", l: "Universiteit Antwerpen", v: "Erasmus de seis meses para el trabajo final del máster." }
+      ]
+    },
 
     skillsLabel: "Caja de herramientas",
     skillsTitle: "Habilidades y herramientas",
@@ -169,11 +154,13 @@ const DICT = {
     workTitle: "Selected projects",
     workTitleEm: "",
     work: [
-      { num: "01", name: "Horizonte", nameEm: "Adventure", tags: ["Android mobile app", "UX/UI", "Adventure tourism"], year: "2025", href: "projects/horizonte.html", coverFit: "cover",
-        coverLoop: { sub: "Adventure experiences with local impact", chips: ["Android mobile app", "UX/UI", "Adventure tourism"], img: { photo: "projects/assets/horizonte/foto-escalada.webp", back: "projects/assets/horizonte/pantalla-explorar.webp", front: "projects/assets/horizonte/pantalla-ganar-oscuro.webp", done: "projects/assets/horizonte/pantalla-mision-oscuro.webp" } } },
-      { num: "02", name: "Viña Rock", nameEm: "Festival", tags: ["UX research", "Usability testing", "Information architecture"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
-        coverVr: { sub: "UX redesign of the festival's website", chips: ["UX case study", "User research", "Responsive web"], ticker: ["1-3 May 2025", "Villarrobledo, Albacete", "Viña Rock"], pulsera: "VIÑA ROCK 2025", img: { photo: "projects/assets/vinarock/foto-festival.webp", logo: "projects/assets/vinarock/logo.svg", desk: "projects/assets/vinarock/v2/loop/d-home.webp", phone: ["projects/assets/vinarock/v2/loop/m-home.webp", "projects/assets/vinarock/v2/loop/m-compra1.webp", "projects/assets/vinarock/v2/loop/m-compra2.webp", "projects/assets/vinarock/v2/loop/m-compra3.webp", "projects/assets/vinarock/v2/loop/m-confirmacion.webp"] } } },
-      { num: "03", name: "REVERB", nameEm: "Women in music", tags: ["Responsive web", "Inclusive design", "Design system"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
+      { num: "01", name: "Mañez y Lozano", nameEm: "Official website", tags: ["Corporate website", "WordPress", "Claude Code"], year: "manezylozano.com", href: "https://manezylozano.com/", external: true, coverFit: "cover", coverPos: "top" },
+      { num: "02", name: "Mañez y Lozano", nameEm: "Spare-parts shop", tags: ["Online shop", "WooCommerce", "Claude Code"], year: "tienda.manezylozano.com", href: "https://tienda.manezylozano.com/", external: true, coverFit: "cover", coverPos: "top" },
+      { num: "03", name: "Horizonte", nameEm: "Adventure", tags: ["Android mobile app", "UX/UI", "Adventure tourism"], year: "2025", href: "projects/horizonte.html", coverFit: "cover",
+        coverLoop: { sub: "Adventure app with local impact", img: { photo: "projects/assets/horizonte/foto-escalada.webp", back: "projects/assets/horizonte/pantalla-explorar.webp", front: "projects/assets/horizonte/pantalla-ganar-oscuro.webp", done: "projects/assets/horizonte/pantalla-mision-oscuro.webp" } } },
+      { num: "04", name: "Viña Rock", nameEm: "Festival", tags: ["UX research", "Usability testing", "Information architecture"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
+        coverVr: { sub: "UX redesign of the festival's website", ticker: ["1-3 May 2025", "Villarrobledo, Albacete", "Viña Rock"], img: { photo: "projects/assets/vinarock/foto-festival.webp", logo: "projects/assets/vinarock/logo.svg", desk: "projects/assets/vinarock/v2/loop/d-home.webp", phone: ["projects/assets/vinarock/v2/loop/m-home.webp", "projects/assets/vinarock/v2/loop/m-compra1.webp", "projects/assets/vinarock/v2/loop/m-compra2.webp", "projects/assets/vinarock/v2/loop/m-compra3.webp", "projects/assets/vinarock/v2/loop/m-confirmacion.webp"] } } },
+      { num: "05", name: "REVERB", nameEm: "Women in music", tags: ["Responsive web", "Inclusive design", "Design system"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
         coverRv: { sub: "A loudspeaker for women in the music industry", chips: ["Responsive web", "Inclusive design", "Design system"], ui: { tag: "Sound technician", name: "Laura", next: "Next voice in", real: "The reality · 2024", song: "La fiesta", artist: "shego" }, img: { logo: "projects/assets/reverb/logo.svg", laura: "projects/assets/reverb/v2/laura.webp", shego: "projects/assets/reverb/v2/shego.webp" } } },
     ],
 
@@ -194,41 +181,18 @@ const DICT = {
     ],
     portraitPlaceholder: "Portrait →",
 
-    journeyLabel: "My journey",
-    journeyTitle: "From engineering",
-    journeyTitleEm: "to digital product.",
-    journey: [
-      {
-        year: "2017",
-        title: "Degree in Industrial Design Engineering",
-        body: "I begin the degree in <strong>Industrial Design Engineering and Product Development</strong> at <strong>UPV</strong>. I learn to think in systems, materials and users.",
-      },
-      {
-        year: "2021",
-        title: "Internship + permanent contract",
-        body: "I graduate and do an extracurricular internship as a <strong>graphic designer at Mañez y Lozano</strong>, which turns into a permanent contract: catalogues, manuals, price lists and trade-fair stands.",
-      },
-      {
-        year: "2022",
-        title: "Design engineering master's",
-        body: "I dive into methodology, market and user research and experimentation with the <strong>Master in Design Engineering at UPV</strong>.",
-      },
-      {
-        year: "2024",
-        title: "Master's Erasmus in Antwerp",
-        body: "<strong>Six-month Erasmus in Antwerp</strong> to complete my master's thesis. Digital product starts to gain weight in how I approach a project.",
-      },
-      {
-        year: "2024",
-        title: "Working as an Engineer and UX/UI Design Master's",
-        body: "I return to Mañez y Lozano as a <strong>digital and industrial product designer</strong>: official website, online shop, a 3D configurator and product design with all its communication. Meanwhile I take the <strong>Master in Web and App Design: UX/UI at LABASAD</strong>, which I finish in 2025.",
-      },
-      {
-        year: "2026",
-        title: "Now",
-        body: "With the master's finished, I want to focus my career on <strong>digital product</strong>: I'm looking for a UX/UI design role where my engineering background and AI-driven way of creating add up.",
-      },
-    ],
+    aboutSum: {
+      title: "Who I am",
+      photo: null,
+      photoAlt: "Portrait of Iris García",
+      body: "I've spent five years working as an industrial design engineer at a company that manufactures agricultural machinery. There I've handled both graphic design and product design. My latest projects have focused on the web: I designed the official website and the spare-parts shop, using WordPress and Claude Code, the tool that's letting me bring any digital project to life.",
+      close: "Now I'm looking for a digital product design role where I can use AI with judgement: I put forward proposals and make the decisions, it executes.",
+      highlights: [
+        { logo: "ml", l: "Mañez y Lozano", v: "Official website and spare-parts shop, built with WordPress and Claude Code." },
+        { logo: "lb", l: "LABASAD", v: "Master's in Web and App Design: UX/UI (2025)." },
+        { logo: "ua", l: "Universiteit Antwerpen", v: "Six-month Erasmus for my master's thesis." }
+      ]
+    },
 
     skillsLabel: "Toolkit",
     skillsTitle: "Skills and tools",

@@ -45,6 +45,9 @@ window.PROJECT_VINAROCK = {
     mMenu: { src: "assets/vinarock/v2/menu-mobile.webp", w: 393, h: 852, m: true },
   },
   // auditoría: capturas de la web de 2025 que aparecen en las láminas de diagnóstico
+  // de los trece hallazgos, los que salen en la página: los más graves de experiencia.
+  // El primero junta el 0 y el 6 (consignas y web externa), que comparten captura.
+  auditTop: [0, 2],
   audit: [
     { sev: 4, ux: true, img: "assets/vinarock/antes/consignas.webp" },
     { sev: 3, ux: false, img: "assets/vinarock/antes/contacto-movil.webp" },
@@ -102,34 +105,24 @@ window.PROJECT_VINAROCK = {
     title: "Viña Rock",
     hero: {
       sub: "Rediseño UX de la web del festival",
-      chips: ["Caso de estudio UX", "Investigación con usuarios", "Web responsive"],
       ticker: ["1-3 mayo 2025", "Villarrobledo, Albacete", "Viña Rock"],
-      pulsera: "VIÑA ROCK 2025",
       photoAlt: "Público de un festival al anochecer, con los brazos en alto frente a un escenario iluminado en rojo",
     },
     facts: [
       { k: "Mi papel", v: "Investigación, análisis, arquitectura de la información, wireframes y prototipo" },
-      { k: "Contexto", v: "Proyecto individual del Máster en Diseño Web y App UX/UI (LABASAD), 2025" },
-      { k: "Herramientas", v: "Figma: memoria, wireframes y prototipo navegable, Claude Code" },
-      { k: "Alcance", v: "UX hasta el prototipo. La interfaz visual queda fuera por decisión" },
+      { k: "Contexto", v: "Proyecto desarrollado durante el Máster en Diseño UX/UI en LABASAD, posteriormente optimizado con IA" },
+      { k: "Herramientas", v: "Figma, Claude Code" },
     ],
     reto: {
       h: "Uno de los festivales más grandes de España,",
       hEm: "con una web que no estaba a su altura.",
-      lead: "Comprar abonos y complementos era confuso, la información estaba repartida entre webs externas y en el móvil, desde donde compra la mayoría, todo iba a peor. Revisé la web con las heurísticas de Nielsen y puntué cada problema de 1 a 4.",
+      lead: "Comprar abonos era confuso y cada gestión llevaba a una web distinta. Audité la web con las heurísticas de Nielsen y encontré 13 problemas. Estos dos eran los más graves para quien compraba.",
     },
     audit: {
-      note: "Los fallos técnicos se arreglan sin rediseñar; los de experiencia son los que ataca la propuesta.",
-      filters: ["Todos", "Experiencia", "Técnicos"],
-      scaleL: "Gravedad",
       scale: ["cosmético", "menor", "grave", "crítico"],
-      uxL: "Experiencia",
-      tecL: "Fallo técnico",
-      heurL: "Heurística",
       shotL: "Así se veía en 2025",
-      noShot: "Sin captura: se nota al usarla, no al mirarla.",
       items: [
-        { t: "El proceso de compra de consignas es confuso y le falta información", h: "2 · Relación con el mundo real y 10 · Ayuda" },
+        { t: "Comprar consignas lleva a una web externa, es confuso y le falta información", h: "2 · Relación con el mundo real, 4 · Consistencia y 10 · Ayuda" },
         { t: "El apartado de contacto da error", h: null },
         { t: "La guía de compra solo tiene el paso 1", h: "10 · Ayuda y documentación" },
         { t: "El menú hamburguesa no funciona", h: null },
@@ -243,34 +236,24 @@ window.PROJECT_VINAROCK = {
     title: "Viña Rock",
     hero: {
       sub: "UX redesign of the festival's website",
-      chips: ["UX case study", "User research", "Responsive web"],
       ticker: ["1-3 May 2025", "Villarrobledo, Albacete", "Viña Rock"],
-      pulsera: "VIÑA ROCK 2025",
       photoAlt: "Festival crowd at nightfall with their arms up in front of a stage lit in red",
     },
     facts: [
       { k: "My role", v: "Research, analysis, information architecture, wireframes and prototype" },
-      { k: "Context", v: "Solo project for the Master's in Web and App Design UX/UI (LABASAD), 2025" },
-      { k: "Tools", v: "Figma: report, wireframes and clickable prototype, Claude Code" },
-      { k: "Scope", v: "UX up to the prototype. The visual interface is out of scope by choice" },
+      { k: "Context", v: "Project developed during the UX/UI Design Master's at LABASAD, later optimised with AI" },
+      { k: "Tools", v: "Figma, Claude Code" },
     ],
     reto: {
       h: "One of Spain's biggest festivals,",
       hEm: "with a website that didn't live up to it.",
-      lead: "Buying passes and add-ons was confusing, information was scattered across external sites, and on mobile, where most people buy, everything got worse. I reviewed the site against Nielsen's heuristics and scored each problem from 1 to 4.",
+      lead: "Buying passes was confusing and every task led to a different website. I audited the site against Nielsen's heuristics and found 13 problems. These two hurt buyers the most.",
     },
     audit: {
-      note: "Technical bugs get fixed without a redesign; the experience problems are the ones the proposal tackles.",
-      filters: ["All", "Experience", "Technical"],
-      scaleL: "Severity",
       scale: ["cosmetic", "minor", "major", "critical"],
-      uxL: "Experience",
-      tecL: "Technical bug",
-      heurL: "Heuristic",
       shotL: "How it looked in 2025",
-      noShot: "No screenshot: you feel it when you use it, not when you look at it.",
       items: [
-        { t: "Booking a locker is confusing and lacks information", h: "2 · Match with the real world and 10 · Help" },
+        { t: "Booking a locker sends you to an external site, is confusing and lacks information", h: "2 · Match with the real world, 4 · Consistency and 10 · Help" },
         { t: "The contact page returns an error", h: null },
         { t: "The buying guide only has step 1", h: "10 · Help and documentation" },
         { t: "The hamburger menu doesn't work", h: null },
@@ -409,15 +392,14 @@ window.PROJECT_HORIZONTE = {
   es: {
     title: "Horizonte",
     hero: {
-      sub: "Experiencias de aventura con impacto local",
-      chips: ["App móvil para Android", "UX/UI", "Turismo activo"],
+      sub: "App de aventuras con impacto local",
       sticker: "+40 tokens",
       photoAlt: "Escalador en una pared de roca caliza",
     },
     facts: [
       { k: "Mi papel", v: "Propuesta de valor en base a brief y user persona. Diseño base de arquitectura y prototipo" },
-      { k: "Contexto", v: "Proyecto de máster UX/UI, después optimizado con IA" },
-      { k: "Plataforma", v: "Figma, Claude Code" },
+      { k: "Contexto", v: "Proyecto desarrollado durante el Máster en Diseño UX/UI en LABASAD, posteriormente optimizado con IA" },
+      { k: "Herramientas", v: "Figma, Claude Code" },
     ],
     reto: {
       h: "Hoy, para completar una aventura",
@@ -444,7 +426,7 @@ window.PROJECT_HORIZONTE = {
     manos: {
       h: "Ayuda a mantener y mejorar la zona",
       hEm: "y gana recompensas.",
-      lead: "Manos en ruta: la funcionalidad propia de la app, de principio a fin.",
+      lead: "Manos en ruta, la funcionalidad extra de la app.",
       steps: [
         { t: "Eliges una misión de la lista…", t2: "…o en el mapa, cerca de ti." },
         { t: "El anfitrión la valida con su QR y ganas tokens." },
@@ -454,11 +436,16 @@ window.PROJECT_HORIZONTE = {
       map: [0, 0, 1, 2],
     },
     sys: {
-      h: "Un solo sistema,",
+      h: "Un solo sistema de diseño,",
       hEm: "dos modos.",
-      lead: "Color en dos niveles: primitivas ocultas y roles con valor en claro y en oscuro. El interruptor de Perfil cambia el modo de las variables; ninguna pantalla se repinta a mano.",
-      palL: "Paleta fija",
-      pal: [["Lima", "#CAEE11"], ["Oliva", "#515F07"], ["Lima pálido", "#DFF570"], ["Naranja", "#FF3D00"], ["Negro", "#262626"], ["Blanco", "#FAFAFA"]],
+      lead: "Color primario y secundario, con sus variantes, para cubrir todas las necesidades del diseño.",
+      palL: "Paleta: color primario y secundario",
+      // las dos escalas de color del sistema, con los tonos y valores de las
+      // primitivas de Figma (fig-horizonte/fig-tokens.css). Las dos empiezan en 100.
+      ramps: [
+        ["primary", [["100", "#EFFAB8"], ["250", "#DFF570"], ["500", "#CAEE11"], ["650", "#8EA70C"], ["800", "#515F07"], ["900", "#283003"]]],
+        ["secondary", [["100", "#FFC5B2"], ["250", "#FF8B66"], ["500", "#FF3D00"], ["650", "#B22B00"], ["800", "#661800"], ["900", "#330C00"]]]
+      ],
       stats: [
         { n: "85", l: "componentes documentados" },
         { n: "169", l: "variables en 7 colecciones" },
@@ -480,15 +467,14 @@ window.PROJECT_HORIZONTE = {
   en: {
     title: "Horizonte",
     hero: {
-      sub: "Adventure experiences with local impact",
-      chips: ["Android mobile app", "UX/UI", "Adventure tourism"],
+      sub: "Adventure app with local impact",
       sticker: "+40 tokens",
       photoAlt: "Climber on a limestone rock face",
     },
     facts: [
       { k: "My role", v: "Value proposition based on the brief and user persona. Base design of the architecture and prototype" },
-      { k: "Context", v: "UX/UI master's project, later optimised with AI" },
-      { k: "Platform", v: "Figma, Claude Code" },
+      { k: "Context", v: "Project developed during the UX/UI Design Master's at LABASAD, later optimised with AI" },
+      { k: "Tools", v: "Figma, Claude Code" },
     ],
     reto: {
       h: "Today, completing an adventure",
@@ -515,7 +501,7 @@ window.PROJECT_HORIZONTE = {
     manos: {
       h: "Help maintain and improve the area",
       hEm: "and earn rewards.",
-      lead: "Manos en ruta: the app's own feature, end to end.",
+      lead: "Manos en ruta, the app's extra feature.",
       steps: [
         { t: "You pick a mission from the list…", t2: "…or on the map, near you." },
         { t: "The host validates it with their QR code and you earn tokens." },
@@ -524,11 +510,14 @@ window.PROJECT_HORIZONTE = {
       map: [0, 0, 1, 2],
     },
     sys: {
-      h: "One system,",
+      h: "One design system,",
       hEm: "two modes.",
-      lead: "Colour in two tiers: hidden primitives and roles with a value in light and in dark. The switch in Profile changes the variables' mode; no screen is repainted by hand.",
-      palL: "Fixed palette",
-      pal: [["Lime", "#CAEE11"], ["Olive", "#515F07"], ["Pale lime", "#DFF570"], ["Orange", "#FF3D00"], ["Black", "#262626"], ["White", "#FAFAFA"]],
+      lead: "Primary and secondary colour, with their variants, to cover every need of the design.",
+      palL: "Palette: primary and secondary colour",
+      ramps: [
+        ["primary", [["100", "#EFFAB8"], ["250", "#DFF570"], ["500", "#CAEE11"], ["650", "#8EA70C"], ["800", "#515F07"], ["900", "#283003"]]],
+        ["secondary", [["100", "#FFC5B2"], ["250", "#FF8B66"], ["500", "#FF3D00"], ["650", "#B22B00"], ["800", "#661800"], ["900", "#330C00"]]]
+      ],
       stats: [
         { n: "85", l: "documented components" },
         { n: "169", l: "variables in 7 collections" },

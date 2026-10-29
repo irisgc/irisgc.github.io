@@ -11,12 +11,15 @@ window.SC = {
     home: "Home",
     // título de la pestaña; el de partida, en español, está también en el <title> del HTML
     docTitle: "Iris García · Diseñadora de producto digital",
-    heroTag: "Diseñadora de [producto digital] enfocada en [inteligencia artificial].",
+    heroTag: "[Diseño digital] y [creatividad]",
     heroOrigin: "Madrid · UX/UI",
     lines: [
-      "Ingeniera en diseño industrial,",
-      "centrada en creación digital",
-      "a través de [Inteligencia Artificial]."
+      "Soy ingeniera en",
+      "diseño industrial",
+      "y quiero enfocarme",
+      "en el [diseño]",
+      "[de producto digital]",
+      "y la [Inteligencia Artificial]"
     ],
     storyNote: "ingeniería industrial + ia + ux/ui",
     profile: {
@@ -45,12 +48,14 @@ window.SC = {
     navMenu: "Go to a section",
     home: "Home",
     docTitle: "Iris García · Digital product designer",
-    heroTag: "[Digital product] designer focused on [artificial intelligence].",
+    heroTag: "[Digital design] and [creativity]",
     heroOrigin: "Madrid · UX/UI",
     lines: [
-      "Industrial design engineer,",
-      "focused on digital creation",
-      "through [Artificial Intelligence]."
+      "I'm an industrial",
+      "design engineer",
+      "and I want to focus on",
+      "[digital product design]",
+      "and [Artificial Intelligence]"
     ],
     storyNote: "industrial design eng + ai + ux/ui",
     profile: {

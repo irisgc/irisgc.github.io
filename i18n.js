@@ -53,20 +53,26 @@ const DICT = {
     ],
     portraitPlaceholder: "Retrato →",
 
-    // Sobre mí: quién soy en un párrafo y tres destacados con logo. El detalle
-    // (fechas, puestos, titulaciones) está en el CV. photo: ruta del retrato;
-    // mientras sea null se ve el marco vacío.
+    // Sobre mí: quién soy en un párrafo y qué sé hacer. El detalle (fechas,
+    // puestos, titulaciones) está en el CV.
     aboutSum: {
       title: "Quién soy",
-      photo: null,
-      photoAlt: "Retrato de Iris García",
+      // render en bucle hecho en Blender (blender/vista-explosionada.py). Con null no
+      // hay hueco y el texto ocupa todo el ancho.
+      media: {
+        video: "assets/about/vista-explosionada.mp4",
+        poster: "assets/about/vista-explosionada.webp",
+        alt: "Una web en vista explosionada: sus capas se separan como las piezas de un producto y vuelven a encajar."
+      },
       body: "Llevo cinco años trabajando como ingeniera en diseño industrial en una empresa de fabricación de maquinaria agrícola. Allí he llevado el diseño gráfico y el diseño de producto. Mis últimos proyectos se han centrado en la parte web: diseñé la web oficial y la tienda de repuestos, usando WordPress y Claude Code, la herramienta que me está permitiendo hacer realidad cualquier proyecto digital.",
       // cierre de la presentación: va en su propia línea, en tinta
       close: "Ahora, busco un puesto de diseño de producto digital en el que usar la IA con criterio: yo planteo propuestas y tomo decisiones, ella ejecuta.",
-      highlights: [
-        { logo: "ml", l: "Mañez y Lozano", v: "Web oficial y tienda de repuestos, con WordPress y Claude Code." },
-        { logo: "lb", l: "LABASAD", v: "Máster en Diseño Web y App: UX/UI (2025)." },
-        { logo: "ua", l: "Universiteit Antwerpen", v: "Erasmus de seis meses para el trabajo final del máster." }
+      skillsH: "Qué sé hacer",
+      can: [
+        { n: "Modelado 3D", v: "Diseño piezas y productos en 3D, tanto técnicos como de presentación.", tools: ["SolidWorks", "Blender"] },
+        { n: "Render e imagen", v: "Renders de producto en Blender, imágenes generadas con IA para cualquier escena y fotografía.", tools: ["Blender", "Magnific"] },
+        { n: "Diseño web", v: "Diseño interfaces y las llevo a una web real.", tools: ["Figma", "WordPress", "Framer"] },
+        { n: "Diseño gráfico y maquetación", v: "Piezas gráficas y documentos maquetados, para imprimir o para pantalla.", tools: ["Illustrator", "Photoshop", "InDesign"] }
       ]
     },
 
@@ -74,7 +80,6 @@ const DICT = {
     skillsTitle: "Habilidades y herramientas",
     skillsTitleEm: "",
     skills: [
-      { name: "Claude Design", cat: "Diseño con IA", lvl: 0.85 },
       { name: "Figma", cat: "Diseño UI", lvl: 0.9 },
       { name: "Claude Code", cat: "Prototipado con IA", lvl: 0.85 },
       { name: "Magnific", cat: "IA Generativa", lvl: 0.9 },
@@ -84,6 +89,7 @@ const DICT = {
       { name: "Blender", cat: "Producto 3D", lvl: 0.85 },
       { name: "WordPress", cat: "Web / CMS", lvl: 0.85 },
       { name: "Elementor", cat: "Web / CMS", lvl: 0.85 },
+      { name: "Framer", cat: "Web sin código", lvl: 0.85 },
       { name: "SolidWorks", cat: "Producto 3D", lvl: 0.9 },
       { name: "Elegoo Slicer", cat: "Impresión 3D", lvl: 0.85 },
       { name: "InDesign", cat: "Maquetación", lvl: 0.95 },
@@ -181,14 +187,19 @@ const DICT = {
 
     aboutSum: {
       title: "Who I am",
-      photo: null,
-      photoAlt: "Portrait of Iris García",
+      media: {
+        video: "assets/about/vista-explosionada.mp4",
+        poster: "assets/about/vista-explosionada.webp",
+        alt: "A website in exploded view: its layers come apart like the parts of a product and click back together."
+      },
       body: "I've spent five years working as an industrial design engineer at a company that manufactures agricultural machinery. There I've handled both graphic design and product design. My latest projects have focused on the web: I designed the official website and the spare-parts shop, using WordPress and Claude Code, the tool that's letting me bring any digital project to life.",
       close: "Now I'm looking for a digital product design role where I can use AI with judgement: I put forward proposals and make the decisions, it executes.",
-      highlights: [
-        { logo: "ml", l: "Mañez y Lozano", v: "Official website and spare-parts shop, built with WordPress and Claude Code." },
-        { logo: "lb", l: "LABASAD", v: "Master's in Web and App Design: UX/UI (2025)." },
-        { logo: "ua", l: "Universiteit Antwerpen", v: "Six-month Erasmus for my master's thesis." }
+      skillsH: "What I can do",
+      can: [
+        { n: "3D modelling", v: "I design parts and products in 3D, both technical and presentation models.", tools: ["SolidWorks", "Blender"] },
+        { n: "Render and image", v: "Product renders in Blender, AI-generated images for any scene, and photography.", tools: ["Blender", "Magnific"] },
+        { n: "Web design", v: "I design interfaces and turn them into real websites.", tools: ["Figma", "WordPress", "Framer"] },
+        { n: "Graphic design and layout", v: "Graphic pieces and laid-out documents, for print or for screen.", tools: ["Illustrator", "Photoshop", "InDesign"] }
       ]
     },
 
@@ -196,7 +207,6 @@ const DICT = {
     skillsTitle: "Skills and tools",
     skillsTitleEm: "",
     skills: [
-      { name: "Claude Design", cat: "AI Design", lvl: 0.85 },
       { name: "Figma", cat: "UI Design", lvl: 0.9 },
       { name: "Claude Code", cat: "AI Prototyping", lvl: 0.85 },
       { name: "Magnific", cat: "Generative AI", lvl: 0.9 },
@@ -206,6 +216,7 @@ const DICT = {
       { name: "Blender", cat: "3D Product", lvl: 0.85 },
       { name: "WordPress", cat: "Web / CMS", lvl: 0.85 },
       { name: "Elementor", cat: "Web / CMS", lvl: 0.85 },
+      { name: "Framer", cat: "No-code web", lvl: 0.85 },
       { name: "SolidWorks", cat: "3D Product", lvl: 0.9 },
       { name: "Elegoo Slicer", cat: "3D Printing", lvl: 0.85 },
       { name: "InDesign", cat: "Layout", lvl: 0.95 },

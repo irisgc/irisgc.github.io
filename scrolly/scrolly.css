@@ -137,7 +137,7 @@ html.kb .cur2{opacity:0}
 .sc-fact .k{font-size:12px;color:var(--ink-mute)}
 .sc-fact .v{white-space:pre-line;font-size:16px;line-height:1.4;text-wrap:pretty}
 
-/* sobre mí: render y quién soy a dos columnas; debajo, qué sé hacer */
+/* sobre mí: render y quién soy a dos columnas */
 .sc-about{padding:18vh var(--pad) 4vh;display:flex;flex-direction:column;gap:clamp(48px,9vh,96px)}
 .sc-about-main{display:grid;grid-template-columns:minmax(240px,1fr) minmax(0,1.15fr);gap:clamp(32px,5vw,88px);align-items:center;max-width:1320px}
 .sc-about-main.solo{grid-template-columns:minmax(0,1fr)}
@@ -146,15 +146,6 @@ html.kb .cur2{opacity:0}
 /* el vídeo trae de fondo el mismo gris que la sección; los bordes se funden por
    si el navegador lo pinta un tono distinto */
 .sc-about-media video{display:block;width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 7%,#000 93%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 7%,#000 93%,transparent);mask-composite:intersect}
-/* qué sé hacer: cuatro columnas con disciplina, una frase y sus herramientas */
-.sc-about-can{display:flex;flex-direction:column;gap:clamp(24px,4vh,40px);max-width:1320px}
-.sc-about-can h3{font-size:clamp(24px,2.6vw,40px);line-height:1.1;font-weight:500}
-.sc-about-can ol{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(40px,6vh,64px) clamp(24px,3vw,48px)}
-.sc-about-can li{display:flex;flex-direction:column;gap:10px}
-.sc-about-can .n{font-size:clamp(19px,1.6vw,24px);line-height:1.2;font-weight:500;color:var(--ink)}
-.sc-about-can .v{font-size:15px;line-height:1.5;color:var(--ink-soft);text-wrap:pretty}
-.sc-about-can .tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.sc-about-can .tools span{padding:5px 11px;border-radius:999px;background:color-mix(in oklab,#fff 55%,var(--bg-2));font-size:13px;color:var(--ink)}
 .sc-about-text{display:flex;flex-direction:column;gap:clamp(20px,3vh,32px);min-width:0}
 .sc-about-text p{max-width:56ch;font-size:clamp(17px,1.45vw,22px);line-height:1.6;color:var(--ink-soft);text-wrap:pretty}
 .sc-about-text p.close{margin-top:calc(clamp(20px,3vh,32px) * -.4);color:var(--ink)}
@@ -166,13 +157,13 @@ html.kb .cur2{opacity:0}
 @media (max-width:880px){.sc-work-head .sc-lead{white-space:normal}}
 .sc-work-panel{height:168vh;position:relative}
 .sc-work-panel.last{height:112vh}
-.sc-work-card{--cw:calc(100vw - 2 * var(--pad));--h:min(60vh,calc(var(--cw) * .38),540px);position:sticky;top:calc(var(--nav-h) + var(--title-h) + 5vh);height:var(--h);margin:2.6vh var(--pad) 0;border-radius:14px;overflow:hidden;background:color-mix(in oklab,#FFFFFF 86%,var(--bg-2));border:1px solid color-mix(in oklab,var(--line),#FFFFFF 30%);box-shadow:0 2px 14px color-mix(in oklab,#3A2E1E 11%,transparent);display:grid;grid-template-columns:minmax(0,1.52fr) minmax(280px,1fr);will-change:transform;transition:background-color .25s linear,border-color .25s linear}
-.sc-work-card:hover{color:inherit;border-color:color-mix(in oklab,var(--ink-mute),#FFFFFF 20%)}
+.sc-work-card{--cw:calc(100vw - 2 * var(--pad));--h:min(60vh,calc(var(--cw) * .38),540px);position:sticky;top:calc(var(--nav-h) + var(--title-h) + 5vh);height:var(--h);margin:2.6vh var(--pad) 0;border-radius:14px;overflow:hidden;background:color-mix(in oklab,#FFFFFF 86%,var(--bg-2));box-shadow:0 28px 60px -26px color-mix(in oklab,#3A2E1E 34%,transparent),0 8px 22px -10px color-mix(in oklab,#3A2E1E 16%,transparent);display:grid;grid-template-columns:minmax(0,1.52fr) minmax(280px,1fr);will-change:transform;transition:background-color .25s linear,box-shadow .35s var(--ease)}
+.sc-work-card:hover{color:inherit;box-shadow:0 34px 70px -26px color-mix(in oklab,#3A2E1E 42%,transparent),0 10px 26px -10px color-mix(in oklab,#3A2E1E 18%,transparent)}
 .sc-work-media{position:relative;overflow:hidden;background:var(--tone-1);display:grid;place-items:center;transition:background-color .25s linear}
 .sc-work-media img{align-self:stretch;justify-self:stretch;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;padding:clamp(10px,1.4vw,22px);transition:opacity .8s var(--ease)}
 .sc-work-media img.is-cover{object-fit:cover;padding:0}
 .sc-work-media .ghost{font-size:clamp(38px,6.4vw,104px);line-height:.9;color:var(--tone-3);text-align:center}
-.sc-work-info{position:relative;padding:clamp(24px,2.6vw,44px);padding-right:clamp(24px,2.6vw,44px);display:flex;flex-direction:column;gap:clamp(12px,1.4vh,18px);border-left:1px solid color-mix(in oklab,var(--line),#FFFFFF 40%)}
+.sc-work-info{position:relative;padding:clamp(24px,2.6vw,44px);padding-right:clamp(24px,2.6vw,44px);display:flex;flex-direction:column;gap:clamp(12px,1.4vh,18px)}
 .sc-work-info h3{margin-top:clamp(6px,1.2vh,14px)}
 .sc-work-info h3{font-size:clamp(30px,3.2vw,54px);line-height:1.02;font-weight:500}
 .sc-work-info h3 em{display:block;color:var(--ink-mute)}
@@ -184,14 +175,29 @@ html.kb .cur2{opacity:0}
 
 /* herramientas */
 .sc-toolkit{padding:18vh var(--pad);display:flex;flex-direction:column;gap:18px;overflow:clip}
-.sc-tool-rows{display:flex;flex-direction:column;gap:clamp(18px,2.6vh,30px);margin-top:clamp(32px,6vh,64px)}
-.sc-tool-row{display:flex;justify-content:center;transform:translateX(var(--shift,0));will-change:transform}
-.sc-tool{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;padding:0 clamp(16px,2.2vw,34px);border-left:1px solid var(--line)}
-.sc-tool:first-child{border-left:0}
-.sc-tool-br{display:none}
-.sc-tool .n{font-size:clamp(19px,2.1vw,32px);white-space:nowrap;transition:color .3s}
-.sc-tool .c{font-size:12px;color:var(--ink-mute);white-space:nowrap}
-.sc-tool:hover .n{color:var(--accent)}
+/* habilidades y herramientas: las disciplinas a la izquierda encienden sus herramientas a la
+   derecha. Sin recuadros: la elegida se distingue por la tinta, el icono morado y su
+   frase, que se abre debajo; las demás quedan en gris y sus herramientas se apagan. */
+.sc-skills{display:grid;grid-template-columns:minmax(300px,.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,88px);align-items:start;max-width:1320px;margin-top:clamp(24px,4.5vh,52px)}
+.sc-skills-groups{display:flex;flex-direction:column;gap:6px}
+.sc-skill{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center;padding:12px 0;color:var(--ink-mute);transition:color .35s var(--ease)}
+.sc-skill:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sc-skill .ic{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;color:var(--ink-mute);transition:color .35s}
+.sc-skill .n{font-size:clamp(20px,1.8vw,28px);line-height:1.15;font-weight:500}
+.sc-skill .v{grid-column:2;max-height:0;opacity:0;overflow:hidden;font-size:15px;line-height:1.5;color:var(--ink-soft);text-wrap:pretty;transition:max-height .5s var(--ease),opacity .4s,margin .5s var(--ease)}
+.sc-skill.on,.sc-skill.uses{color:var(--ink)}
+.sc-skill.on .v{max-height:5em;opacity:1;margin-top:6px}
+.sc-skill.on .ic,.sc-skill.uses .ic{color:var(--accent)}
+.sc-skills-desc{display:none}
+.sc-skills-tools{list-style:none;display:flex;flex-wrap:wrap;align-content:flex-start;column-gap:clamp(22px,2.6vw,40px);row-gap:clamp(16px,2.4vh,26px);padding-top:14px}
+.sc-tool{display:flex;flex-direction:column;gap:3px;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.sc-tool .n{font-size:clamp(20px,2vw,30px);white-space:nowrap;color:var(--ink);transition:color .3s}
+.sc-tool .c{font-size:12px;color:var(--ink-mute);white-space:nowrap;transition:color .3s}
+.sc-skills-tools.filtering .sc-tool{opacity:.22}
+.sc-skills-tools.filtering .sc-tool.on{opacity:1;transform:translateY(-3px)}
+.sc-tool.on .c{color:var(--accent)}
+.sc-skills-tools .sc-tool.here{opacity:1}
+.sc-tool.here .n{color:var(--accent)}
 
 /* contacto */
 .sc-contact{min-height:100svh;padding:18vh var(--pad) 0;display:flex;flex-direction:column;gap:clamp(20px,3.4vh,36px);background:var(--accent-fixed);color:#FDFBF6;--ink:#FDFBF6;--ink-soft:rgba(253,251,246,.84);--ink-mute:rgba(253,251,246,.76);--line:rgba(253,251,246,.28);--accent:#FDFBF6}
@@ -268,7 +274,6 @@ html.kb .cur2{opacity:0}
 @media (max-width:1100px){
 .sc-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
 .sc-fact:nth-child(2n+1){padding-left:var(--pad)}
-.sc-about-can ol{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
 }
 @media (max-width:880px){
 /* Abajo se reserva el alto exacto de la foto (980 × 1188 px, de ahí el 1,2122)
@@ -296,28 +301,23 @@ html.kb .cur2{opacity:0}
    cortos la primera frase quedaba tapada por ella */
 .sc-story-sticky{display:flex;flex-direction:column;justify-content:center;gap:clamp(26px,4vh,44px);padding-top:calc(clamp(10px,1.4vw,18px) + 54px)}
 .sc-ficha-card{gap:16px;border-radius:18px}
-/* sobre mí en móvil: el render encima, a media anchura, y qué sé hacer en columna */
+/* sobre mí en móvil: el render encima, a todo el ancho */
 .sc-about{padding-top:14vh}
 .sc-about-main{grid-template-columns:1fr}
 .sc-about-media{width:min(100%,440px)}
-.sc-about-can ol{grid-template-columns:1fr;gap:28px}
 .sc-about-text p{font-size:16px}
 .sc-work-panel{height:150vh}
 .sc-work-card{grid-template-columns:1fr;grid-template-rows:minmax(0,1.05fr) auto;top:calc(var(--nav-h) + var(--title-h) + 3vh);--h:min(66vh,calc(var(--cw) * 1.18),620px)}
-.sc-work-info{border-left:0;border-top:0}
-/* Las herramientas se reparten en varias lineas y se queda quieto el
-desplazamiento lateral del scroll. En una sola linea la fila mide 746px y
-el desplazamiento se llevaba 8 de las 12 fuera de la pantalla. */
-.sc-tool-rows{gap:clamp(24px,3.2vh,34px)}
-.sc-tool-row{justify-content:center;flex-wrap:wrap;transform:translateY(var(--shift-y,0));column-gap:clamp(18px,5vw,30px);row-gap:clamp(14px,2.4vh,22px)}
-.sc-tool-br{display:block;flex:0 0 100%;height:0;margin:0}
-.sc-tool{padding:0;border-left:0;--k:0;align-items:center;text-align:center;
-transform:translateY(calc(var(--k) * -7px)) scale(calc(1 + var(--k) * .055));transform-origin:center bottom;
-opacity:calc(.68 + var(--k) * .32)}
-/* encendido: el nombre pasa de gris a tinta y la categoria se tine de morado.
-   Sin transicion: --k ya cambia en cada fotograma y una transicion lo emborrona. */
-.sc-tool .n{color:color-mix(in oklab,var(--ink-mute),var(--ink) calc(var(--k) * 100%));transition:none}
-.sc-tool .c{color:color-mix(in oklab,var(--ink-mute),var(--accent) calc(var(--k) * 100%))}
+/* habilidades y herramientas en móvil: las disciplinas en rejilla de 2×2, solo icono y
+   nombre; la frase de la elegida va debajo, antes de las herramientas */
+.sc-skills{grid-template-columns:1fr;gap:20px}
+.sc-skills-groups{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sc-skill{grid-template-columns:1fr;row-gap:10px;align-items:start;align-content:start;padding:10px 0}
+.sc-skill .n{font-size:16px}
+.sc-skill .v{display:none}
+.sc-skills-desc{display:block;min-height:3em;font-size:15px;line-height:1.5;color:var(--ink-soft)}
+.sc-skills-tools{column-gap:22px;row-gap:16px;padding-top:0}
+.sc-tool .n{font-size:20px}
 .sc-nav{grid-template-columns:auto minmax(0,1fr) auto;padding-left:16px}
 .sc-nav-links{display:none}
 .sc-nav-now{display:block}
@@ -329,7 +329,7 @@ opacity:calc(.68 + var(--k) * .32)}
 html{scroll-behavior:auto}
 body,button{cursor:auto}
 .cur2{display:none}
-.sc-rev,.sc-ln>span,.sc-chip,.sc-chip-group .l,.sc-hero-bottom,.sc-hero-origin,.sc-work-media img,.sc-tool-row{opacity:1!important;transform:none!important}
+.sc-rev,.sc-ln>span,.sc-chip,.sc-chip-group .l,.sc-hero-bottom,.sc-hero-origin,.sc-work-media img{opacity:1!important;transform:none!important}
 }
 
 .sc-work-media video{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
@@ -377,13 +377,6 @@ body,button{cursor:auto}
 /* sobre mí */
 .sc-about{gap:max(clamp(48px,9vh,96px),calc(6 * var(--u)))}
 .sc-about-main{max-width:max(1320px,calc(92 * var(--u)));gap:max(clamp(32px,5vw,88px),calc(5 * var(--u)))}
-.sc-about-can{max-width:max(1320px,calc(92 * var(--u)));gap:max(clamp(24px,4vh,40px),calc(2.6 * var(--u)))}
-.sc-about-can h3{font-size:max(clamp(24px,2.6vw,40px),calc(2.6 * var(--u)))}
-.sc-about-can ol{gap:max(clamp(40px,6vh,64px),calc(4 * var(--u))) max(clamp(24px,3vw,48px),calc(3 * var(--u)))}
-.sc-about-can li{gap:calc(10px * var(--fz))}
-.sc-about-can .n{font-size:max(clamp(19px,1.6vw,24px),calc(1.6 * var(--u)))}
-.sc-about-can .v{font-size:calc(15px * var(--fz))}
-.sc-about-can .tools span{padding:calc(5px * var(--fz)) calc(11px * var(--fz));font-size:calc(13px * var(--fz))}
 .sc-about-text{gap:max(clamp(20px,3vh,32px),calc(2.2 * var(--u)))}
 .sc-about-text p{font-size:max(clamp(17px,1.45vw,22px),calc(1.45 * var(--u)))}
 /* proyectos: la tarjeta y su imagen crecen con la pantalla */
@@ -394,9 +387,14 @@ body,button{cursor:auto}
 .sc-work-info h3{font-size:max(clamp(30px,3.2vw,54px),calc(3.2 * var(--u)))}
 .sc-work-tags{font-size:calc(14px * var(--fz))}
 .sc-work-go{font-size:calc(15px * var(--fz))}
-/* herramientas */
-.sc-tool{padding:0 max(clamp(16px,2.2vw,34px),calc(2.2 * var(--u)))}
-.sc-tool .n{font-size:max(clamp(19px,2.1vw,32px),calc(2.1 * var(--u)))}
+/* habilidades y herramientas */
+.sc-skills{max-width:max(1320px,calc(92 * var(--u)));gap:max(clamp(32px,5vw,88px),calc(5 * var(--u)))}
+.sc-skill{padding:calc(12px * var(--fz)) 0;column-gap:calc(16px * var(--fz))}
+.sc-skill .ic{width:calc(28px * var(--fz));height:calc(28px * var(--fz))}
+.sc-skill .n{font-size:max(clamp(20px,1.8vw,28px),calc(1.8 * var(--u)))}
+.sc-skill .v{font-size:calc(15px * var(--fz))}
+.sc-skills-tools{column-gap:max(clamp(22px,2.6vw,40px),calc(2.6 * var(--u)));row-gap:max(clamp(16px,2.4vh,26px),calc(1.8 * var(--u)))}
+.sc-tool .n{font-size:max(clamp(20px,2vw,30px),calc(2 * var(--u)))}
 .sc-tool .c{font-size:calc(12px * var(--fz))}
 /* contacto */
 .sc-contact-h{font-size:max(clamp(60px,12.5vw,196px),calc(12.5 * var(--u)))}

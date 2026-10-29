@@ -598,7 +598,6 @@ window.PROJECT_REVERB = {
       kick: "Un altavoz para las mujeres de la industria musical",
       sub: "Datos, testimonios y voces: el eco de lo que no siempre se escucha.",
       chips: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"],
-      hint: "El fondo es el shader del prototipo: mueve el cursor.",
       ui: { tag: "Técnica de sonido", name: "Laura", next: "Próxima voz en", real: "La realidad · 2024", song: "La fiesta", artist: "shego" },
     },
     facts: [
@@ -704,7 +703,6 @@ window.PROJECT_REVERB = {
       kick: "A loudspeaker for women in the music industry",
       sub: "Data, testimonies and voices: the echo of what isn't always heard.",
       chips: ["Responsive web", "Inclusive design", "Design system"],
-      hint: "The background is the prototype's shader: move your cursor.",
       ui: { tag: "Sound technician", name: "Laura", next: "Next voice in", real: "The reality · 2024", song: "La fiesta", artist: "shego" },
     },
     facts: [

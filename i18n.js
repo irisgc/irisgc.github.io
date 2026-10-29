@@ -33,7 +33,7 @@ const DICT = {
         coverVr: { sub: "Rediseño UX de la web del festival", ticker: ["1-3 mayo 2025", "Villarrobledo, Albacete", "Viña Rock"], img: { photo: "projects/assets/vinarock/foto-festival.webp", logo: "projects/assets/vinarock/logo.svg", desk: "projects/assets/vinarock/v2/loop/d-home.webp", phone: ["projects/assets/vinarock/v2/loop/m-home.webp", "projects/assets/vinarock/v2/loop/m-compra1.webp", "projects/assets/vinarock/v2/loop/m-compra2.webp", "projects/assets/vinarock/v2/loop/m-compra3.webp", "projects/assets/vinarock/v2/loop/m-confirmacion.webp"] } } },
       { num: "04", name: "REVERB", nameEm: "Mujeres en la música", tags: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
         // portada en bucle: el shader térmico del prototipo con componentes del UI kit encima (sc-rv-loop.jsx)
-        coverRv: { sub: "Un altavoz para las mujeres de la industria musical", chips: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"], ui: { tag: "Técnica de sonido", name: "Laura", next: "Próxima voz en", real: "La realidad · 2024", song: "La fiesta", artist: "shego" }, img: { logo: "projects/assets/reverb/logo.svg", laura: "projects/assets/reverb/v2/laura.webp", shego: "projects/assets/reverb/v2/shego.webp" } } },
+        coverRv: { ui: { tag: "Técnica de sonido", name: "Laura", next: "Próxima voz en", real: "La realidad · 2024", song: "La fiesta", artist: "shego" }, img: { logo: "projects/assets/reverb/logo.svg", laura: "projects/assets/reverb/v2/laura.webp", shego: "projects/assets/reverb/v2/shego.webp" } } },
     ],
 
     aboutLabel: "Sobre mí",
@@ -67,18 +67,19 @@ const DICT = {
       body: "Llevo cinco años trabajando como ingeniera en diseño industrial en una empresa de fabricación de maquinaria agrícola. Allí he llevado el diseño gráfico y el diseño de producto. Mis últimos proyectos se han centrado en la parte web: diseñé la web oficial y la tienda de repuestos, usando WordPress y Claude Code, la herramienta que me está permitiendo hacer realidad cualquier proyecto digital.",
       // cierre de la presentación: va en su propia línea, en tinta
       close: "Ahora, busco un puesto de diseño de producto digital en el que usar la IA con criterio: yo planteo propuestas y tomo decisiones, ella ejecuta.",
-      skillsH: "Qué sé hacer",
-      can: [
-        { n: "Modelado 3D", v: "Diseño piezas y productos en 3D, tanto técnicos como de presentación.", tools: ["SolidWorks", "Blender"] },
-        { n: "Render e imagen", v: "Renders de producto en Blender, imágenes generadas con IA para cualquier escena y fotografía.", tools: ["Blender", "Magnific"] },
-        { n: "Diseño web", v: "Diseño interfaces y las llevo a una web real.", tools: ["Figma", "WordPress", "Framer"] },
-        { n: "Diseño gráfico y maquetación", v: "Piezas gráficas y documentos maquetados, para imprimir o para pantalla.", tools: ["Illustrator", "Photoshop", "InDesign"] }
-      ]
     },
 
+    // Habilidades y herramientas: cada disciplina enciende sus herramientas en la lista de
+    // `skills` (por nombre). icon: modelado, render, web o grafico (sc-close.jsx).
     skillsLabel: "Caja de herramientas",
     skillsTitle: "Habilidades y herramientas",
     skillsTitleEm: "",
+    can: [
+      { icon: "web", n: "Diseño web", v: "Diseño de interfaces y experiencia de usuario. Desarrollo a través de Claude Code.", tools: ["Figma", "WordPress", "Elementor", "Framer", "Claude Code"] },
+      { icon: "modelado", n: "Modelado 3D", v: "Diseño de producto industrial (CAD) e impresión 3D.", tools: ["SolidWorks", "Blender", "OrangeStorm Giga", "Elegoo Slicer"] },
+      { icon: "render", n: "Render y generación de imagen", v: "Renders de producto a partir de un 3D y generación de imágenes con IA de todo tipo.", tools: ["Blender", "Magnific", "Photoshop"] },
+      { icon: "grafico", n: "Diseño gráfico y maquetación", v: "Creación de material gráfico tanto digital como para impresión.", tools: ["Illustrator", "Photoshop", "InDesign"] }
+    ],
     skills: [
       { name: "Figma", cat: "Diseño UI", lvl: 0.9 },
       { name: "Claude Code", cat: "Prototipado con IA", lvl: 0.85 },
@@ -165,7 +166,7 @@ const DICT = {
       { num: "03", name: "Viña Rock", nameEm: "Festival", tags: ["UX research", "Usability testing", "Information architecture"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
         coverVr: { sub: "UX redesign of the festival's website", ticker: ["1-3 May 2025", "Villarrobledo, Albacete", "Viña Rock"], img: { photo: "projects/assets/vinarock/foto-festival.webp", logo: "projects/assets/vinarock/logo.svg", desk: "projects/assets/vinarock/v2/loop/d-home.webp", phone: ["projects/assets/vinarock/v2/loop/m-home.webp", "projects/assets/vinarock/v2/loop/m-compra1.webp", "projects/assets/vinarock/v2/loop/m-compra2.webp", "projects/assets/vinarock/v2/loop/m-compra3.webp", "projects/assets/vinarock/v2/loop/m-confirmacion.webp"] } } },
       { num: "04", name: "REVERB", nameEm: "Women in music", tags: ["Responsive web", "Inclusive design", "Design system"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
-        coverRv: { sub: "A loudspeaker for women in the music industry", chips: ["Responsive web", "Inclusive design", "Design system"], ui: { tag: "Sound technician", name: "Laura", next: "Next voice in", real: "The reality · 2024", song: "La fiesta", artist: "shego" }, img: { logo: "projects/assets/reverb/logo.svg", laura: "projects/assets/reverb/v2/laura.webp", shego: "projects/assets/reverb/v2/shego.webp" } } },
+        coverRv: { ui: { tag: "Sound technician", name: "Laura", next: "Next voice in", real: "The reality · 2024", song: "La fiesta", artist: "shego" }, img: { logo: "projects/assets/reverb/logo.svg", laura: "projects/assets/reverb/v2/laura.webp", shego: "projects/assets/reverb/v2/shego.webp" } } },
     ],
 
     aboutLabel: "About me",
@@ -194,18 +195,17 @@ const DICT = {
       },
       body: "I've spent five years working as an industrial design engineer at a company that manufactures agricultural machinery. There I've handled both graphic design and product design. My latest projects have focused on the web: I designed the official website and the spare-parts shop, using WordPress and Claude Code, the tool that's letting me bring any digital project to life.",
       close: "Now I'm looking for a digital product design role where I can use AI with judgement: I put forward proposals and make the decisions, it executes.",
-      skillsH: "What I can do",
-      can: [
-        { n: "3D modelling", v: "I design parts and products in 3D, both technical and presentation models.", tools: ["SolidWorks", "Blender"] },
-        { n: "Render and image", v: "Product renders in Blender, AI-generated images for any scene, and photography.", tools: ["Blender", "Magnific"] },
-        { n: "Web design", v: "I design interfaces and turn them into real websites.", tools: ["Figma", "WordPress", "Framer"] },
-        { n: "Graphic design and layout", v: "Graphic pieces and laid-out documents, for print or for screen.", tools: ["Illustrator", "Photoshop", "InDesign"] }
-      ]
     },
 
     skillsLabel: "Toolkit",
     skillsTitle: "Skills and tools",
     skillsTitleEm: "",
+    can: [
+      { icon: "web", n: "Web design", v: "Interface and user experience design. Development with Claude Code.", tools: ["Figma", "WordPress", "Elementor", "Framer", "Claude Code"] },
+      { icon: "modelado", n: "3D modelling", v: "Industrial product design (CAD) and 3D printing.", tools: ["SolidWorks", "Blender", "OrangeStorm Giga", "Elegoo Slicer"] },
+      { icon: "render", n: "Render and image generation", v: "Product renders from 3D models and AI image generation of all kinds.", tools: ["Blender", "Magnific", "Photoshop"] },
+      { icon: "grafico", n: "Graphic design and layout", v: "Graphic material for both digital and print.", tools: ["Illustrator", "Photoshop", "InDesign"] }
+    ],
     skills: [
       { name: "Figma", cat: "UI Design", lvl: 0.9 },
       { name: "Claude Code", cat: "AI Prototyping", lvl: 0.85 },

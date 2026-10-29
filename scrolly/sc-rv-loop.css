@@ -90,6 +90,7 @@
 .rv-col-tag{animation:rvBob 7.5s ease-in-out -1s infinite}
 .rv-loop.is-paused *,.rv-hero.is-paused .rv-col *,.rv-hero.is-paused .rv-col{animation-play-state:paused!important}
 html.rv-calm .rv-col,html.rv-calm .rv-col *{animation:none!important}
+.rv-col.is-still,.rv-col.is-still *{animation:none!important}
 @media (prefers-reduced-motion:reduce){.rv-col,.rv-col *{animation:none!important}}
 
 @keyframes rvWave{0%{scale:1;opacity:.6}100%{scale:1.75;opacity:0}}

@@ -33,7 +33,7 @@ window.SC = {
     },
     workCta: "ver proyecto",
     workCtaLive: "visitar web",
-    covers: ["projects/assets/manezylozano/portada-web.webp", "projects/assets/manezylozano/portada-tienda.webp", "projects/assets/horizonte/foto-escalada.webp", "projects/assets/vinarock/portada-vinarock.webp", "projects/assets/reverb/portada-reverb.webp"],
+    covers: ["projects/assets/manezylozano/portada-web.webp", "projects/assets/horizonte/foto-escalada.webp", "projects/assets/vinarock/portada-vinarock.webp", "projects/assets/reverb/portada-reverb.webp"],
     contactH1: "¿Hablamos?",
     contactH2: "",
   },
@@ -67,7 +67,7 @@ window.SC = {
     },
     workCta: "view project",
     workCtaLive: "visit website",
-    covers: ["projects/assets/manezylozano/portada-web.webp", "projects/assets/manezylozano/portada-tienda.webp", "projects/assets/horizonte/foto-escalada.webp", "projects/assets/vinarock/portada-vinarock.webp", "projects/assets/reverb/portada-reverb.webp"],
+    covers: ["projects/assets/manezylozano/portada-web.webp", "projects/assets/horizonte/foto-escalada.webp", "projects/assets/vinarock/portada-vinarock.webp", "projects/assets/reverb/portada-reverb.webp"],
     contactH1: "Shall we",
     contactH2: "talk?",
   }

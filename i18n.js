@@ -25,14 +25,13 @@ const DICT = {
       // las dos webs publicadas de Mañez y Lozano: van primero, enlazan fuera y
       // en el hueco del año llevan el dominio. Portadas en sc-copy.js, covers.
       { num: "01", name: "Mañez y Lozano", nameEm: "Web oficial", tags: ["Web corporativa", "WordPress", "Claude Code"], year: "manezylozano.com", href: "https://manezylozano.com/", external: true, coverFit: "cover", coverPos: "top" },
-      { num: "02", name: "Mañez y Lozano", nameEm: "Tienda de repuestos", tags: ["Tienda online", "WooCommerce", "Claude Code"], year: "tienda.manezylozano.com", href: "https://tienda.manezylozano.com/", external: true, coverFit: "cover", coverPos: "top" },
-      { num: "03", name: "Horizonte", nameEm: "Aventura", tags: ["App móvil para Android", "UX/UI", "Turismo activo"], year: "2025", href: "projects/horizonte.html", coverFit: "cover",
+      { num: "02", name: "Horizonte", nameEm: "Aventura", tags: ["App móvil para Android", "UX/UI", "Turismo activo"], year: "2025", href: "projects/horizonte.html", coverFit: "cover",
         // portada en bucle (la de Figma, reconstruida en sc-hz-loop.jsx)
         coverLoop: { sub: "App de aventuras con impacto local", img: { photo: "projects/assets/horizonte/foto-escalada.webp", back: "projects/assets/horizonte/pantalla-explorar.webp", front: "projects/assets/horizonte/pantalla-ganar-oscuro.webp", done: "projects/assets/horizonte/pantalla-mision-oscuro.webp" } } },
-      { num: "04", name: "Viña Rock", nameEm: "Festival", tags: ["Investigación UX", "Test de usabilidad", "Arquitectura de la información"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
+      { num: "03", name: "Viña Rock", nameEm: "Festival", tags: ["Investigación UX", "Test de usabilidad", "Arquitectura de la información"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
         // portada en bucle: la home y la compra del prototipo v2 sobre la foto del festival (sc-vr-loop.jsx)
         coverVr: { sub: "Rediseño UX de la web del festival", ticker: ["1-3 mayo 2025", "Villarrobledo, Albacete", "Viña Rock"], img: { photo: "projects/assets/vinarock/foto-festival.webp", logo: "projects/assets/vinarock/logo.svg", desk: "projects/assets/vinarock/v2/loop/d-home.webp", phone: ["projects/assets/vinarock/v2/loop/m-home.webp", "projects/assets/vinarock/v2/loop/m-compra1.webp", "projects/assets/vinarock/v2/loop/m-compra2.webp", "projects/assets/vinarock/v2/loop/m-compra3.webp", "projects/assets/vinarock/v2/loop/m-confirmacion.webp"] } } },
-      { num: "05", name: "REVERB", nameEm: "Mujeres en la música", tags: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
+      { num: "04", name: "REVERB", nameEm: "Mujeres en la música", tags: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
         // portada en bucle: el shader térmico del prototipo con componentes del UI kit encima (sc-rv-loop.jsx)
         coverRv: { sub: "Un altavoz para las mujeres de la industria musical", chips: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"], ui: { tag: "Técnica de sonido", name: "Laura", next: "Próxima voz en", real: "La realidad · 2024", song: "La fiesta", artist: "shego" }, img: { logo: "projects/assets/reverb/logo.svg", laura: "projects/assets/reverb/v2/laura.webp", shego: "projects/assets/reverb/v2/shego.webp" } } },
     ],
@@ -155,12 +154,11 @@ const DICT = {
     workTitleEm: "",
     work: [
       { num: "01", name: "Mañez y Lozano", nameEm: "Official website", tags: ["Corporate website", "WordPress", "Claude Code"], year: "manezylozano.com", href: "https://manezylozano.com/", external: true, coverFit: "cover", coverPos: "top" },
-      { num: "02", name: "Mañez y Lozano", nameEm: "Spare-parts shop", tags: ["Online shop", "WooCommerce", "Claude Code"], year: "tienda.manezylozano.com", href: "https://tienda.manezylozano.com/", external: true, coverFit: "cover", coverPos: "top" },
-      { num: "03", name: "Horizonte", nameEm: "Adventure", tags: ["Android mobile app", "UX/UI", "Adventure tourism"], year: "2025", href: "projects/horizonte.html", coverFit: "cover",
+      { num: "02", name: "Horizonte", nameEm: "Adventure", tags: ["Android mobile app", "UX/UI", "Adventure tourism"], year: "2025", href: "projects/horizonte.html", coverFit: "cover",
         coverLoop: { sub: "Adventure app with local impact", img: { photo: "projects/assets/horizonte/foto-escalada.webp", back: "projects/assets/horizonte/pantalla-explorar.webp", front: "projects/assets/horizonte/pantalla-ganar-oscuro.webp", done: "projects/assets/horizonte/pantalla-mision-oscuro.webp" } } },
-      { num: "04", name: "Viña Rock", nameEm: "Festival", tags: ["UX research", "Usability testing", "Information architecture"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
+      { num: "03", name: "Viña Rock", nameEm: "Festival", tags: ["UX research", "Usability testing", "Information architecture"], year: "2025", href: "projects/vinarock.html", coverFit: "cover",
         coverVr: { sub: "UX redesign of the festival's website", ticker: ["1-3 May 2025", "Villarrobledo, Albacete", "Viña Rock"], img: { photo: "projects/assets/vinarock/foto-festival.webp", logo: "projects/assets/vinarock/logo.svg", desk: "projects/assets/vinarock/v2/loop/d-home.webp", phone: ["projects/assets/vinarock/v2/loop/m-home.webp", "projects/assets/vinarock/v2/loop/m-compra1.webp", "projects/assets/vinarock/v2/loop/m-compra2.webp", "projects/assets/vinarock/v2/loop/m-compra3.webp", "projects/assets/vinarock/v2/loop/m-confirmacion.webp"] } } },
-      { num: "05", name: "REVERB", nameEm: "Women in music", tags: ["Responsive web", "Inclusive design", "Design system"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
+      { num: "04", name: "REVERB", nameEm: "Women in music", tags: ["Responsive web", "Inclusive design", "Design system"], year: "2025", href: "projects/reverb.html", coverFit: "cover",
         coverRv: { sub: "A loudspeaker for women in the music industry", chips: ["Responsive web", "Inclusive design", "Design system"], ui: { tag: "Sound technician", name: "Laura", next: "Next voice in", real: "The reality · 2024", song: "La fiesta", artist: "shego" }, img: { logo: "projects/assets/reverb/logo.svg", laura: "projects/assets/reverb/v2/laura.webp", shego: "projects/assets/reverb/v2/shego.webp" } } },
     ],
 

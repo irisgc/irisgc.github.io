@@ -1,0 +1,181 @@
+/* Home · «Enfoque» como vista explosionada (sc-enfoque.jsx) y «Proyectos» en tres bloques
+   (sc-proyectos.jsx). Los dos capítulos se quedan en crema: la rampa a gris de
+   sc-engine.jsx empieza después, al llegar a «Sobre mí».
+   Respecto al prototipo, sin filetes entre filas ni celdas (la tabla y el cajetín se
+   separan con espacio y color), sin letter-spacing y sin subrayado al pasar el ratón. */
+.pa,.pp{--paper:#FFFEFA;--line-2:#C9BDA6;--accent-soft:#F1E6F8;--night:#1D1A23}
+
+/* ============ Enfoque · vista explosionada ============ */
+.pa{position:relative;height:400vh}
+.pa .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--bg)}
+.sheet{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(31,26,20,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(31,26,20,.045) 1px,transparent 1px);background-size:32px 32px;background-position:-1px -1px}
+/* el marco es el contorno de la lámina, no separa contenido */
+.sheet .frame{position:absolute;inset:14px;border:1px solid var(--line-2)}
+.sheet .ticks{position:absolute;display:flex;justify-content:space-around;font-size:11px;color:var(--ink-mute)}
+.sheet .ticks.h{left:14px;right:14px;top:18px}
+.sheet .ticks.v{top:14px;bottom:90px;left:20px;flex-direction:column}
+.pa-grid{position:relative;z-index:2;height:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(20px,3vw,44px);padding:78px var(--pad) 98px;align-items:center}
+.pa-title{margin-top:14px;font-size:clamp(34px,min(4.5vw,8vh),70px);line-height:1;font-weight:500}
+.pa-sub{margin-top:16px;font-size:clamp(15px,min(1.25vw,2.3vh),19px);line-height:1.45;color:var(--ink-soft);max-width:42ch}
+.bom{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:clamp(16px,3vh,30px);max-width:560px}
+.bom li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;padding:clamp(5px,.9vh,8px) 10px;border-radius:10px;font-size:clamp(14px,1.1vw,16px);transition:color .35s var(--ease),background-color .35s var(--ease)}
+.bom .t small{display:block;max-height:0;opacity:0;overflow:hidden;font-size:13px;line-height:1.35;color:var(--ink-soft);transition:max-height .45s var(--ease),opacity .35s,margin .45s var(--ease)}
+.bom li.on .t small{max-height:3em;margin-top:3px;opacity:1}
+.bom .p{padding-top:2px;font-size:13px;color:var(--ink-mute);transition:color .25s}
+.bom .p:hover,.bom li.on .p{color:var(--accent)}
+.bom li.on{background:var(--accent-soft);color:var(--accent)}
+.pa-stage{position:relative;align-self:stretch;min-height:0}
+.iso-wrap{position:absolute;left:40%;top:52%;width:0;height:0}
+.iso{position:absolute;left:-200px;top:-140px;width:400px;height:280px;transform-style:preserve-3d}
+.layer{--r:12px;position:absolute;inset:0;transform-style:preserve-3d}
+/* cada capa es una lámina con grosor: cara + canto inferior + canto izquierdo (los dos que se ven) */
+.layer .face{position:absolute;inset:0;border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.layer .face::after{content:"";position:absolute;inset:0;z-index:5;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--rim,rgba(31,26,20,.24));pointer-events:none}
+.layer .eb,.layer .el{position:absolute;display:block}
+.layer .eb{left:var(--r);right:var(--r);top:100%;height:var(--th,8px);transform-origin:50% 0;transform:rotateX(-90deg);background:var(--e1,#DCD5C8);box-shadow:inset 0 1px 0 rgba(255,255,255,.32)}
+.layer .el{top:var(--r);bottom:var(--r);right:100%;width:var(--th,8px);transform-origin:100% 50%;transform:rotateY(-90deg);background:var(--e2,#C3BAA9);box-shadow:inset -1px 0 0 rgba(255,255,255,.22)}
+/* esquinas: el canto curvo se aproxima con tramos que se crean al cargar; los que quedan de espaldas no se pintan */
+.layer .rc{position:absolute;display:block;height:var(--th,8px);transform-origin:50% 0;backface-visibility:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.28)}
+/* sombra de contacto entre capas: separa una lámina de la de debajo */
+.layer .lsh{position:absolute;inset:5% 4%;border-radius:var(--r);background:rgba(20,16,12,.55);filter:blur(14px);opacity:var(--sho,0);transform:translateZ(var(--shz,-6px));pointer-events:none}
+.layer .c{position:absolute;width:0;height:0}
+.layer .c0{left:0;top:0}.layer .c1{left:100%;top:0}.layer .c2{left:100%;top:100%}.layer .c3{left:0;top:100%}
+.iso .ground{position:absolute;inset:-6% -4%;transform:translateZ(-34px);background:radial-gradient(closest-side,rgba(31,26,20,.26),rgba(31,26,20,0));filter:blur(10px)}
+.f-hz{background:#262626}
+.f-hz,.f-shot,.f-rv{--rim:rgba(255,255,255,.26)}
+.f-web{display:flex;flex-direction:column;background:#fff}
+.wb-bar{flex:none;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;background:#EFEBE4}
+.wb-bar i{width:7px;height:7px;border-radius:50%;background:#D5CEC2}
+.wb-bar span{margin-left:8px;padding:2px 10px;border-radius:999px;background:#fff;font-size:11px;color:var(--ink-soft)}
+.f-web img{flex:1;min-height:0;width:100%;object-fit:cover;object-position:top}
+/* captura a sangre: se recorta más por la derecha para no perder el logo */
+.f-shot{background:#141110}
+.f-shot img{width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+/* REVERB: el relleno térmico (RvThermal) y el logo centrado */
+.f-rv{background:radial-gradient(60% 70% at 32% 40%,#F7CF0B 0%,#EB5A16 22%,#6A3BE0 52%,#361A6F 78%,#120826 100%)}
+.f-rv .rv-logo{position:absolute;left:50%;top:50%;width:58%;height:auto;transform:translate(-50%,-50%);filter:drop-shadow(0 2px 12px rgba(18,8,38,.6))}
+/* Modelado y render: fotograma del vídeo del configurador, sobre su crema */
+.f-3d{background:#FBFAF5}
+.f-3d img{width:100%;height:100%;object-fit:cover}
+.pa-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.pa-svg.front{z-index:3}
+.pa-svg .ld{stroke:var(--ink-soft);stroke-width:1;fill:none}
+.pa-svg .ld.on{stroke:var(--accent)}
+.pa-svg .dt{fill:var(--ink-soft)}.pa-svg .dt.on{fill:var(--accent)}
+.pa-bals{position:absolute;inset:0;z-index:4;pointer-events:none}
+/* globos: punto + nombre; el activo, en píldora morada */
+.bal{position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;min-height:28px;padding:5px 10px 5px 2px;border-radius:15px;font-size:13px;line-height:1.15;color:var(--ink-soft);white-space:nowrap;opacity:0;transition:background-color .3s,color .3s,padding .3s var(--ease)}
+.bal b{flex:none;width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;background:var(--bg)}
+.bal.on{padding:5px 13px 5px 9px;background:var(--accent);color:#fff}
+.bal.on b{background:#fff;border-color:#fff}
+.pa-hint{position:absolute;left:40%;bottom:3%;z-index:3;transform:translateX(-50%);font-size:13px;line-height:1.5;text-align:center;white-space:nowrap;color:var(--ink-mute)}
+.pa-hint span{color:var(--accent)}
+/* cajetín: un bloque de color al pie de la lámina; cada celda toma el ancho de su texto
+   y lo que sobra se reparte a partes iguales */
+.cajetin{position:absolute;left:15px;right:15px;bottom:15px;z-index:5;display:grid;grid-auto-flow:column;grid-auto-columns:auto;column-gap:clamp(12px,1.6vw,28px);padding:0 4px;background:var(--bg-2)}
+.cajetin>div{display:flex;flex-direction:column;justify-content:flex-start;gap:3px;padding:10px 12px;min-width:0}
+.cajetin .l{font-size:11px;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap}
+.cajetin .v{font-size:13px;line-height:1.3;white-space:pre-line}
+.cajetin .cj-name{font-size:18px;font-weight:500;line-height:1.1}
+.cajetin .cj-m{display:none}
+@media (max-width:880px){
+  .sheet .ticks{display:none}
+  .pa-grid{grid-template-columns:1fr;grid-template-rows:38svh auto;align-items:start;gap:6px;padding:70px 20px 84px}
+  .pa-stage{order:-1}
+  .iso-wrap,.pa-hint{left:50%}
+  .pa-title{font-size:30px;margin-top:8px}
+  .pa-sub{display:none}
+  .bom{margin-top:12px}
+  .bom li{padding:4px 8px;font-size:14px}
+  .bom .t small{font-size:12px}
+  .pa-svg.front,.pa-bals{display:none}
+  .cajetin{grid-auto-flow:row;grid-template-columns:1fr 1.3fr}
+  .cajetin>div{padding:8px 10px}
+  .cajetin>div:nth-child(n+2){display:none}
+  .cajetin>div.cj-m{display:flex}
+}
+
+/* ============ Proyectos ============ */
+.pp-in{max-width:1440px;margin:0 auto;padding:clamp(90px,14vh,140px) var(--pad) 120px;display:flex;flex-direction:column;gap:clamp(64px,9vh,110px)}
+.pp-title{font-size:clamp(40px,5.6vw,88px);line-height:.95;font-weight:500}
+/* cabecera: título, etiqueta a la derecha y subtítulo en su línea */
+.pp-head{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:16px;row-gap:8px;margin-bottom:24px}
+.pp-head h3{font-size:clamp(30px,3.4vw,52px);line-height:1;font-weight:500}
+.pp-head p{flex-basis:100%;font-size:16px;color:var(--ink-mute)}
+.pp-tag{margin-left:auto;align-self:center;font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-mute)}
+.pp .pieces{display:flex;flex-wrap:wrap;gap:6px}
+.pp .pieces span{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;border:1px solid var(--line-2);font-size:12.5px;color:var(--ink-soft)}
+.pp [id^="p-"]{scroll-margin-top:96px}
+/* al llegar desde la tabla de «Enfoque», la tarjeta se resalta un momento */
+.live:target,.case:target,.phys:target{animation:pp-hl 2s var(--ease)}
+@keyframes pp-hl{0%,45%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:0 0 0 0 rgba(124,47,168,0)}}
+.live{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);border-radius:28px;overflow:hidden;background:var(--ink);color:#F6F1E8}
+.live-media{display:flex;flex-direction:column;background:#141110}
+/* reproductor: ocupa todo el lado izquierdo (las esquinas las redondea la tarjeta); si la
+   tarjeta es más alta que 16:9, el vídeo la cubre recortando los lados */
+.lv-player{position:relative;flex:1;aspect-ratio:16/9;overflow:hidden;background:#141110}
+.lv-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.lv-toggle{position:absolute;left:14px;bottom:16px;z-index:2;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(20,16,12,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lv-toggle i{display:block;width:0;height:0;margin-left:3px;border-left:12px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.lv-player.is-playing .lv-toggle i{width:12px;height:14px;margin:0;border:0;background:linear-gradient(90deg,#fff 0 4px,transparent 4px 8px,#fff 8px 12px)}
+.lv-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.16)}
+.lv-bar i{display:block;width:100%;height:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
+.live-info{display:flex;flex-direction:column;gap:16px;padding:clamp(24px,3vw,44px)}
+.live h4{font-size:clamp(32px,3.4vw,52px);line-height:1;font-weight:500}
+.live-sub{font-size:17px;line-height:1.45;color:#D9D0C2;max-width:36ch}
+.live .pieces span{border-color:#4A4237;color:#E6DECF}
+.btn-live{margin-top:auto;align-self:flex-start;padding:12px 20px;border-radius:999px;background:#fff;color:var(--ink);font-size:15px;transition:background-color .3s,color .3s}
+.btn-live:hover{background:var(--accent);color:#fff}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.case{display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:var(--paper);border:1px solid var(--line);transition:opacity .9s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
+.case:hover{color:inherit}
+.case.in:hover{transform:translateY(-6px);box-shadow:0 30px 50px -36px rgba(31,26,20,.45)}
+.case-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg-2)}
+.case-media .bg{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.case:hover .case-media .bg{transform:scale(1.04)}
+.case-media .ph{position:absolute;right:9%;top:16%;width:27%;border-radius:12px;box-shadow:0 0 0 4px var(--night),0 20px 30px -16px rgba(0,0,0,.6)}
+.case-body{flex:1;display:flex;flex-direction:column;gap:14px;padding:20px 22px 22px}
+.case-k{font-size:12px;text-transform:uppercase;color:var(--ink-mute)}
+.case h4{font-size:30px;line-height:1;font-weight:500}
+.case-cta{margin-top:auto;font-size:14px;color:var(--accent);transition:transform .4s var(--ease)}
+.case:hover .case-cta{transform:translateX(4px)}
+.phys{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:16px;padding:16px;border-radius:28px;border:1px solid var(--line-2);background-color:var(--bg);background-image:linear-gradient(rgba(31,26,20,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(31,26,20,.045) 1px,transparent 1px);background-size:24px 24px}
+/* el fondo del vídeo del configurador es el crema liso de la página: se ve entero (contain) */
+.phys-media{display:flex;flex-direction:column;min-width:0}
+.phys-player{border-radius:18px;border:1px solid var(--line);background:#FBFAF5}
+.phys-player .lv-video{object-fit:contain}
+.phys-player .lv-toggle{background:rgba(31,26,20,.55)}
+.phys-cap{position:absolute;left:62px;bottom:24px;padding:5px 10px;border-radius:999px;background:rgba(251,250,245,.94);box-shadow:inset 0 0 0 1px var(--line);font-size:12px;color:var(--ink-soft);pointer-events:none}
+.phys-info{display:flex;flex-direction:column;gap:12px;padding:10px 8px 6px}
+.phys-info h4{font-size:clamp(28px,2.6vw,40px);line-height:1;font-weight:500}
+.phys-info p{font-size:16px;line-height:1.45;color:var(--ink-soft);max-width:36ch}
+@media (max-width:980px){
+  .live,.phys{grid-template-columns:1fr}
+  .cases{grid-template-columns:1fr}
+  .pp-tag{display:none}
+}
+/* en el móvil la etiqueta taparía la máquina: queda solo el botón de pausa */
+@media (max-width:560px){.phys-cap{display:none}}
+
+/* Pantallas grandes (desde 1500 px), como el resto de la home: los titulares crecen
+   con --u y los textos pequeños, las tarjetas y la pila, con --fz (sc-enfoque.jsx lo lee) */
+@media (min-width:1500px){
+  .pa-grid,.pp-in{max-width:calc(1440px * var(--fz))}
+  .pa-title{font-size:max(clamp(34px,min(4.5vw,8vh),70px),calc(4.2 * var(--u)))}
+  .pa-sub{font-size:calc(clamp(15px,min(1.25vw,2.3vh),19px) * var(--fz))}
+  .bom{max-width:calc(560px * var(--fz))}
+  .bom li{font-size:calc(16px * var(--fz))}
+  .bom .t small,.bom .p,.bal,.pa-hint,.cajetin .v{font-size:calc(13px * var(--fz))}
+  .sheet .ticks,.cajetin .l{font-size:calc(11px * var(--fz))}
+  .cajetin .cj-name{font-size:calc(18px * var(--fz))}
+  .pp-title{font-size:max(clamp(40px,5.6vw,88px),calc(5.6 * var(--u)))}
+  .pp-head h3,.live h4{font-size:max(clamp(30px,3.4vw,52px),calc(3.4 * var(--u)))}
+  .phys-info h4{font-size:max(clamp(28px,2.6vw,40px),calc(2.6 * var(--u)))}
+  .pp-head p,.phys-info p{font-size:calc(16px * var(--fz))}
+  .live-sub{font-size:calc(17px * var(--fz))}
+  .btn-live{font-size:calc(15px * var(--fz))}
+  .case h4{font-size:calc(30px * var(--fz))}
+  .case-cta{font-size:calc(14px * var(--fz))}
+  .pp .pieces span{font-size:calc(12.5px * var(--fz))}
+  .pp-tag,.case-k,.phys-cap{font-size:calc(12px * var(--fz))}
+}

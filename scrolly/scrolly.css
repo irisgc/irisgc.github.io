@@ -110,25 +110,7 @@ html.kb .cur2{opacity:0}
 .sc-hero-scroll i{width:1px;height:54px;background:currentColor;transform-origin:top;animation:drip 2.4s var(--ease) infinite}
 @keyframes drip{0%,100%{transform:scaleY(.25);opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
-/* enfoque */
-.sc-story{height:400vh;position:relative}
-.sc-story-sticky{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:minmax(0,1fr) clamp(230px,25vw,330px);align-items:center;gap:clamp(28px,4.4vw,72px);padding:0 var(--pad);max-width:1240px;margin:0 auto}
-.sc-lines{display:flex;flex-direction:column;font-size:clamp(24px,3.5vw,52px);line-height:1.16;font-weight:500}
-.sc-ficha{align-self:center;min-width:0}
-.sc-ficha-card{display:flex;flex-direction:column;gap:clamp(18px,2.4vh,28px);padding:clamp(16px,1.5vw,22px) clamp(16px,1.5vw,22px) clamp(18px,1.8vw,24px);border:1px solid var(--line);border-radius:22px;background:color-mix(in oklab,#fff 62%,var(--bg-2));box-shadow:0 1px 1px rgba(255,255,255,.7) inset,0 10px 30px -22px rgba(31,26,20,.35);will-change:transform,opacity}
-.sc-ficha-card .l{font-size:10.5px;text-transform:uppercase;color:var(--ink-mute)}
-.sc-ficha-card .edu ol{list-style:none;display:flex;flex-direction:column;gap:clamp(10px,1.5vh,15px)}
-.sc-ficha-card .edu li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:9px;transition:opacity .3s var(--ease)}
-.sc-ficha-card .ix{font-size:10.5px;color:var(--ink-mute);padding-top:3px}
-.sc-ficha-card .tx{display:flex;flex-direction:column;gap:2px;font-size:13.5px;line-height:1.28;color:var(--ink);text-wrap:pretty}
-.sc-ficha-card .tx b{font-size:10.5px;font-weight:500;text-transform:uppercase;color:var(--accent)}
 /* base, idiomas y modalidad en una sola fila: en dos, la ficha no cabía en móviles cortos */
-.sc-ficha-card .meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.sc-ficha-card .meta>div{display:flex;flex-direction:column;gap:5px;min-width:0;transition:opacity .3s var(--ease)}
-.sc-ficha-card .v{font-size:13px;line-height:1.3;color:var(--ink);text-wrap:pretty}
-.sc-ln{display:block;overflow:hidden}
-.sc-ln>span{display:block;will-change:transform}
-.sc-ln mark{background:none;color:var(--accent);padding-bottom:.06em}
 .sc-facts{display:grid;grid-template-columns:2.1fr .8fr .6fr .7fr}
 .sc-fact{transition:opacity .35s var(--ease)}
 .sc-fact{padding:clamp(20px,2.4vw,32px) clamp(12px,1.4vw,24px) clamp(20px,2.4vw,32px) 0;display:flex;flex-direction:column;gap:7px;min-width:0}
@@ -150,28 +132,6 @@ html.kb .cur2{opacity:0}
 .sc-about-text p{max-width:56ch;font-size:clamp(17px,1.45vw,22px);line-height:1.6;color:var(--ink-soft);text-wrap:pretty}
 .sc-about-text p.close{margin-top:calc(clamp(20px,3vh,32px) * -.4);color:var(--ink)}
 
-/* trabajo */
-.sc-work{--nav-h:calc(clamp(10px,1.4vw,18px) + 54px);--title-h:clamp(34px,5.4vw,84px)}
-.sc-work-head{position:sticky;top:calc(var(--nav-h) - 20vh);z-index:6;padding:20vh var(--pad) 3.2vh;display:flex;flex-direction:column;gap:20px;background:var(--bg)}
-.sc-work-head .sc-lead{max-width:none;white-space:nowrap}
-@media (max-width:880px){.sc-work-head .sc-lead{white-space:normal}}
-.sc-work-panel{height:168vh;position:relative}
-.sc-work-panel.last{height:112vh}
-.sc-work-card{--cw:calc(100vw - 2 * var(--pad));--h:min(60vh,calc(var(--cw) * .38),540px);position:sticky;top:calc(var(--nav-h) + var(--title-h) + 5vh);height:var(--h);margin:2.6vh var(--pad) 0;border-radius:14px;overflow:hidden;background:color-mix(in oklab,#FFFFFF 86%,var(--bg-2));box-shadow:0 28px 60px -26px color-mix(in oklab,#3A2E1E 34%,transparent),0 8px 22px -10px color-mix(in oklab,#3A2E1E 16%,transparent);display:grid;grid-template-columns:minmax(0,1.52fr) minmax(280px,1fr);will-change:transform;transition:background-color .25s linear,box-shadow .35s var(--ease)}
-.sc-work-card:hover{color:inherit;box-shadow:0 34px 70px -26px color-mix(in oklab,#3A2E1E 42%,transparent),0 10px 26px -10px color-mix(in oklab,#3A2E1E 18%,transparent)}
-.sc-work-media{position:relative;overflow:hidden;background:var(--tone-1);display:grid;place-items:center;transition:background-color .25s linear}
-.sc-work-media img{align-self:stretch;justify-self:stretch;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;padding:clamp(10px,1.4vw,22px);transition:opacity .8s var(--ease)}
-.sc-work-media img.is-cover{object-fit:cover;padding:0}
-.sc-work-media .ghost{font-size:clamp(38px,6.4vw,104px);line-height:.9;color:var(--tone-3);text-align:center}
-.sc-work-info{position:relative;padding:clamp(24px,2.6vw,44px);padding-right:clamp(24px,2.6vw,44px);display:flex;flex-direction:column;gap:clamp(12px,1.4vh,18px)}
-.sc-work-info h3{margin-top:clamp(6px,1.2vh,14px)}
-.sc-work-info h3{font-size:clamp(30px,3.2vw,54px);line-height:1.02;font-weight:500}
-.sc-work-info h3 em{display:block;color:var(--ink-mute)}
-.sc-work-year{position:absolute;top:clamp(24px,2.6vw,44px);right:clamp(24px,2.6vw,44px);font-size:13px;color:var(--ink-mute);font-variant-numeric:tabular-nums}
-.sc-work-tags{font-size:14px;line-height:1.6;color:var(--ink-soft);text-wrap:pretty}
-.sc-work-go{margin-top:auto;font-size:15px;color:var(--accent);display:inline-flex;align-items:center;gap:9px}
-.sc-work-go i{display:block;width:15px;height:1px;background:currentColor;transition:width .4s var(--ease)}
-.sc-work-card:hover .sc-work-go i{width:34px}
 
 /* herramientas */
 .sc-toolkit{padding:18vh var(--pad);display:flex;flex-direction:column;gap:18px;overflow:clip}
@@ -296,18 +256,11 @@ html.kb .cur2{opacity:0}
 .sc-hero-tag{padding-right:56px}
 .sc-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
 .sc-fact:nth-child(2n+1){padding-left:var(--pad);border-left:0}
-.sc-story{height:340vh}
-/* se centra en el hueco que deja la barra, no en toda la pantalla: en móviles
-   cortos la primera frase quedaba tapada por ella */
-.sc-story-sticky{display:flex;flex-direction:column;justify-content:center;gap:clamp(26px,4vh,44px);padding-top:calc(clamp(10px,1.4vw,18px) + 54px)}
-.sc-ficha-card{gap:16px;border-radius:18px}
 /* sobre mí en móvil: el render encima, a todo el ancho */
 .sc-about{padding-top:14vh}
 .sc-about-main{grid-template-columns:1fr}
 .sc-about-media{width:min(100%,440px)}
 .sc-about-text p{font-size:16px}
-.sc-work-panel{height:150vh}
-.sc-work-card{grid-template-columns:1fr;grid-template-rows:minmax(0,1.05fr) auto;top:calc(var(--nav-h) + var(--title-h) + 3vh);--h:min(66vh,calc(var(--cw) * 1.18),620px)}
 /* habilidades y herramientas en móvil: las disciplinas en rejilla de 2×2, solo icono y
    nombre; la frase de la elegida va debajo, antes de las herramientas */
 .sc-skills{grid-template-columns:1fr;gap:20px}
@@ -329,12 +282,9 @@ html.kb .cur2{opacity:0}
 html{scroll-behavior:auto}
 body,button{cursor:auto}
 .cur2{display:none}
-.sc-rev,.sc-ln>span,.sc-chip,.sc-chip-group .l,.sc-hero-bottom,.sc-hero-origin,.sc-work-media img{opacity:1!important;transform:none!important}
+.sc-rev,.sc-chip,.sc-chip-group .l,.sc-hero-bottom,.sc-hero-origin{opacity:1!important;transform:none!important}
 }
 
-.sc-work-media video{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
-.sc-work-veil{position:absolute;inset:0;background:rgba(0,0,0,.6);pointer-events:none}
-.sc-work-media img.sc-work-logo{position:absolute!important;top:50%;left:50%;width:clamp(140px,42%,460px)!important;height:auto!important;max-height:58%;padding:0;place-self:center;transform:translate(-50%,-50%);object-fit:contain}
 
 /* =====================================================================
    Pantallas grandes (desde 1500 px de ancho)
@@ -357,21 +307,11 @@ body,button{cursor:auto}
    a lado; en 16:9 y 16:10 sigue siendo el de siempre. Solo en las secciones de
    la home, que lo usan en horizontal: las páginas de caso lo usan también en
    vertical y ahí crecería el espacio entre bloques. */
-.sc-hero,.sc-story,.sc-work,.sc-about,.sc-toolkit,.sc-contact{--pad:max(clamp(20px,3.6vw,64px),calc((100vw - 210svh) / 2 + 64px))}
+.sc-hero,.pa,.pp,.sc-about,.sc-toolkit,.sc-contact{--pad:max(clamp(20px,3.6vw,64px),calc((100vw - 210svh) / 2 + 64px))}
 .sc-hero{padding-bottom:clamp(20px,3.6vw,64px)}
 .sc-h2{font-size:max(clamp(34px,5.4vw,84px),calc(5.4 * var(--u)))}
 .sc-lead{font-size:max(clamp(16px,1.5vw,20px),calc(1.39 * var(--u)))}
 .sc-kick{font-size:calc(13px * var(--fz))}
-/* enfoque: las frases y la ficha */
-.sc-story-sticky{max-width:max(1240px,calc(86 * var(--u)));grid-template-columns:minmax(0,1fr) calc(clamp(230px,25vw,330px) * var(--fz));gap:max(clamp(28px,4.4vw,72px),calc(4.4 * var(--u)))}
-.sc-lines{font-size:max(clamp(24px,3.5vw,52px),calc(3.5 * var(--u)))}
-.sc-ficha-card{gap:calc(clamp(18px,2.4vh,28px) * var(--fz));padding:calc(22px * var(--fz)) calc(22px * var(--fz)) calc(24px * var(--fz));border-radius:calc(22px * var(--fz))}
-.sc-ficha-card .l,.sc-ficha-card .ix,.sc-ficha-card .tx b{font-size:calc(10.5px * var(--fz))}
-.sc-ficha-card .edu ol{gap:calc(clamp(10px,1.5vh,15px) * var(--fz))}
-.sc-ficha-card .edu li{grid-template-columns:calc(20px * var(--fz)) minmax(0,1fr);gap:calc(9px * var(--fz))}
-.sc-ficha-card .tx{font-size:calc(13.5px * var(--fz))}
-.sc-ficha-card .meta{gap:calc(12px * var(--fz))}
-.sc-ficha-card .v{font-size:calc(13px * var(--fz))}
 .sc-fact .k{font-size:calc(12px * var(--fz))}
 .sc-fact .v{font-size:calc(16px * var(--fz))}
 /* sobre mí */
@@ -379,14 +319,6 @@ body,button{cursor:auto}
 .sc-about-main{max-width:max(1320px,calc(92 * var(--u)));gap:max(clamp(32px,5vw,88px),calc(5 * var(--u)))}
 .sc-about-text{gap:max(clamp(20px,3vh,32px),calc(2.2 * var(--u)))}
 .sc-about-text p{font-size:max(clamp(17px,1.45vw,22px),calc(1.45 * var(--u)))}
-/* proyectos: la tarjeta y su imagen crecen con la pantalla */
-.sc-work{--title-h:max(clamp(34px,5.4vw,84px),calc(5.4 * var(--u)))}
-.sc-work-card{--h:min(60vh,calc(var(--cw) * .38),max(540px,calc(37.5 * var(--u))));grid-template-columns:minmax(0,1.52fr) minmax(calc(280px * var(--fz)),1fr);border-radius:calc(14px * var(--fz))}
-.sc-work-info{padding:max(clamp(24px,2.6vw,44px),calc(2.6 * var(--u)));gap:calc(clamp(12px,1.4vh,18px) * var(--fz))}
-.sc-work-year{top:max(clamp(24px,2.6vw,44px),calc(2.6 * var(--u)));right:max(clamp(24px,2.6vw,44px),calc(2.6 * var(--u)));font-size:calc(13px * var(--fz))}
-.sc-work-info h3{font-size:max(clamp(30px,3.2vw,54px),calc(3.2 * var(--u)))}
-.sc-work-tags{font-size:calc(14px * var(--fz))}
-.sc-work-go{font-size:calc(15px * var(--fz))}
 /* habilidades y herramientas */
 .sc-skills{max-width:max(1320px,calc(92 * var(--u)));gap:max(clamp(32px,5vw,88px),calc(5 * var(--u)))}
 .sc-skill{padding:calc(12px * var(--fz)) 0;column-gap:calc(16px * var(--fz))}

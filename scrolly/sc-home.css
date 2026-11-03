@@ -68,8 +68,6 @@
 .bal b{flex:none;width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;background:var(--bg)}
 .bal.on{padding:5px 13px 5px 9px;background:var(--accent);color:#fff}
 .bal.on b{background:#fff;border-color:#fff}
-.pa-hint{position:absolute;left:40%;bottom:3%;z-index:3;transform:translateX(-50%);font-size:13px;line-height:1.5;text-align:center;white-space:nowrap;color:var(--ink-mute)}
-.pa-hint span{color:var(--accent)}
 /* cajetín: un bloque de color al pie de la lámina; cada celda toma el ancho de su texto
    y lo que sobra se reparte a partes iguales */
 .cajetin{position:absolute;left:15px;right:15px;bottom:15px;z-index:5;display:grid;grid-auto-flow:column;grid-auto-columns:auto;column-gap:clamp(12px,1.6vw,28px);padding:0 4px;background:var(--bg-2)}
@@ -82,7 +80,7 @@
   .sheet .ticks{display:none}
   .pa-grid{grid-template-columns:1fr;grid-template-rows:38svh auto;align-items:start;gap:6px;padding:70px 20px 84px}
   .pa-stage{order:-1}
-  .iso-wrap,.pa-hint{left:50%}
+  .iso-wrap{left:50%}
   .pa-title{font-size:30px;margin-top:8px}
   .pa-sub{display:none}
   .bom{margin-top:12px}
@@ -98,64 +96,137 @@
 /* ============ Proyectos ============ */
 .pp-in{max-width:1440px;margin:0 auto;padding:clamp(90px,14vh,140px) var(--pad) 120px;display:flex;flex-direction:column;gap:clamp(64px,9vh,110px)}
 .pp-title{font-size:clamp(40px,5.6vw,88px);line-height:.95;font-weight:500}
-/* cabecera: título, etiqueta a la derecha y subtítulo en su línea */
+/* cabecera: título y, a la derecha, la etiqueta */
 .pp-head{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:16px;row-gap:8px;margin-bottom:24px}
 .pp-head h3{font-size:clamp(30px,3.4vw,52px);line-height:1;font-weight:500}
-.pp-head p{flex-basis:100%;font-size:16px;color:var(--ink-mute)}
 .pp-tag{margin-left:auto;align-self:center;font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-mute)}
 .pp .pieces{display:flex;flex-wrap:wrap;gap:6px}
 .pp .pieces span{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;border:1px solid var(--line-2);font-size:12.5px;color:var(--ink-soft)}
 .pp [id^="p-"]{scroll-margin-top:96px}
 /* al llegar desde la tabla de «Enfoque», la tarjeta se resalta un momento */
 .live:target,.case:target,.phys:target{animation:pp-hl 2s var(--ease)}
-@keyframes pp-hl{0%,45%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:0 0 0 0 rgba(124,47,168,0)}}
-.live{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);border-radius:28px;overflow:hidden;background:var(--ink);color:#F6F1E8}
-.live-media{display:flex;flex-direction:column;background:#141110}
+@keyframes pp-hl{0%,45%{box-shadow:0 0 0 3px var(--accent),var(--card-sh)}100%{box-shadow:0 0 0 0 rgba(124,47,168,0),var(--card-sh)}}
+/* las tres clases de tarjeta (en producción, casos de estudio y 3D) tienen el mismo aspecto:
+   fondo de papel sin borde, una sombra suave detrás y esquinas de 20 px; el vídeo o la imagen
+   llena su hueco. La sombra va en --card-sh para que el resaltado al llegar desde la tabla la mantenga */
+.live,.case,.phys{--card-sh:0 1px 2px rgba(31,26,20,.06),0 14px 34px -14px rgba(31,26,20,.2);border-radius:20px;overflow:hidden;background:var(--paper);box-shadow:var(--card-sh);color:var(--ink)}
+.live,.phys{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}
+.live-media,.phys-media{display:flex;flex-direction:column;min-width:0;background:var(--bg-2)}
 /* reproductor: ocupa todo el lado izquierdo (las esquinas las redondea la tarjeta); si la
    tarjeta es más alta que 16:9, el vídeo la cubre recortando los lados */
-.lv-player{position:relative;flex:1;aspect-ratio:16/9;overflow:hidden;background:#141110}
+.lv-player{position:relative;flex:1;aspect-ratio:16/9;overflow:hidden;background:var(--bg-2)}
 .lv-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
 .lv-toggle{position:absolute;left:14px;bottom:16px;z-index:2;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(20,16,12,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .lv-toggle i{display:block;width:0;height:0;margin-left:3px;border-left:12px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
 .lv-player.is-playing .lv-toggle i{width:12px;height:14px;margin:0;border:0;background:linear-gradient(90deg,#fff 0 4px,transparent 4px 8px,#fff 8px 12px)}
-.lv-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.16)}
+/* pantalla completa: el mismo botón redondo que el de pausa, en la esquina contraria. Al ampliar,
+   el vídeo lleva los controles del navegador (pausa y barra para adelantar o volver atrás) */
+.lv-full{position:absolute;right:14px;bottom:16px;z-index:2;display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:50%;background:rgba(20,16,12,.62);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);cursor:pointer}
+.lv-full svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.lv-video:fullscreen{object-fit:contain}
+.lv-video:-webkit-full-screen{object-fit:contain}
+.lv-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(31,26,20,.14)}
 .lv-bar i{display:block;width:100%;height:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
-.live-info{display:flex;flex-direction:column;gap:16px;padding:clamp(24px,3vw,44px)}
-.live h4{font-size:clamp(32px,3.4vw,52px);line-height:1;font-weight:500}
-.live-sub{font-size:17px;line-height:1.45;color:#D9D0C2;max-width:36ch}
-.live .pieces span{border-color:#4A4237;color:#E6DECF}
-.btn-live{margin-top:auto;align-self:flex-start;padding:12px 20px;border-radius:999px;background:#fff;color:var(--ink);font-size:15px;transition:background-color .3s,color .3s}
+.live-info,.phys-info{display:flex;flex-direction:column;gap:16px;padding:clamp(24px,3vw,44px)}
+.live h4,.phys-info h4{font-size:clamp(32px,3.4vw,52px);line-height:1;font-weight:500}
+.live-sub,.phys-info p{font-size:17px;line-height:1.45;color:var(--ink-soft);max-width:36ch}
+.btn-live{margin-top:auto;align-self:flex-start;padding:12px 20px;border-radius:999px;background:var(--ink);color:#fff;font-size:15px;transition:background-color .3s,color .3s}
 .btn-live:hover{background:var(--accent);color:#fff}
 .cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.case{display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:var(--paper);border:1px solid var(--line);transition:opacity .9s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
+.case{display:flex;flex-direction:column;transition:opacity .9s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
 .case:hover{color:inherit}
-.case.in:hover{transform:translateY(-6px);box-shadow:0 30px 50px -36px rgba(31,26,20,.45)}
+.case.in:hover{transform:translateY(-6px);box-shadow:0 2px 4px rgba(31,26,20,.06),0 30px 50px -26px rgba(31,26,20,.32)}
 .case-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg-2)}
 .case-media .bg{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .case:hover .case-media .bg{transform:scale(1.04)}
-.case-media .ph{position:absolute;right:9%;top:16%;width:27%;border-radius:12px;box-shadow:0 0 0 4px var(--night),0 20px 30px -16px rgba(0,0,0,.6)}
 .case-body{flex:1;display:flex;flex-direction:column;gap:14px;padding:20px 22px 22px}
 .case-k{font-size:12px;text-transform:uppercase;color:var(--ink-mute)}
 .case h4{font-size:30px;line-height:1;font-weight:500}
 .case-cta{margin-top:auto;font-size:14px;color:var(--accent);transition:transform .4s var(--ease)}
 .case:hover .case-cta{transform:translateX(4px)}
-.phys{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:16px;padding:16px;border-radius:28px;border:1px solid var(--line-2);background-color:var(--bg);background-image:linear-gradient(rgba(31,26,20,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(31,26,20,.045) 1px,transparent 1px);background-size:24px 24px}
-/* el fondo del vídeo del configurador es el crema liso de la página: se ve entero (contain) */
-.phys-media{display:flex;flex-direction:column;min-width:0}
-.phys-player{border-radius:18px;border:1px solid var(--line);background:#FBFAF5}
-.phys-player .lv-video{object-fit:contain}
-.phys-player .lv-toggle{background:rgba(31,26,20,.55)}
-.phys-cap{position:absolute;left:62px;bottom:24px;padding:5px 10px;border-radius:999px;background:rgba(251,250,245,.94);box-shadow:inset 0 0 0 1px var(--line);font-size:12px;color:var(--ink-soft);pointer-events:none}
-.phys-info{display:flex;flex-direction:column;gap:12px;padding:10px 8px 6px}
-.phys-info h4{font-size:clamp(28px,2.6vw,40px);line-height:1;font-weight:500}
-.phys-info p{font-size:16px;line-height:1.45;color:var(--ink-soft);max-width:36ch}
+/* 3D: el fondo del vídeo del configurador es el crema liso de la página */
+/* estado del proyecto («En desarrollo»): texto con punto morado, al pie de la tarjeta,
+   donde los casos llevan «Ver caso» */
+.phys-state{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft)}
+.phys-state::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.phys-player{background:#FBFAF5}
+.phys-player .lv-toggle,.phys-player .lv-full{background:rgba(31,26,20,.55)}
 @media (max-width:980px){
   .live,.phys{grid-template-columns:1fr}
   .cases{grid-template-columns:1fr}
   .pp-tag{display:none}
 }
-/* en el móvil la etiqueta taparía la máquina: queda solo el botón de pausa */
-@media (max-width:560px){.phys-cap{display:none}}
+
+/* ============ «Sobre mí»: el jarrón por los ocho oficios (sc-about-anim.js) ============ */
+/* mismo cuadrado y mismo fundido en los bordes que tenía el vídeo; los tamaños de letra van en
+   unidades del dibujo (1000 × 1000), así que crecen y menguan con él */
+.sc-about-media .sc-about-anim{width:100%;height:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 7%,#000 93%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 7%,#000 93%,transparent);mask-composite:intersect}
+.sc-about-anim svg{display:block;width:100%;height:100%}
+.sc-about-anim text{font-family:var(--font);fill:#1F1A14}
+.sc-about-anim .st{opacity:0;transition:opacity .5s var(--ease)}
+.sc-about-anim [data-s="0"] .st0,.sc-about-anim [data-s="1"] .st1,.sc-about-anim [data-s="2"] .st2,.sc-about-anim [data-s="3"] .st3,
+.sc-about-anim [data-s="4"] .st4,.sc-about-anim [data-s="5"] .st5,.sc-about-anim [data-s="6"] .st6,.sc-about-anim [data-s="7"] .st7{opacity:1}
+.sc-about-anim .cap-t{font-size:32px;font-weight:500}
+.sc-about-anim .tick{fill:#C9BDA6;transition:fill .3s}
+.sc-about-anim .tick.on{fill:#7C2FA8}
+.sc-about-anim .back{opacity:.25}
+.sc-about-anim .dimt{font-size:23px;fill:#776A56}
+.sc-about-anim .cj text{font-size:15px;fill:#463C2E;letter-spacing:.04em}
+.sc-about-anim .exif{font-size:21px;letter-spacing:.06em;fill:#463C2E;white-space:pre}
+.sc-about-anim .stit{font-size:26px;font-weight:500}
+.sc-about-anim .slbl{font-size:20px;fill:#463C2E}
+.sc-about-anim .big{font-size:96px;font-weight:600;letter-spacing:-.02em}
+.sc-about-anim .sub{font-size:22px;fill:#776A56}
+.sc-about-anim .url{font-size:15px;fill:#776A56}
+.sc-about-anim .logo{font-size:26px;font-weight:600}
+.sc-about-anim .nav{font-size:19px;fill:#463C2E;white-space:pre}
+.sc-about-anim .h{font-size:50px;font-weight:600;letter-spacing:-.01em}
+.sc-about-anim .btn{font-size:21px;font-weight:500;fill:#fff}
+
+/* ============ «Habilidades y herramientas»: bloques sin icono y al ritmo del scroll (sc-close.js) ============ */
+.sc-skill{grid-template-columns:minmax(0,1fr);text-align:left}
+.sc-skill .v{grid-column:1}
+/* bloque activo: el título crece y pasa a morado, con transición para que se vea el paso de uno a otro */
+.sc-skill .n{transition:font-size .55s var(--ease),color .4s var(--ease)}
+.sc-skill.on .n{font-size:clamp(28px,2.6vw,40px)}
+@media (max-width:880px){.sc-skill.on .n{font-size:20px}}
+@media (min-width:1500px){.sc-skill.on .n{font-size:max(clamp(28px,2.6vw,40px),calc(2.6 * var(--u)))}}
+@media (prefers-reduced-motion:reduce){.sc-skill .n{transition:none}}
+.sc-toolkit-box{display:flex;flex-direction:column;gap:18px}
+/* fija mientras se recorren los bloques: cada uno tiene 55svh de scroll */
+.sc-toolkit.pinned{height:calc(100svh + var(--n) * 55svh);padding-top:0;padding-bottom:0}
+/* el título del bloque activo, en morado */
+.sc-skill.on .n{color:var(--accent)}
+/* programas: cuadrícula de casillas cuadradas iguales; en cada una, logo, nombre y categoría centrados.
+   Las del bloque activo se ven enteras (y suben un poco); las demás, atenuadas */
+.sc-skills-tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding-top:0}
+.sc-tool{aspect-ratio:1;justify-content:center;align-items:center;gap:3px;padding:10px 12px;text-align:center;border-radius:16px;background:#FFFEFA;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px -12px rgba(31,26,20,.2)}
+.sc-tool .lgb{display:flex;align-items:center;justify-content:center;width:100%;height:50px;margin-bottom:8px}
+.sc-tool .lg{display:block;height:44px;width:auto;max-width:100%}
+/* los logotipos alargados (Magnific, SolidWorks) ocupan el ancho útil de la casilla */
+.sc-tool .lg.wide{height:auto;width:100%}
+.sc-tool .n{font-size:15px;line-height:1.2;font-weight:500;white-space:normal}
+.sc-tool .c{line-height:1.25;white-space:normal}
+@media (max-width:880px){
+  .sc-skills-tools{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .sc-tool{padding:8px 6px}
+  .sc-tool .lgb{height:32px;margin-bottom:4px}
+  .sc-tool .lg{height:28px}
+  .sc-tool .n{font-size:13px}
+  .sc-tool .c{font-size:11px}
+}
+@media (min-width:1500px){
+  .sc-skills-tools{gap:calc(12px * var(--fz))}
+  .sc-tool .lgb{height:calc(50px * var(--fz))}
+  .sc-tool .lg{height:calc(44px * var(--fz))}
+  .sc-tool .n{font-size:calc(15px * var(--fz))}
+}
+.sc-toolkit.pinned .sc-toolkit-in{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:56px}
+
+/* ============ Contacto ============ */
+/* sin «Última actualización», el CV pasa a la última columna, alineado a la derecha como estaba la fecha
+   (en el móvil, la segunda de dos, igual que antes) */
+.sc-contact-grid>button.sc-contact-block{grid-column:-2}
 
 /* Pantallas grandes (desde 1500 px), como el resto de la home: los titulares crecen
    con --u y los textos pequeños, las tarjetas y la pila, con --fz (sc-enfoque.jsx lo lee) */
@@ -165,17 +236,15 @@
   .pa-sub{font-size:calc(clamp(15px,min(1.25vw,2.3vh),19px) * var(--fz))}
   .bom{max-width:calc(560px * var(--fz))}
   .bom li{font-size:calc(16px * var(--fz))}
-  .bom .t small,.bom .p,.bal,.pa-hint,.cajetin .v{font-size:calc(13px * var(--fz))}
+  .bom .t small,.bom .p,.bal,.cajetin .v{font-size:calc(13px * var(--fz))}
   .sheet .ticks,.cajetin .l{font-size:calc(11px * var(--fz))}
   .cajetin .cj-name{font-size:calc(18px * var(--fz))}
   .pp-title{font-size:max(clamp(40px,5.6vw,88px),calc(5.6 * var(--u)))}
-  .pp-head h3,.live h4{font-size:max(clamp(30px,3.4vw,52px),calc(3.4 * var(--u)))}
-  .phys-info h4{font-size:max(clamp(28px,2.6vw,40px),calc(2.6 * var(--u)))}
-  .pp-head p,.phys-info p{font-size:calc(16px * var(--fz))}
-  .live-sub{font-size:calc(17px * var(--fz))}
+  .pp-head h3,.live h4,.phys-info h4{font-size:max(clamp(30px,3.4vw,52px),calc(3.4 * var(--u)))}
+  .live-sub,.phys-info p{font-size:calc(17px * var(--fz))}
   .btn-live{font-size:calc(15px * var(--fz))}
   .case h4{font-size:calc(30px * var(--fz))}
-  .case-cta{font-size:calc(14px * var(--fz))}
+  .case-cta,.phys-state{font-size:calc(14px * var(--fz))}
   .pp .pieces span{font-size:calc(12.5px * var(--fz))}
-  .pp-tag,.case-k,.phys-cap{font-size:calc(12px * var(--fz))}
+  .pp-tag,.case-k{font-size:calc(12px * var(--fz))}
 }

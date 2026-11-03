@@ -4,6 +4,15 @@ Se hacen sobre una copia local de la web publicada (carpeta `web/`). Esa copia p
 
 Antes de la próxima publicación desde el proyecto de origen hay que pasar estos cambios a ese proyecto. Si no, esa publicación los deshace.
 
+## Cómo seguir en casa
+
+Todo está en GitHub, en la rama `cambios-2026-11-03` del repositorio `irisgc/irisgc.github.io`, junto a este archivo. La web publicada (rama `main`) no ha cambiado.
+
+1. En el ordenador de casa, abre el proyecto de origen con Claude Code y pídele algo así:
+   > Trae la rama `cambios-2026-11-03` de github.com/irisgc/irisgc.github.io y pasa al proyecto los cambios que explica su `cambios-web.md`, de uno en uno. Copia también los archivos nuevos o sustituidos: `assets/herramientas/*.svg`, `projects/assets/horizonte/portada-horizonte.webp`, `projects/assets/configurador/capa.webp` y `scrolly/sc-about-anim.js`.
+2. Mira la web en local y publícala como siempre. La publicación rehace la rama `main`, y la web se actualiza.
+3. No fusiones esta rama con `main`. Publicaría la web sin pasar por el proyecto de origen, y la siguiente publicación lo desharía. Además, este archivo quedaría a la vista en la web. Cuando ya esté publicado, puedes borrar la rama.
+
 ## 03/11/2026 · «Enfoque»: título, entradilla y aviso
 
 1. **Título:** «Mi sistema de diseño.» pasa a «Lo que hago.». En inglés, «My design system.» pasa a «What I do.».

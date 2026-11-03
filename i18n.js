@@ -103,7 +103,7 @@ const DICT = {
     contactHEm: "",
     contactCta: "",
     blocks: [
-      { l: "LinkedIn", v: "Iris García", href: "https://www.linkedin.com/in/iris-garc%C3%ADa-0304a4206/" },
+      { l: "LinkedIn", v: "Iris García", href: "https://www.linkedin.com/in/irisgarciac/" },
       // `cv: true`: no es un enlace, abre la ventana del CV (scrolly/sc-cv.jsx)
       { l: "CV", v: "Descargar CV (PDF)", cv: true },
     ],
@@ -230,7 +230,7 @@ const DICT = {
     contactHEm: "",
     contactCta: "",
     blocks: [
-      { l: "LinkedIn", v: "Iris García", href: "https://www.linkedin.com/in/iris-garc%C3%ADa-0304a4206/" },
+      { l: "LinkedIn", v: "Iris García", href: "https://www.linkedin.com/in/irisgarciac/" },
       { l: "CV", v: "Download CV (PDF)", cv: true },
     ],
 

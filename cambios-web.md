@@ -8,10 +8,29 @@ Antes de la próxima publicación desde el proyecto de origen hay que pasar esto
 
 Todo está en GitHub, en la rama `cambios-2026-11-03` del repositorio `irisgc/irisgc.github.io`, junto a este archivo. La web publicada (rama `main`) no ha cambiado.
 
-1. En el ordenador de casa, abre el proyecto de origen con Claude Code y pídele algo así:
-   > Trae la rama `cambios-2026-11-03` de github.com/irisgc/irisgc.github.io y pasa al proyecto los cambios que explica su `cambios-web.md`, de uno en uno. Copia también los archivos nuevos o sustituidos: `assets/herramientas/*.svg`, `projects/assets/horizonte/portada-horizonte.webp`, `projects/assets/configurador/capa.webp` y `scrolly/sc-about-anim.js`.
-2. Mira la web en local y publícala como siempre. La publicación rehace la rama `main`, y la web se actualiza.
-3. No fusiones esta rama con `main`. Publicaría la web sin pasar por el proyecto de origen, y la siguiente publicación lo desharía. Además, este archivo quedaría a la vista en la web. Cuando ya esté publicado, puedes borrar la rama.
+1. En el ordenador de casa, abre Claude Code en la carpeta del proyecto con el que publicas el portfolio.
+2. Copia el mensaje de abajo (con el botón de copiar del recuadro) y pégaselo.
+3. Contesta a lo que te pregunte. Cuando te enseñe la web en local, revisa la página de inicio en escritorio y en móvil, en español y en inglés.
+4. Si está bien, dile que publique. La web tarda unos minutos en actualizarse en irisgc.github.io.
+5. No fusiones esta rama con `main`: tu siguiente publicación lo desharía, y este archivo quedaría a la vista en la web.
+
+Mensaje para Claude Code:
+
+```text
+Hoy he cambiado mi portfolio desde el ordenador del trabajo, pero no en este proyecto: trabajé sobre una copia de la web publicada. Quiero pasar esos cambios aquí y publicar.
+
+Dónde están:
+- Repositorio público github.com/irisgc/irisgc.github.io, rama cambios-2026-11-03. Parte de mi última publicación (commit c30fd34, «Publicación del 30/10/2026, 22:54») y tiene la web generada con todos los cambios hechos. Para ver qué cambió: git diff c30fd34 origin/cambios-2026-11-03.
+- En la raíz de esa rama está cambios-web.md, que explica cada cambio y qué hay que tocar en este proyecto.
+
+Qué necesito:
+1. Descarga la rama y lee cambios-web.md entero antes de tocar nada.
+2. Pasa los cambios a este proyecto, uno a uno. Algunos se hicieron sobre los archivos compilados (sc-enfoque.js, sc-proyectos.js, sc-close.js y sc-about.js): pásalos a sus fuentes. Si dos apartados se contradicen o algo no está claro, manda cómo quedó la rama, porque sus archivos son el resultado final. No cambies nada que no esté en la lista.
+3. Copia los archivos nuevos o sustituidos: los 11 logos de assets/herramientas/, projects/assets/horizonte/portada-horizonte.webp, projects/assets/configurador/capa.webp y scrolly/sc-about-anim.js (un componente nuevo que carga index.html).
+4. Genera la web y compárala con la rama. La página de inicio tiene que quedar igual, en español y en inglés, en escritorio y en móvil. Avísame si algo no cuadra.
+5. Enséñame la web en local y espera a que te diga que está bien.
+6. Entonces publícala como siempre. No fusiones la rama cambios-2026-11-03 con main. Cuando la web publicada esté bien, pregúntame si borramos esa rama.
+```
 
 ## 03/11/2026 · «Enfoque»: título, entradilla y aviso
 

@@ -19,14 +19,13 @@ window.SC = {
     // `i` es la fila de la tabla que enciende cada capa
     enfoque: {
       label: "Enfoque",
-      title: "Mi sistema de diseño.",
-      sub: ["Cinco años como ingeniera en diseño industrial y diseñadora gráfica en una fábrica de maquinaria agrícola.", "Así aplico mis conocimientos y experiencia en distintas ramas del diseño."],
-      hint: ["Lo que ves es solo la capa de arriba", "desliza para desmontar ↓"],
+      title: "Lo que hago",
+      sub: "Así aplico mis conocimientos y experiencia en distintas ramas del diseño.",
       rows: [
         { i: 0, t: "Diseño web", d: "Web oficial y tienda de recambios en producción, con WordPress y Claude Code.", link: "manezylozano.com", href: "#p-mzl" },
-        { i: 1, t: "Diseño App, interfaz y prototipo", d: "App Android con modo claro y oscuro y un prototipo que se puede probar.", link: "Horizonte", href: "#p-horizonte" },
-        { i: 2, t: "Investigación UX y arquitectura", d: "Auditoría heurística, test con 7 personas y compra en tres pasos sin registro.", link: "Viña Rock", href: "#p-vinarock" },
-        { i: 3, t: "Investigación, concepto, UX/UI, sistema de diseño", d: "Un concepto convertido en reglas de interfaz y componentes con variantes.", link: "REVERB", href: "#p-reverb" },
+        { i: 1, t: "Diseño App, interfaz y prototipo", d: "Diseño App para Android con prototipo navegable.", link: "Horizonte", href: "#p-horizonte" },
+        { i: 2, t: "Investigación UX y arquitectura", d: "Mejora de la experiencia de usuario para el uso de la web del festival.", link: "Viña Rock", href: "#p-vinarock" },
+        { i: 3, t: "Investigación, concepto, UX/UI, sistema de diseño", d: "Concepto y prototipo navegable de una web destinada a la visibilización.", link: "REVERB", href: "#p-reverb" },
         { i: 5, t: "Modelado y render", d: "CAD, render, IA generativa", link: "visual", href: "#p-3d" }
       ],
       names: { web: "Diseño web", app: "Diseño app", ux: "Investigación y|arquitectura", ds: "Sistema de diseño", r3d: "Modelado y render" },
@@ -47,21 +46,21 @@ window.SC = {
     // «Proyectos» en tres bloques (sc-proyectos.jsx)
     proyectos: {
       title: "Proyectos",
-      live: "En producción",
       mzl: { name: "Mañez y Lozano", sub: "Web oficial y tienda de recambios.", tags: ["WordPress", "Claude Code"], cta: "Visitar web ↗", video: "Recorrido en vídeo por manezylozano.com" },
+      live: "En funcionamiento",
       cases: "Casos de estudio",
       casesTag: "Máster UX/UI",
-      casesSub: "Proyectos del Máster en Diseño Web y App: UX/UI",
-      caseCta: "Ver caso →",
+      caseCta: "Ver proyecto",
       list: [
-        { id: "p-vinarock", k: "Rediseño UX", name: "Viña Rock", tags: ["Investigación", "Arquitectura"] },
-        { id: "p-horizonte", k: "App Android", name: "Horizonte", tags: ["Investigación", "Sistema de diseño", "Prototipo"] },
-        { id: "p-reverb", k: "Web responsive", name: "REVERB", tags: ["Investigación", "Sistema de diseño", "Prototipo"] }
+        { id: "p-vinarock", k: "Rediseño UX web", name: "Viña Rock" },
+        { id: "p-horizonte", k: "App Android", name: "Horizonte" },
+        { id: "p-reverb", k: "Web responsive", name: "REVERB" }
       ],
       r3d: "Modelado 3D y render",
-      conf: { name: "Configurador 3D", body: "Web interactiva para configurar atomizadores a medida y visualizar todos los componentes de cada máquina para Mañez y Lozano.", cap: "Renderizado desde el visor web", video: "Configurador 3D: la máquina se separa en conjuntos y se abre el despiece de la bomba" },
+      conf: { state: "En desarrollo", name: "Configurador 3D", body: "Web interactiva para configurar atomizadores a medida y visualizar todos los componentes de cada máquina para Mañez y Lozano.", video: "Configurador 3D: la máquina se separa en conjuntos y se abre el despiece de la bomba" },
       play: "Reproducir vídeo",
-      pause: "Pausar vídeo"
+      pause: "Pausar vídeo",
+      full: "Ver a pantalla completa"
     },
   },
   en: {
@@ -78,14 +77,13 @@ window.SC = {
     contactH2: "talk?",
     enfoque: {
       label: "Approach",
-      title: "My design system.",
-      sub: ["Five years as an industrial design engineer and graphic designer at an agricultural machinery manufacturer.", "This is how I apply my knowledge and experience across different fields of design."],
-      hint: ["What you see is just the top layer", "scroll to take it apart ↓"],
+      title: "What I do",
+      sub: "This is how I apply my knowledge and experience across different fields of design.",
       rows: [
         { i: 0, t: "Web design", d: "Official website and spare-parts shop, live, built with WordPress and Claude Code.", link: "manezylozano.com", href: "#p-mzl" },
-        { i: 1, t: "App design, interface and prototype", d: "Android app with light and dark modes and a prototype you can try.", link: "Horizonte", href: "#p-horizonte" },
-        { i: 2, t: "UX research and information architecture", d: "Heuristic audit, testing with 7 people and a three-step checkout with no sign-up.", link: "Viña Rock", href: "#p-vinarock" },
-        { i: 3, t: "Research, concept, UX/UI, design system", d: "A concept turned into interface rules and components with variants.", link: "REVERB", href: "#p-reverb" },
+        { i: 1, t: "App design, interface and prototype", d: "Android app design with an interactive prototype.", link: "Horizonte", href: "#p-horizonte" },
+        { i: 2, t: "UX research and information architecture", d: "Improving the user experience of the festival's website.", link: "Viña Rock", href: "#p-vinarock" },
+        { i: 3, t: "Research, concept, UX/UI, design system", d: "Concept and interactive prototype of a website aimed at raising visibility.", link: "REVERB", href: "#p-reverb" },
         { i: 5, t: "3D modelling and rendering", d: "CAD, rendering, generative AI", link: "visual", href: "#p-3d" }
       ],
       names: { web: "Web design", app: "App design", ux: "Research and|architecture", ds: "Design system", r3d: "3D modelling|and rendering" },
@@ -105,21 +103,21 @@ window.SC = {
     },
     proyectos: {
       title: "Projects",
-      live: "Live",
       mzl: { name: "Mañez y Lozano", sub: "Official website and spare-parts shop.", tags: ["WordPress", "Claude Code"], cta: "Visit website ↗", video: "Video walkthrough of manezylozano.com" },
+      live: "Live",
       cases: "Case studies",
       casesTag: "UX/UI Master's",
-      casesSub: "Projects from the Master's in Web and App Design: UX/UI",
-      caseCta: "View case →",
+      caseCta: "View project",
       list: [
-        { id: "p-vinarock", k: "UX redesign", name: "Viña Rock", tags: ["Research", "Information architecture"] },
-        { id: "p-horizonte", k: "Android app", name: "Horizonte", tags: ["Research", "Design system", "Prototype"] },
-        { id: "p-reverb", k: "Responsive web", name: "REVERB", tags: ["Research", "Design system", "Prototype"] }
+        { id: "p-vinarock", k: "Web UX redesign", name: "Viña Rock" },
+        { id: "p-horizonte", k: "Android app", name: "Horizonte" },
+        { id: "p-reverb", k: "Responsive web", name: "REVERB" }
       ],
       r3d: "3D modelling and rendering",
-      conf: { name: "3D configurator", body: "Interactive website for Mañez y Lozano to configure made-to-order air-blast sprayers and see every component of each machine.", cap: "Rendered from the web viewer", video: "3D configurator: the machine separates into its assemblies and the pump opens into an exploded view" },
+      conf: { state: "In development", name: "3D configurator", body: "Interactive website for Mañez y Lozano to configure made-to-order air-blast sprayers and see every component of each machine.", video: "3D configurator: the machine separates into its assemblies and the pump opens into an exploded view" },
       play: "Play video",
-      pause: "Pause video"
+      pause: "Pause video",
+      full: "Watch full screen"
     },
   }
 };

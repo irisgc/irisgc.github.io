@@ -56,13 +56,17 @@ const DICT = {
     // Sobre mí: quién soy en un párrafo y qué sé hacer. El detalle (fechas,
     // puestos, titulaciones) está en el CV.
     aboutSum: {
-      title: "Quién soy",
-      // render en bucle hecho en Blender (blender/vista-explosionada.py). Con null no
-      // hay hueco y el texto ocupa todo el ancho.
-      media: {
-        video: "assets/about/vista-explosionada.mp4",
-        poster: "assets/about/vista-explosionada.webp",
-        alt: "Una web en vista explosionada: sus capas se separan como las piezas de un producto y vuelven a encajar."
+      title: "Sobre mí",
+      // animación del jarrón por los ocho oficios (scrolly/sc-about-anim.js); sustituye al
+      // vídeo de la vista explosionada. Sin anim ni media no hay hueco y el texto ocupa todo el ancho.
+      anim: {
+        alt: "Un jarrón recorre ocho oficios: plano técnico, modelado 3D, render, impresión 3D, fotografía, edición, cartel y web.",
+        steps: ["Ingeniería en diseño industrial", "Modelado 3D", "Render", "Impresión 3D", "Fotografía", "Edición", "Diseño gráfico", "Diseño web"],
+        plan: ["JARRÓN 01", "ESC. 1:2", "IRIS GARCÍA", "A4 · MM"],
+        adjust: "Ajustes",
+        sliders: ["Exposición", "Contraste", "Saturación"],
+        poster: ["Jarrón", "Colección cerámica · 2026"],
+        web: { url: "jarron.shop", logo: "Jarrón", nav: ["Tienda", "Colección", "Contacto"], title: ["Cerámica", "impresa en 3D"], cta: "Comprar" }
       },
       body: "Llevo cinco años trabajando como ingeniera en diseño industrial en una empresa de fabricación de maquinaria agrícola. Allí he llevado el diseño gráfico y el diseño de producto. Mis últimos proyectos se han centrado en la parte web: diseñé la web oficial y la tienda de repuestos, usando WordPress y Claude Code, la herramienta que me está permitiendo hacer realidad cualquier proyecto digital.",
       // cierre de la presentación: va en su propia línea, en tinta
@@ -75,24 +79,22 @@ const DICT = {
     skillsTitle: "Habilidades y herramientas",
     skillsTitleEm: "",
     can: [
-      { icon: "web", n: "Diseño web", v: "Diseño de interfaces y experiencia de usuario. Desarrollo a través de Claude Code.", tools: ["Figma", "WordPress", "Elementor", "Framer", "Claude Code"] },
-      { icon: "modelado", n: "Modelado 3D", v: "Diseño de producto industrial (CAD) e impresión 3D.", tools: ["SolidWorks", "Blender", "OrangeStorm Giga", "Elegoo Slicer"] },
+      { icon: "web", n: "Diseño web", v: "Diseño de interfaces y experiencia de usuario. Desarrollo a través de Claude Code.", tools: ["Figma", "WordPress", "Framer", "Claude Code"] },
+      { icon: "modelado", n: "Modelado 3D", v: "Diseño de producto industrial (CAD) e impresión 3D.", tools: ["SolidWorks", "Blender", "Elegoo Slicer"] },
       { icon: "render", n: "Render y generación de imagen", v: "Renders de producto a partir de un 3D y generación de imágenes con IA de todo tipo.", tools: ["Blender", "Magnific", "Photoshop"] },
       { icon: "grafico", n: "Diseño gráfico y maquetación", v: "Creación de material gráfico tanto digital como para impresión.", tools: ["Illustrator", "Photoshop", "InDesign"] }
     ],
     skills: [
       { name: "Figma", cat: "Diseño UI", lvl: 0.9 },
-      { name: "Claude Code", cat: "Prototipado con IA", lvl: 0.85 },
+      { name: "Claude Code", cat: "Desarrollo web", lvl: 0.85 },
       { name: "Magnific", cat: "IA Generativa", lvl: 0.9 },
       { name: "Photoshop", cat: "Imagen", lvl: 0.9 },
       { name: "Illustrator", cat: "Vectorial", lvl: 0.95 },
-      { name: "OrangeStorm Giga", cat: "Impresión 3D", lvl: 0.85 },
+      { name: "Elegoo Slicer", cat: "Impresión 3D", lvl: 0.85 },
       { name: "Blender", cat: "Producto 3D", lvl: 0.85 },
       { name: "WordPress", cat: "Web / CMS", lvl: 0.85 },
-      { name: "Elementor", cat: "Web / CMS", lvl: 0.85 },
       { name: "Framer", cat: "Web sin código", lvl: 0.85 },
-      { name: "SolidWorks", cat: "Producto 3D", lvl: 0.9 },
-      { name: "Elegoo Slicer", cat: "Impresión 3D", lvl: 0.85 },
+      { name: "SolidWorks", cat: "Modelado 3D", lvl: 0.9 },
       { name: "InDesign", cat: "Maquetación", lvl: 0.95 },
     ],
 
@@ -104,7 +106,6 @@ const DICT = {
       { l: "LinkedIn", v: "Iris García", href: "https://www.linkedin.com/in/iris-garc%C3%ADa-0304a4206/" },
       // `cv: true`: no es un enlace, abre la ventana del CV (scrolly/sc-cv.jsx)
       { l: "CV", v: "Descargar CV (PDF)", cv: true },
-      { l: "Última actualización", v: "Septiembre 2026" },
     ],
 
     // Ventana del CV: la abren el botón CV de la barra y el bloque CV del contacto
@@ -187,11 +188,15 @@ const DICT = {
     portraitPlaceholder: "Portrait →",
 
     aboutSum: {
-      title: "Who I am",
-      media: {
-        video: "assets/about/vista-explosionada.mp4",
-        poster: "assets/about/vista-explosionada.webp",
-        alt: "A website in exploded view: its layers come apart like the parts of a product and click back together."
+      title: "About me",
+      anim: {
+        alt: "A vase goes through eight crafts: technical drawing, 3D modelling, rendering, 3D printing, photography, editing, poster and website.",
+        steps: ["Industrial design engineering", "3D modelling", "Rendering", "3D printing", "Photography", "Editing", "Graphic design", "Web design"],
+        plan: ["VASE 01", "SCALE 1:2", "IRIS GARCÍA", "A4 · MM"],
+        adjust: "Adjustments",
+        sliders: ["Exposure", "Contrast", "Saturation"],
+        poster: ["Vase", "Ceramics collection · 2026"],
+        web: { url: "vase.shop", logo: "Vase", nav: ["Shop", "Collection", "Contact"], title: ["3D-printed", "ceramics"], cta: "Buy" }
       },
       body: "I've spent five years working as an industrial design engineer at a company that manufactures agricultural machinery. There I've handled both graphic design and product design. My latest projects have focused on the web: I designed the official website and the spare-parts shop, using WordPress and Claude Code, the tool that's letting me bring any digital project to life.",
       close: "Now I'm looking for a digital product design role where I can use AI with judgement: I put forward proposals and make the decisions, it executes.",
@@ -201,24 +206,22 @@ const DICT = {
     skillsTitle: "Skills and tools",
     skillsTitleEm: "",
     can: [
-      { icon: "web", n: "Web design", v: "Interface and user experience design. Development with Claude Code.", tools: ["Figma", "WordPress", "Elementor", "Framer", "Claude Code"] },
-      { icon: "modelado", n: "3D modelling", v: "Industrial product design (CAD) and 3D printing.", tools: ["SolidWorks", "Blender", "OrangeStorm Giga", "Elegoo Slicer"] },
+      { icon: "web", n: "Web design", v: "Interface and user experience design. Development with Claude Code.", tools: ["Figma", "WordPress", "Framer", "Claude Code"] },
+      { icon: "modelado", n: "3D modelling", v: "Industrial product design (CAD) and 3D printing.", tools: ["SolidWorks", "Blender", "Elegoo Slicer"] },
       { icon: "render", n: "Render and image generation", v: "Product renders from 3D models and AI image generation of all kinds.", tools: ["Blender", "Magnific", "Photoshop"] },
       { icon: "grafico", n: "Graphic design and layout", v: "Graphic material for both digital and print.", tools: ["Illustrator", "Photoshop", "InDesign"] }
     ],
     skills: [
       { name: "Figma", cat: "UI Design", lvl: 0.9 },
-      { name: "Claude Code", cat: "AI Prototyping", lvl: 0.85 },
+      { name: "Claude Code", cat: "Web development", lvl: 0.85 },
       { name: "Magnific", cat: "Generative AI", lvl: 0.9 },
       { name: "Photoshop", cat: "Image", lvl: 0.9 },
       { name: "Illustrator", cat: "Vector", lvl: 0.95 },
-      { name: "OrangeStorm Giga", cat: "3D Printing", lvl: 0.85 },
+      { name: "Elegoo Slicer", cat: "3D Printing", lvl: 0.85 },
       { name: "Blender", cat: "3D Product", lvl: 0.85 },
       { name: "WordPress", cat: "Web / CMS", lvl: 0.85 },
-      { name: "Elementor", cat: "Web / CMS", lvl: 0.85 },
       { name: "Framer", cat: "No-code web", lvl: 0.85 },
-      { name: "SolidWorks", cat: "3D Product", lvl: 0.9 },
-      { name: "Elegoo Slicer", cat: "3D Printing", lvl: 0.85 },
+      { name: "SolidWorks", cat: "3D modelling", lvl: 0.9 },
       { name: "InDesign", cat: "Layout", lvl: 0.95 },
     ],
 
@@ -229,7 +232,6 @@ const DICT = {
     blocks: [
       { l: "LinkedIn", v: "Iris García", href: "https://www.linkedin.com/in/iris-garc%C3%ADa-0304a4206/" },
       { l: "CV", v: "Download CV (PDF)", cv: true },
-      { l: "Last updated", v: "September 2026" },
     ],
 
     cvPick: {

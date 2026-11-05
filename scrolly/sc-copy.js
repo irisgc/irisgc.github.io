@@ -46,7 +46,7 @@ window.SC = {
     // «Proyectos» en tres bloques (sc-proyectos.jsx)
     proyectos: {
       title: "Proyectos",
-      mzl: { name: "Mañez y Lozano", sub: "Web oficial y tienda de recambios.", tags: ["WordPress", "Claude Code"], cta: "Visitar web ↗", video: "Recorrido en vídeo por manezylozano.com" },
+      mzl: { name: "Mañez y Lozano", sub: "Web oficial y tienda de recambios.", tags: ["WordPress", "Claude Code"], cta: "Visitar web ↗︎", video: "Recorrido en vídeo por manezylozano.com" },
       live: "En funcionamiento",
       cases: "Casos de estudio",
       casesTag: "Máster UX/UI",
@@ -103,7 +103,7 @@ window.SC = {
     },
     proyectos: {
       title: "Projects",
-      mzl: { name: "Mañez y Lozano", sub: "Official website and spare-parts shop.", tags: ["WordPress", "Claude Code"], cta: "Visit website ↗", video: "Video walkthrough of manezylozano.com" },
+      mzl: { name: "Mañez y Lozano", sub: "Official website and spare-parts shop.", tags: ["WordPress", "Claude Code"], cta: "Visit website ↗︎", video: "Video walkthrough of manezylozano.com" },
       live: "Live",
       cases: "Case studies",
       casesTag: "UX/UI Master's",

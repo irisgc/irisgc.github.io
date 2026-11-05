@@ -29,7 +29,9 @@
 .iso{position:absolute;left:-200px;top:-140px;width:400px;height:280px;transform-style:preserve-3d}
 .layer{--r:12px;position:absolute;inset:0;transform-style:preserve-3d}
 /* cada capa es una lámina con grosor: cara + canto inferior + canto izquierdo (los dos que se ven) */
-.layer .face{position:absolute;inset:0;border-radius:var(--r);overflow:hidden;background:var(--paper)}
+/* translateZ(0) es imprescindible: en Safari, sin una capa propia, lo que se mueve dentro de la cara
+   (el shader de REVERB, la pegatina de Horizonte) se dibuja por encima de las capas superiores */
+.layer .face{position:absolute;inset:0;border-radius:var(--r);overflow:hidden;background:var(--paper);transform:translateZ(0)}
 .layer .face::after{content:"";position:absolute;inset:0;z-index:5;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--rim,rgba(31,26,20,.24));pointer-events:none}
 .layer .eb,.layer .el{position:absolute;display:block}
 .layer .eb{left:var(--r);right:var(--r);top:100%;height:var(--th,8px);transform-origin:50% 0;transform:rotateX(-90deg);background:var(--e1,#DCD5C8);box-shadow:inset 0 1px 0 rgba(255,255,255,.32)}
@@ -96,6 +98,8 @@
    estrecha y se cortaba. El tamaño de la pila baja en pantallas cortas para que nada quede
    detrás del cajetín, y en las muy cortas el cajetín se quita */
 @media (max-width:880px){
+  /* al esconderse la barra del navegador la lámina llega hasta abajo */
+  .pa .sticky{height:100dvh}
   .bom li{row-gap:0}
   .bom .t{display:contents}
   .bom .t small{grid-column:1 / -1;grid-row:2}

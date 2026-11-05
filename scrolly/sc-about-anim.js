@@ -187,9 +187,16 @@ function abStart(root, a) {
   // antes de que llegue arriba, para que el plano se vaya dibujando al entrar); si no, cuánto ha
   // cruzado el dibujo la pantalla
   const sec = root.closest(".sc-about") || root;
+  // en el móvil solo se fija el dibujo, dentro de su caja alta (.sc-about-pin, en sc-home.css)
+  const pinBox = root.closest(".sc-about-pin"), stick = pinBox && pinBox.firstElementChild;
   const target = () => {
     const vh = window.innerHeight;
     if (sec.classList.contains("pinned")) { const r = sec.getBoundingClientRect(); return cl(vh * .4 - r.top, 0, r.height - vh + vh * .4); }
+    const cs = stick && getComputedStyle(stick);
+    if (cs && cs.position === "sticky") {
+      const r = pinBox.getBoundingClientRect(), top = parseFloat(cs.top) || 0;
+      return cl(top + vh * .3 - r.top, 0, r.height - stick.offsetHeight + vh * .3);
+    }
     const r = root.getBoundingClientRect(); return cl(vh * .9 - r.top, 0, vh * .9 + r.height * .3);
   };
   // el avance que se pinta va detrás del scroll con suavidad, para que no salte entre fotogramas

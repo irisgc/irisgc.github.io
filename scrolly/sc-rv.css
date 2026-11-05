@@ -20,10 +20,10 @@
 .rv-head .sc-h2{font-size:clamp(34px,4.6vw,calc(72 * var(--q)))}
 .rv-lead{max-width:56ch;font-size:clamp(16px,1.35vw,calc(20 * var(--q)));line-height:1.5;color:var(--ink-soft);text-wrap:pretty}
 .rv-chip{display:inline-flex;align-items:center;min-height:calc(44 * var(--q));padding:0 clamp(16px,1.3vw,calc(20 * var(--q)));border-radius:999px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.32);font:600 clamp(13px,.95vw,calc(15 * var(--q)))/1 var(--rv-text);color:#fff;white-space:nowrap;transition:background-color .25s,box-shadow .25s,color .25s}
-.rv-chip:hover{background:rgba(255,255,255,.08);color:#fff}
+@media (hover:hover){.rv-chip:hover{background:rgba(255,255,255,.08);color:#fff}}
 .rv-chip.on{background:var(--rv-y);color:var(--rv-950);box-shadow:none}
 .rv-link{display:inline-flex;align-items:center;gap:10px;min-height:calc(44 * var(--q));margin-top:clamp(10px,1.6vh,18px);font:600 clamp(14px,1vw,calc(15 * var(--q)))/1 var(--rv-text);color:#fff}
-.rv-link:hover{color:var(--rv-y)}
+@media (hover:hover){.rv-link:hover{color:var(--rv-y)}}
 
 /* 00 · portada */
 .rv-hero{position:relative;height:max(100svh,680px);overflow:hidden;background:var(--rv-950);isolation:isolate}
@@ -191,7 +191,7 @@
 .rv-bub img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;transition:box-shadow .35s var(--ease),scale .35s var(--ease)}
 .rv-bub.is-blur img{filter:blur(1.5px) brightness(.75)}
 .rv-bub.is-deco{pointer-events:none;opacity:.85}
-button.rv-bub:hover img{scale:1.05}
+@media (hover:hover){button.rv-bub:hover img{scale:1.05}}
 button.rv-bub.on img,button.rv-bub:hover img{box-shadow:0 0 0 3px var(--rv-y),0 0 40px rgba(247,207,11,.3)}
 .rv-bub .tag{position:absolute;left:50%;top:calc(100% + 8px);translate:-50% 0;padding:5px 10px;border-radius:999px;background:var(--rv-y);font:600 calc(10 * var(--q))/1 var(--rv-disp);text-transform:uppercase;color:var(--rv-950);white-space:nowrap;opacity:0;transition:opacity .25s;pointer-events:none}
 .rv-bub:hover .tag,.rv-bub:focus-visible .tag,.rv-bub.on .tag{opacity:1}
@@ -212,8 +212,8 @@ button.rv-bub.on img,button.rv-bub:hover img{box-shadow:0 0 0 3px var(--rv-y),0 
 .rv-cta .t{font:700 clamp(18px,1.6vw,calc(26 * var(--q)))/1.1 var(--rv-disp)}
 .rv-cta .s{grid-column:1;font-size:calc(14 * var(--q));color:rgba(18,8,38,.78)}
 .rv-cta .go{grid-row:1/span 2;grid-column:2;align-self:center;display:grid;place-items:center;width:clamp(46px,3.6vw,calc(56 * var(--q)));height:clamp(46px,3.6vw,calc(56 * var(--q)));border-radius:50%;background:var(--rv-950);color:var(--rv-y);font-size:calc(20 * var(--q));transition:rotate .4s var(--ease)}
-.rv-cta:hover{translate:0 -3px;color:var(--rv-950);background:var(--rv-y4)}
-.rv-cta:hover .go{rotate:45deg}
+@media (hover:hover){.rv-cta:hover{translate:0 -3px;color:var(--rv-950);background:var(--rv-y4)}}
+@media (hover:hover){.rv-cta:hover .go{rotate:45deg}}
 .rv-devs{position:relative;margin:0;padding:0 7% 9% 0}
 .rv-browser{display:block;border-radius:clamp(10px,1vw,16px);overflow:hidden;background:#0D061C;box-shadow:0 40px 90px -40px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.1)}
 .rv-browser .bar{display:flex;gap:6px;padding:10px 12px;background:#1A0F33}
@@ -236,10 +236,13 @@ button.rv-bub.on img,button.rv-bub:hover img{box-shadow:0 0 0 3px var(--rv-y),0 
 .rv-modal-bar b{margin-right:auto;font:700 14px/1.2 var(--rv-disp)}
 .rv-modal-x,.rv-modal-link{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;font-size:13px}
 .rv-modal-x{background:rgba(255,255,255,.12);color:#fff}
-.rv-modal-x:hover{background:rgba(255,255,255,.22)}
+@media (hover:hover){.rv-modal-x:hover{background:rgba(255,255,255,.22)}}
 .rv-modal-link{background:var(--rv-y);color:var(--rv-950)}
-.rv-modal-link:hover{color:var(--rv-950);background:var(--rv-y4)}
-.rv-modal-frame{flex:1;background:#0D061C}
+@media (hover:hover){.rv-modal-link:hover{color:var(--rv-950);background:var(--rv-y4)}}
+.rv-modal-frame{position:relative;flex:1;background:#0D061C}
+.rv-modal-frame::before{content:"";position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid rgba(255,255,255,.2);border-top-color:#F7CF0B;animation:rvSpin .9s linear infinite}
+@keyframes rvSpin{to{rotate:360deg}}
+.rv-modal-frame iframe{position:relative}
 .rv-modal-frame iframe{display:block;width:100%;height:100%;border:0}
 
 @keyframes rvIn{from{opacity:0;translate:0 10px}}
@@ -250,6 +253,9 @@ button.rv-bub.on img,button.rv-bub:hover img{box-shadow:0 0 0 3px var(--rv-y),0 
 @keyframes rvSpeck{0%,100%{opacity:.25}50%{opacity:.9}}
 @keyframes rvEcho{0%,100%{opacity:calc(.5 - var(--i) * .16)}50%{opacity:calc(.22 - var(--i) * .07)}}
 @keyframes rvDrift{0%{translate:0 0}100%{translate:calc(4px + var(--k,0) * .6px) calc(-8px - var(--k,0) * .5px)}}
+
+/* «Acércate para encenderlo» no tiene sentido sin ratón: en táctil se encienden solos al verse */
+@media (hover:none),(pointer:coarse){.rv-dato .h{display:none}}
 
 @media (max-width:1100px){
 .rv-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
@@ -290,7 +296,7 @@ button.rv-bub.on img,button.rv-bub:hover img{box-shadow:0 0 0 3px var(--rv-y),0 
 .rv-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
 .rv-day .c{display:none}
 .rv-day .n{bottom:8%;font-size:15px}
-.rv-hot{bottom:calc(8% + 21px);padding:2px 5px;font-size:7px}
+.rv-hot{bottom:calc(8% + 21px);padding:2px 5px;font-size:9px}
 .rv-hot::before{display:none}
 .rv-credits{flex-direction:column;text-align:center}
 .rv-modal{padding:0}

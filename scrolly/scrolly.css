@@ -1,14 +1,13 @@
 /* Iris García — portfolio scrollytelling */
 :root{--t:0;--m1:0%;--m2:0%;--m2c:0%;--nav-bg:color-mix(in oklab,color-mix(in oklab,rgba(251,250,245,.68),rgba(238,238,238,.72) var(--m1)),rgba(224,224,224,.74) var(--m2));--nav-line:color-mix(in oklab,rgba(31,26,20,.1),rgba(31,26,20,.16) var(--m2));--bg:color-mix(in oklab,color-mix(in oklab,#FBFAF5,#EEEEEE var(--m1)),#E0E0E0 var(--m2));--bg-2:color-mix(in oklab,color-mix(in oklab,#F3EFE4,#E6E6E6 var(--m1)),#D5D5D5 var(--m2c));--ink:#1F1A14;--ink-soft:#463C2E;--ink-mute:color-mix(in oklab,#776A56,#665941 var(--m2));--line:color-mix(in oklab,color-mix(in oklab,#DED5C4,#C8C8C8 var(--m1)),#BABABA var(--m2));--accent:#7C2FA8;--accent-fixed:#7C2FA8;--tone-1:color-mix(in oklab,color-mix(in oklab,#EDE7DA,#DCDCDC var(--m1)),#CECECE var(--m2c));--tone-2:color-mix(in oklab,color-mix(in oklab,#E3DBCB,#D0D0D0 var(--m1)),#C2C2C2 var(--m2c));--tone-3:color-mix(in oklab,color-mix(in oklab,#D2C9B5,#BDBDBD var(--m1)),#B0B0B0 var(--m2c));--font:"Bricolage Grotesque","Helvetica Neue",Helvetica,sans-serif;--font-display:var(--font);--font-mono:var(--font);--ease:cubic-bezier(.22,.61,.36,1);--pad:clamp(20px,3.6vw,64px)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html,body{background:var(--bg);color:var(--ink);font-family:var(--font);font-feature-settings:"ss01","ss02";-webkit-font-smoothing:antialiased;overflow-x:clip}
 body{position:relative;cursor:none;transition:background-color .25s linear,color .5s var(--ease)}
-@media (hover:none){body{cursor:auto}.cur2{display:none}}
 img{max-width:100%;display:block}
 button{font:inherit;background:transparent;border:0;color:inherit;cursor:none;text-align:left}
 a{color:inherit;text-decoration:none}
-a:hover{color:var(--accent)}
+@media (hover:hover){a:hover{color:var(--accent)}}
 em{font-style:normal}
 :where(a,button,[tabindex]):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:5px}
 html.kb body,html.kb button{cursor:auto}
@@ -20,7 +19,9 @@ html.kb .cur2{opacity:0}
 .grain{position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:1;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>")}
 
 /* cursor: anillo fino con retardo, sin etiquetas */
-.cur2{position:fixed;top:0;left:0;z-index:100;pointer-events:none}
+.cur2{position:fixed;top:0;left:0;z-index:100;pointer-events:none;visibility:hidden}
+/* no se enseña hasta que se mueve un ratón de verdad: hay móviles que dicen tener hover */
+.cur2.live{visibility:visible}
 .cur2 .ring{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border:1px solid var(--ink);border-radius:50%;opacity:.55;transition:width .32s var(--ease),height .32s var(--ease),margin .32s var(--ease),opacity .3s,background .3s}
 .cur2 .dot{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--accent);transition:opacity .25s}
 .cur2.on .ring{width:58px;height:58px;margin:-29px 0 0 -29px;opacity:1;background:rgba(124,47,168,.12)}
@@ -54,14 +55,14 @@ html.kb .cur2{opacity:0}
 .sc-nav-sheet button.on{color:var(--accent);font-weight:600}
 @keyframes sc-sheet{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
 .sc-nav-links button::first-letter{text-transform:uppercase}
-.sc-nav-links button:hover{color:var(--ink);opacity:1}
+@media (hover:hover){.sc-nav-links button:hover{color:var(--ink);opacity:1}}
 .sc-nav-links button.on{color:var(--accent);opacity:1;font-weight:600}
 .sc-nav-right{display:flex;align-items:center;gap:10px;justify-self:end}
 .sc-lang{display:flex;gap:2px;padding:3px;border-radius:999px;background:rgba(31,26,20,.06);font-size:13px}
 .sc-lang button{padding:5px 12px;border-radius:999px;color:var(--ink-mute);transition:color .25s,background .25s}
 .sc-lang button.on{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px rgba(31,26,20,.08)}
 .sc-nav-cv{padding:8px 17px;border-radius:999px;background:var(--accent);color:#FBFAF5;font-size:14px;transition:background .3s,color .3s}
-.sc-nav-cv:hover{background:var(--ink);color:var(--bg)}
+@media (hover:hover){.sc-nav-cv:hover{background:var(--ink);color:var(--bg)}}
 
 /* cabecera de sección */
 .sc-kick{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:14px;padding-bottom:4px;font-size:13px;color:var(--ink-mute);font-variant-numeric:tabular-nums}
@@ -98,8 +99,10 @@ html.kb .cur2{opacity:0}
 @keyframes stopA{0%,43.9%{opacity:1}44%,100%{opacity:0}}
 @keyframes stopB{0%,43.9%{opacity:0}44%,71.9%{opacity:1}72%,100%{opacity:0}}
 @keyframes stopC{0%,71.9%{opacity:0}72%,100%{opacity:1}}
-.sc-hero-figure:hover .body,.sc-hero-figure:hover .fr{animation-play-state:running}
-@media (hover:none){.sc-hero-figure .body,.sc-hero-figure .fr{animation-play-state:running}}
+@media (hover:hover){.sc-hero-figure:hover .body,.sc-hero-figure:hover .fr{animation-play-state:running}}
+@media (hover:none),(pointer:coarse){.sc-hero-figure .body,.sc-hero-figure .fr{animation-play-state:running}}
+/* fuera de pantalla no gasta batería */
+.sc-hero.is-off .body,.sc-hero.is-off .fr,.sc-hero.is-off .sc-hero-scroll i{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){.sc-hero-figure .fr{animation:none}.sc-hero-figure .f2,.sc-hero-figure .f3{opacity:0}}
 @keyframes figIn{from{opacity:0;clip-path:inset(0 0 14% 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
 @keyframes jitter{0%,37.9%{transform:none}38%,71.9%{transform:rotateY(-2.2deg) translateX(-.35%) scale(1.006)}72%,100%{transform:rotateY(2.6deg) translateX(.3%) scale(1.009)}}
@@ -161,7 +164,7 @@ html.kb .cur2{opacity:0}
 
 /* contacto */
 .sc-contact{min-height:100svh;padding:18vh var(--pad) 0;display:flex;flex-direction:column;gap:clamp(20px,3.4vh,36px);background:var(--accent-fixed);color:#FDFBF6;--ink:#FDFBF6;--ink-soft:rgba(253,251,246,.84);--ink-mute:rgba(253,251,246,.76);--line:rgba(253,251,246,.28);--accent:#FDFBF6}
-.sc-contact a:hover{color:rgba(253,251,246,.68)}
+@media (hover:hover){.sc-contact a:hover{color:rgba(253,251,246,.68)}}
 .sc-contact-h{font-size:clamp(60px,12.5vw,196px);line-height:.88;font-weight:500;color:var(--ink)}
 .sc-contact-h em{color:rgba(253,251,246,.62)}
 .sc-contact-mail{align-self:flex-start;font-size:clamp(19px,2.9vw,42px);font-weight:500;border-bottom:1px solid currentColor;padding-bottom:6px}
@@ -174,7 +177,7 @@ html.kb .cur2{opacity:0}
 .sc-contact-block .l{font-size:12px;color:var(--ink-mute)}
 .sc-contact-block .v{font-size:16px;overflow-wrap:anywhere}
 .sc-footer{display:flex;justify-content:space-between;gap:16px;margin-top:clamp(40px,7vh,72px);padding:20px 0;border-top:1px solid var(--line);font-size:12px;color:var(--ink-mute)}
-.sc-contact button.sc-contact-block:hover{color:rgba(253,251,246,.68)}
+@media (hover:hover){.sc-contact button.sc-contact-block:hover{color:rgba(253,251,246,.68)}}
 
 /* ventana del CV (scrolly/sc-cv.jsx). Va en <body>, fuera de #root: queda por
    encima de todo salvo el cursor propio, que tiene z-index 100. */
@@ -185,7 +188,7 @@ html.kb .cur2{opacity:0}
 .sc-cv-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .sc-cv-t{font-size:clamp(26px,3vw,34px);line-height:1.05;font-weight:500}
 .sc-cv-x{flex:0 0 auto;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:rgba(31,26,20,.06);color:var(--ink-soft);transition:background .25s,color .25s}
-.sc-cv-x:hover{background:var(--ink);color:var(--bg)}
+@media (hover:hover){.sc-cv-x:hover{background:var(--ink);color:var(--bg)}}
 .sc-cv-ic{width:16px;height:16px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 /* las dos maquetas, como tarjetas; la miniatura es la primera página del PDF */
 .sc-cv-kinds{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(18px,2.4vw,26px)}
@@ -209,9 +212,9 @@ html.kb .cur2{opacity:0}
 .sc-cv-acts{display:flex;gap:8px}
 .sc-cv-acts a{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:15px;white-space:nowrap;transition:background .3s,color .3s}
 .sc-cv-open{background:rgba(31,26,20,.06);color:var(--ink)}
-.sc-cv-open:hover{background:rgba(31,26,20,.12);color:var(--ink)}
+@media (hover:hover){.sc-cv-open:hover{background:rgba(31,26,20,.12);color:var(--ink)}}
 .sc-cv-go{background:var(--accent);color:#FBFAF5}
-.sc-cv-go:hover{background:var(--ink);color:var(--bg)}
+@media (hover:hover){.sc-cv-go:hover{background:var(--ink);color:var(--bg)}}
 @keyframes sc-cv-veil{from{opacity:0}}
 @keyframes sc-cv-veil-out{to{opacity:0}}
 @keyframes sc-cv-in{from{opacity:0;transform:translateY(22px) scale(.98)}}
@@ -337,3 +340,52 @@ body,button{cursor:auto}
 }
 @media (min-width:1800px) and (min-height:1000px){:root{--fz:1.2}}
 @media (min-width:2200px) and (min-height:1150px){:root{--fz:1.4}}
+
+/* =====================================================================
+   Táctil y móvil
+   Va al final para mandar sobre lo anterior. Las páginas de caso también
+   cargan este archivo, así que aquí solo entra lo que comparten.
+   ===================================================================== */
+@media (hover:none),(pointer:coarse){
+body,button{cursor:auto}
+.cur2{display:none}
+/* el grano fijo con mix-blend-mode obliga a repintar toda la pantalla en cada fotograma de scroll */
+.grain{display:none}
+/* zonas de toque de 44 px sin cambiar el tamaño que se ve */
+.sc-nav-home,.sc-lang button,.sc-nav-cv{position:relative}
+.sc-nav-home::after,.sc-lang button::after,.sc-nav-cv::after{content:"";position:absolute;inset:-7px -3px}
+.sc-contact-mail{padding-top:10px}
+.sc-contact-block{min-height:44px;justify-content:center}
+.sc-cv-langs label{padding:11px 16px}
+}
+@media (max-width:880px){
+/* sobre fotos y fondos oscuros la barra translúcida no se leía: más opaca y sin desenfoque */
+.sc-nav{background:color-mix(in oklab,var(--nav-bg),var(--bg) 78%);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+@media (max-width:560px){
+/* Si la pantalla es alta, la foto crece para llenar el hueco bajo el texto (unos 330 px).
+   En móviles bajos sigue en el 72 % de siempre */
+.sc-hero{--figw:min(84vw,max(72vw,calc((100svh - 330px) / 1.2122)))}
+}
+/* barra compacta: en 320-375 px el nombre de la sección se cortaba o se pegaba a «Home» */
+@media (max-width:420px){
+.sc-nav{gap:8px;padding:5px 6px 5px 14px}
+.sc-nav-home{font-size:15px}
+.sc-nav-right{gap:6px}
+.sc-lang button{padding:5px 9px}
+.sc-nav-cv{padding:8px 13px}
+.sc-nav-now-btn{gap:6px;padding:10px 2px;font-size:11px}
+}
+@media (max-width:340px){
+.sc-lang button{padding:5px 7px}
+.sc-nav-cv{padding:8px 11px}
+}
+/* móvil en horizontal: el nombre y la foto, uno al lado del otro */
+@media (max-width:980px) and (max-height:500px){
+.sc-hero{--figw:min(38vw,calc(88svh / 1.2122));justify-content:center;padding:64px calc(var(--figw) + var(--pad)) 16px var(--pad)}
+.sc-hero-title{font-size:min(11vw,25svh);margin-top:0}
+.sc-hero-origin{font-size:16px}
+.sc-hero-bottom{margin-top:10px}
+.sc-hero-tag{padding-right:0;font-size:16px}
+.sc-hero-scroll{display:none}
+}

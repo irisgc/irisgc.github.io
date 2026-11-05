@@ -64,7 +64,7 @@
 .cs-lb.is-tall{align-items:flex-start}
 .cs-lb.is-tall img{width:min(1080px,92%);height:auto;max-height:none;border-radius:6px}
 .cs-lb-x{position:absolute;top:clamp(12px,2vw,24px);right:clamp(12px,2vw,24px);width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:rgba(247,242,232,.12);color:#F7F2E8;font-size:26px;line-height:1;cursor:pointer;transition:background .2s ease}
-.cs-lb-x:hover{background:rgba(247,242,232,.26)}
+@media (hover:hover){.cs-lb-x:hover{background:rgba(247,242,232,.26)}}
 body:has(.cs-usr-cell.is-zoom:hover) .cur2,body:has(.cs-lb) .cur2{opacity:0}
 
 .cs-bench{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,2.4vw,34px);align-items:center;padding:clamp(20px,2.4vw,32px);border-radius:14px;background:color-mix(in oklab,#FFFDF7 78%,var(--bg-2));box-shadow:0 1px 3px color-mix(in oklab,#3A2E1E 8%,transparent)}
@@ -107,14 +107,14 @@ body:has(.cs-usr-cell.is-zoom:hover) .cur2,body:has(.cs-lb) .cur2{opacity:0}
 .cs-dec-fig figcaption{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:clamp(13.5px,1.02vw,15.5px);line-height:1.5;color:var(--ink-soft);text-wrap:pretty}
 .cs-dec-fig figcaption b{font-weight:400;font-size:11px;line-height:2.1;text-transform:uppercase;color:var(--ink-mute)}
 .cs-dec-fig.is-after figcaption b{color:var(--accent)}
-body:has(.cs-dec-fig button:hover) .cur2{opacity:0}
+@media (hover:hover){body:has(.cs-dec-fig button:hover) .cur2{opacity:0}}
 
 /* cierre: aprendizajes y enlaces */
 .cs-learn .cs-usr-top{align-items:start}
 .cs-learn-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .cs-learn-link{display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:999px;border:1px solid var(--ink);font-size:13.5px;text-decoration:none;color:var(--ink);transition:background .3s ease,color .3s ease}
 .cs-learn-link::after{content:"\2197";font-size:14px}
-.cs-learn-link:hover{background:var(--ink);color:var(--bg)}
+@media (hover:hover){.cs-learn-link:hover{background:var(--ink);color:var(--bg)}}
 .cs-usr-body .cs-learn-cred{margin-top:clamp(8px,2vh,20px);font-size:13px;line-height:1.55;color:var(--ink-mute)}
 
 @media (max-width:700px){.cs-find{grid-template-columns:1fr}}
@@ -138,7 +138,7 @@ body:has(.cs-dec-fig button:hover) .cur2{opacity:0}
 .cs-scr-hd{grid-column:1/-1;font-size:clamp(17px,1.7vw,23px);font-weight:400;margin:0 0 -4px;color:var(--accent)}
 .cs-scr-col{display:flex;flex-direction:column;gap:8px;min-width:0}
 .cs-scr-frame{position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--tone-1);border:1px solid var(--line);border-radius:8px;margin:0;transition:box-shadow .3s ease,transform .3s ease}
-.cs-scr-frame:hover{box-shadow:0 10px 30px color-mix(in oklab,#3A2E1E 16%,transparent)}
+@media (hover:hover){.cs-scr-frame:hover{box-shadow:0 10px 30px color-mix(in oklab,#3A2E1E 16%,transparent)}}
 .cs-scr-frame .bar{display:flex;align-items:center;gap:5px;height:20px;padding:0 9px;border-bottom:1px solid var(--line);background:color-mix(in oklab,var(--tone-2),#FFFDF7 40%)}
 .cs-scr-frame .bar i{width:6px;height:6px;border-radius:50%;background:var(--tone-3)}
 .cs-scr-frame .win{position:relative;overflow-y:auto;overflow-x:hidden;overscroll-behavior-x:contain;display:grid;place-items:center;scrollbar-width:none;-ms-overflow-style:none}
@@ -152,7 +152,7 @@ body:has(.cs-dec-fig button:hover) .cur2{opacity:0}
 .cs-scr-frame img{display:block;width:100%;height:auto;align-self:start;grid-area:1/1}
 .cs-scr-zoom{position:absolute;right:9px;bottom:9px;width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:color-mix(in oklab,#FFFDF7 82%,transparent);color:var(--ink);font-size:14px;line-height:1;cursor:pointer;opacity:.6;transition:opacity .22s ease,background .22s ease}
 .cs-scr-frame:hover .cs-scr-zoom,.cs-scr-zoom:focus-visible{opacity:1}
-.cs-scr-zoom:hover{background:#FFFDF7}
+@media (hover:hover){.cs-scr-zoom:hover{background:#FFFDF7}}
 .cs-scr-frame .cs-ghost{font-size:12px;color:var(--ink-mute);text-align:center;padding:0 10%}
 .cs-scr-cap{font-size:11px;text-transform:uppercase;color:var(--ink-mute)}
 @media (max-width:780px){.cs-scr-row{grid-template-columns:1fr}.cs-scr-col.is-narrow{max-width:230px}}

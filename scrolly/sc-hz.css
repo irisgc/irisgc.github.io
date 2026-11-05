@@ -116,19 +116,22 @@
 .hz-cta .t{font-size:clamp(20px,1.8vw,28px);font-weight:500;line-height:1.1}
 .hz-cta .s{grid-column:1;font-size:14px;color:rgba(38,38,38,.76)}
 .hz-cta .go{grid-row:1/span 2;grid-column:2;align-self:center;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#262626;color:#CAEE11;font-size:20px;transition:rotate .4s var(--ease)}
-.hz-cta:hover{translate:0 -3px}
-.hz-cta:hover .go{rotate:45deg}
+@media (hover:hover){.hz-cta:hover{translate:0 -3px}}
+@media (hover:hover){.hz-cta:hover .go{rotate:45deg}}
 .hz-modal{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:20px;background:rgba(13,13,13,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);cursor:auto;animation:hzFade .3s ease}
 .hz-modal *{cursor:auto}
 .hz-modal button,.hz-modal a{cursor:pointer}
 .hz-modal-in{display:flex;flex-direction:column;align-items:center;gap:14px}
 .hz-modal-ph{position:relative;width:min((100svh - 120px) * .4493,92vw);aspect-ratio:412/917;overflow:hidden;border-radius:28px;background:#111;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .hz-modal-ph iframe{position:absolute;display:block;max-width:none;border:0}
+/* mientras Figma carga, que tarda unos segundos, un anillo en vez de una pantalla negra */
+.hz-modal-ph::before{content:"";position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid rgba(250,250,250,.2);border-top-color:#CAEE11;animation:hzSpin .9s linear infinite}
+@keyframes hzSpin{to{rotate:360deg}}
 .hz-modal-bar{display:flex;gap:10px}
 .hz-modal-bar a,.hz-modal-bar button{padding:12px 20px;border-radius:999px;font-size:14px;color:#FAFAFA;background:rgba(250,250,250,.12)}
 .hz-modal-bar a{background:#CAEE11;color:#262626}
-.hz-modal-bar a:hover{color:#262626;background:#DFF570}
-.hz-modal-bar button:hover{background:rgba(250,250,250,.22)}
+@media (hover:hover){.hz-modal-bar a:hover{color:#262626;background:#DFF570}}
+@media (hover:hover){.hz-modal-bar button:hover{background:rgba(250,250,250,.22)}}
 @keyframes hzFade{from{opacity:0}}
 .hz-end .cs-next{padding-top:clamp(28px,5vh,56px)}
 
@@ -153,18 +156,24 @@
 .hz-steps p{font-size:16px}
 .hz-manos-ph{--u:min(50svh / 985,70vw / 448);align-self:center;translate:none}
 .hz-rail{top:calc(100% + 10px)}
-.hz-sys-ph{--pw:min(46svh * .4493,60vw);align-self:center}
-.hz-pal{gap:8px;margin-top:18px}
+.hz-sys-ph{--pw:min(calc((100svh - 337px - 7vh) * .4493),60vw);align-self:center;gap:8px}
+.hz-pal{gap:6px;margin-top:12px}
 .hz-ramp{gap:5px;row-gap:4px}
 .hz-ramp-l{display:block;grid-column:1 / -1;font-size:11px;color:var(--ink-mute)}
-.hz-pal i{border-radius:6px}
+.hz-pal i{height:clamp(16px,2.8svh,26px);aspect-ratio:auto;border-radius:6px}
 .hz-pal b,.hz-pal span{display:none}
-.hz-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
-.hz-stats .n{font-size:34px}
+.hz-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:12px}
+.hz-stats .n{font-size:30px}
 .hz-stats .l{max-width:none;font-size:12px}
 .hz-cierre-copy{padding-bottom:40px}
 .hz-cierre-photo{min-height:min(110vw,560px)}
 .hz-cierre-veil{background:linear-gradient(180deg,#262626 0%,rgba(38,38,38,0) 30%)}
+}
+/* el teléfono ocupa lo que dejan libre el título, la paleta y los datos (unos 337 px); en
+   móviles muy bajos los datos se quitan para que siga viéndose el cambio de modo */
+@media (max-width:899px) and (max-height:620px){
+.hz-stats{display:none}
+.hz-sys-ph{--pw:min(calc((100svh - 256px - 7vh) * .4493),60vw)}
 }
 @media (max-width:560px){
 .hz-facts{grid-template-columns:1fr;gap:16px}

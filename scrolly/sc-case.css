@@ -105,13 +105,13 @@
 .cs-next{padding:clamp(40px,7vh,80px) var(--pad) clamp(20px,3.6vh,40px);display:flex;flex-direction:column}
 .cs-next-row{display:flex;align-items:baseline;justify-content:flex-end;gap:24px;font-size:14px;color:var(--accent)}
 .cs-next-row a{color:var(--accent)}
-.cs-next-row a:hover{color:var(--ink)}
+@media (hover:hover){.cs-next-row a:hover{color:var(--ink)}}
 .cs-next .sc-footer{margin-top:clamp(14px,2.2vh,24px)}
 .cs-next-link{margin-top:clamp(40px,10vh,120px);display:flex;flex-direction:column;gap:clamp(10px,1.6vh,18px);padding-bottom:clamp(30px,6vh,70px)}
 .cs-next-link .k{font-size:13px;color:var(--ink-mute)}
 .cs-next-name{font-size:clamp(46px,9.6vw,164px);line-height:.86;font-weight:500;transition:color .35s var(--ease)}
 .cs-next-name em{display:block;color:var(--ink-mute);font-size:.2em;margin-top:.5em;transition:color .35s var(--ease)}
-.cs-next-link:hover .cs-next-name,.cs-next-link:hover .cs-next-name em{color:var(--accent)}
+@media (hover:hover){.cs-next-link:hover .cs-next-name,.cs-next-link:hover .cs-next-name em{color:var(--accent)}}
 
 @media (max-width:1100px){.cs-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.cs-metric:nth-child(2n+1){padding-left:0}.cs-metric:nth-child(-n+2){}}
 @media (max-width:880px){
@@ -145,8 +145,8 @@
 .cs-live-name em{display:block;color:var(--ink-mute);font-size:.22em;margin-top:.6em;font-style:normal;transition:color .35s var(--ease)}
 .cs-live .m{font-size:14px;line-height:1.5;color:var(--ink-soft);max-width:52ch;text-wrap:pretty}
 .cs-live-name em i{font-style:normal;color:var(--accent);display:inline-block;margin-left:.45em;transition:transform .35s var(--ease)}
-.cs-live:hover .cs-live-name em i{transform:translate(3px,-3px)}
-.cs-live:hover .cs-live-name,.cs-live:hover .cs-live-name em{color:var(--accent)}
+@media (hover:hover){.cs-live:hover .cs-live-name em i{transform:translate(3px,-3px)}}
+@media (hover:hover){.cs-live:hover .cs-live-name,.cs-live:hover .cs-live-name em{color:var(--accent)}}
 
 .cs-hero-sub mark{background:none;color:var(--accent-fixed);font-weight:500}
 

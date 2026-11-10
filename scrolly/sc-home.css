@@ -261,7 +261,7 @@
 .sc-skill.on .n{color:var(--accent)}
 /* programas: cuadrícula de casillas cuadradas iguales; en cada una, logo, nombre y categoría centrados.
    Las del bloque activo se ven enteras (y suben un poco); las demás, atenuadas */
-.sc-skills-tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding-top:0}
+.sc-skills-tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding-top:0;width:100%;max-width:var(--tk-w,none)}
 .sc-tool{aspect-ratio:1;justify-content:center;align-items:center;gap:3px;padding:10px 12px;text-align:center;border-radius:16px;background:#FFFEFA;box-shadow:0 1px 2px rgba(31,26,20,.05),0 8px 20px -12px rgba(31,26,20,.2)}
 .sc-tool .lgb{display:flex;align-items:center;justify-content:center;width:100%;height:50px;margin-bottom:8px}
 .sc-tool .lg{display:block;height:44px;width:auto;max-width:100%}
@@ -276,6 +276,16 @@
   .sc-tool .lg{height:28px}
   .sc-tool .n{font-size:13px}
   .sc-tool .c{font-size:11px}
+}
+/* móvil: cuatro columnas de casillas más pequeñas y sin la categoría, para que todo el apartado
+   quepa en la pantalla y se fije mientras se recorren los bloques */
+@media (max-width:560px){
+  .sc-skills-tools{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+  .sc-tool{padding:6px 4px;border-radius:12px}
+  .sc-tool .lgb{height:26px;margin-bottom:3px}
+  .sc-tool .lg{height:22px}
+  .sc-tool .n{font-size:11px}
+  .sc-tool .c{display:none}
 }
 @media (min-width:1500px){
   .sc-skills-tools{gap:calc(12px * var(--fz))}

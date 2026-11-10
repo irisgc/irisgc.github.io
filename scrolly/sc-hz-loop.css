@@ -86,3 +86,11 @@
 @keyframes hzC4{0%,67.49%{scale:1}67.5%,73.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}78.83%,100%{scale:1}}
 @keyframes hzC5{0%,67.49%{scale:1}67.5%,74.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}79.83%,100%{scale:1}}
 @keyframes hzC6{0%,67.49%{scale:1}67.5%,75.83%{scale:0;animation-timing-function:cubic-bezier(.45,1.45,.8,1)}80.83%,100%{scale:1}}
+
+/* ── Portada simplificada de la tarjeta: vídeo de la cascada + logo fijo ── */
+.hz-cover{position:absolute;inset:0;overflow:hidden;background:#141a17;container-type:size}
+.hz-cover-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%;display:block}
+/* oscurece el centro para que el logo se lea */
+.hz-cover-veil{position:absolute;inset:0;background:radial-gradient(ellipse 70% 62% at 50% 50%,rgba(12,16,14,.58) 0%,rgba(12,16,14,.34) 55%,rgba(12,16,14,.55) 100%)}
+.hz-loop .hz-cover-logo{position:absolute;left:50%;top:50%;width:auto;height:min(52%,200px);max-width:none;min-height:0;padding:0;translate:-50% -50%;transition:none;filter:drop-shadow(0 4px 18px rgba(0,0,0,.45))}
+@container (aspect-ratio < 1.15){.hz-loop .hz-cover-logo{height:auto;width:62%}}

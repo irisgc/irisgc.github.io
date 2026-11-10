@@ -18,6 +18,11 @@
 .rv-loop img{max-width:none;min-height:0;padding:0;transition:none;align-self:auto;justify-self:auto;object-fit:cover}
 .rv-loop .rv-stage-logo{left:calc(130 * var(--u));top:calc(338 * var(--u));width:calc(820 * var(--u));height:auto;object-fit:contain;filter:drop-shadow(0 calc(10 * var(--u)) calc(40 * var(--u)) rgba(18,8,38,.45))}
 .rv-stage-col{left:calc(1060 * var(--u));top:calc(150 * var(--u))}
+/* portada simplificada de la tarjeta: shader + logo centrado. El velo oscurece el centro para que
+   el logo blanco se lea sobre el amarillo del relleno */
+.rv-cover-veil{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(18,8,38,.5) 0%,rgba(18,8,38,.22) 60%,rgba(18,8,38,.5) 100%)}
+.rv-loop .rv-cover-logo{position:absolute;left:50%;top:50%;width:min(62%,480px);height:auto;translate:-50% -50%;object-fit:contain;filter:drop-shadow(0 6px 26px rgba(18,8,38,.5))}
+@container (aspect-ratio < 1.15){.rv-loop .rv-cover-logo{width:76%}}
 @container (aspect-ratio < 1.15){
 .rv-stage{--u:max(100cqw / 1080,100cqh / 1350);width:calc(1080 * var(--u));height:calc(1350 * var(--u));left:calc((100cqw - 1080 * var(--u)) * .5);top:calc((100cqh - 1350 * var(--u)) * .5)}
 .rv-loop .rv-stage-logo{left:calc(150 * var(--u));top:calc(90 * var(--u));width:calc(780 * var(--u))}

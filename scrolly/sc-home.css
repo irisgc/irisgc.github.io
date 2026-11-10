@@ -8,12 +8,9 @@
 /* ============ Enfoque · vista explosionada ============ */
 .pa{position:relative;height:400vh}
 .pa .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--bg)}
-.sheet{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(31,26,20,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(31,26,20,.045) 1px,transparent 1px);background-size:32px 32px;background-position:-1px -1px}
+.sheet{position:absolute;inset:0;z-index:0;pointer-events:none}
 /* el marco es el contorno de la lámina, no separa contenido */
 .sheet .frame{position:absolute;inset:14px;border:1px solid var(--line-2)}
-.sheet .ticks{position:absolute;display:flex;justify-content:space-around;font-size:11px;color:var(--ink-mute)}
-.sheet .ticks.h{left:14px;right:14px;top:18px}
-.sheet .ticks.v{top:14px;bottom:90px;left:20px;flex-direction:column}
 .pa-grid{position:relative;z-index:2;height:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(20px,3vw,44px);padding:78px var(--pad) 98px;align-items:center}
 .pa-title{margin-top:14px;font-size:clamp(34px,min(4.5vw,8vh),70px);line-height:1;font-weight:500}
 .pa-sub{margin-top:16px;font-size:clamp(15px,min(1.25vw,2.3vh),19px);line-height:1.45;color:var(--ink-soft);max-width:42ch}
@@ -79,7 +76,6 @@
 .cajetin .cj-name{font-size:18px;font-weight:500;line-height:1.1}
 .cajetin .cj-m{display:none}
 @media (max-width:880px){
-  .sheet .ticks{display:none}
   .pa-grid{grid-template-columns:1fr;grid-template-rows:38svh auto;align-items:start;gap:6px;padding:70px 20px 84px}
   .pa-stage{order:-1}
   .iso-wrap{left:50%}
@@ -115,7 +111,7 @@
 }
 /* móvil en horizontal: la lista a un lado y la pila al otro */
 @media (max-width:980px) and (max-height:500px){
-  .sheet .ticks,.pa-sub,.cajetin,.pa-svg.front,.pa-bals{display:none}
+  .pa-sub,.cajetin,.pa-svg.front,.pa-bals{display:none}
   .pa-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);grid-template-rows:none;align-items:center;gap:12px;padding:62px var(--pad) 20px}
   .pa-stage{order:0}
   .iso-wrap{left:50%}
@@ -161,8 +157,15 @@
 .live-info,.phys-info{display:flex;flex-direction:column;gap:16px;padding:clamp(24px,3vw,44px)}
 .live h4,.phys-info h4{font-size:clamp(32px,3.4vw,52px);line-height:1;font-weight:500}
 .live-sub,.phys-info p{font-size:17px;line-height:1.45;color:var(--ink-soft);max-width:36ch}
-.btn-live{margin-top:auto;align-self:flex-start;padding:12px 20px;border-radius:999px;background:var(--ink);color:#fff;font-size:15px;transition:background-color .3s,color .3s}
-@media (hover:hover){.btn-live:hover{background:var(--accent);color:#fff}}
+/* enlace a la web real, en el sitio del antiguo botón: círculo con el icono de enlace que, al pasar
+   por la tarjeta, se abre en una píldora con «Visitar web». En táctil va siempre abierta */
+.live-link{margin-top:auto;align-self:flex-start;display:flex;align-items:center;gap:0;height:44px;padding:0 13px;border-radius:999px;background:var(--ink);color:#fff;font-size:15px;line-height:1;white-space:nowrap;transition:gap .45s var(--ease),padding .45s var(--ease),background-color .3s}
+.live-link-t{display:block;max-width:0;overflow:hidden;opacity:0;transition:max-width .45s var(--ease),opacity .3s}
+.live-link svg{flex:none;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.live:hover .live-link,.live-link:focus-visible{gap:8px;padding:0 16px 0 18px}
+.live:hover .live-link-t,.live-link:focus-visible .live-link-t{max-width:12em;opacity:1}
+@media (hover:hover){.live-link:hover{background:var(--accent)}}
+@media (hover:none),(pointer:coarse){.live-link{gap:8px;padding:0 16px 0 18px}.live-link-t{max-width:none;opacity:1}}
 .cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .case{display:flex;flex-direction:column;transition:opacity .9s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
 @media (hover:hover){.case:hover{color:inherit}}
@@ -176,8 +179,15 @@
 .case-body{flex:1;display:flex;flex-direction:column;gap:14px;padding:20px 22px 22px}
 .case-k{font-size:12px;text-transform:uppercase;color:var(--ink-mute)}
 .case h4{font-size:30px;line-height:1;font-weight:500}
-.case-cta{margin-top:auto;align-self:flex-end;font-size:14px;color:var(--accent);transition:transform .4s var(--ease)}
-@media (hover:hover){.case:hover .case-cta{transform:translateX(4px)}}
+/* «Ver proyecto»: círculo con una flecha en diagonal que, al pasar por la tarjeta, se abre en una
+   píldora con el texto y la flecha se endereza. En táctil va siempre abierta */
+.case-cta{margin-top:auto;align-self:flex-end;display:flex;align-items:center;gap:0;height:44px;padding:0 13px;border-radius:999px;background:var(--ink);color:#fff;font-size:14px;line-height:1;white-space:nowrap;transition:gap .45s var(--ease),padding .45s var(--ease),background-color .3s}
+.case-cta-t{display:block;max-width:0;overflow:hidden;opacity:0;transition:max-width .45s var(--ease),opacity .3s}
+.case-cta svg{flex:none;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transform:rotate(-45deg);transition:transform .45s var(--ease)}
+.case:hover .case-cta,.case:focus-visible .case-cta{gap:8px;padding:0 14px 0 18px;background:var(--accent)}
+.case:hover .case-cta-t,.case:focus-visible .case-cta-t{max-width:12em;opacity:1}
+.case:hover .case-cta svg,.case:focus-visible .case-cta svg{transform:none}
+@media (hover:none),(pointer:coarse){.case-cta{gap:8px;padding:0 14px 0 18px}.case-cta-t{max-width:none;opacity:1}.case-cta svg{transform:none}}
 /* 3D: el fondo del vídeo del configurador es el crema liso de la página */
 /* estado del proyecto («En desarrollo»): texto con punto morado, al pie de la tarjeta,
    donde los casos llevan «Ver caso» */
@@ -289,12 +299,12 @@
   .bom{max-width:calc(560px * var(--fz))}
   .bom li{font-size:calc(16px * var(--fz))}
   .bom .t small,.bom .p,.bal,.cajetin .v{font-size:calc(13px * var(--fz))}
-  .sheet .ticks,.cajetin .l{font-size:calc(11px * var(--fz))}
+  .cajetin .l{font-size:calc(11px * var(--fz))}
   .cajetin .cj-name{font-size:calc(18px * var(--fz))}
   .pp-title{font-size:max(clamp(40px,5.6vw,88px),calc(5.6 * var(--u)))}
   .pp-head h3,.live h4,.phys-info h4{font-size:max(clamp(30px,3.4vw,52px),calc(3.4 * var(--u)))}
   .live-sub,.phys-info p{font-size:calc(17px * var(--fz))}
-  .btn-live{font-size:calc(15px * var(--fz))}
+  .live-link{font-size:calc(15px * var(--fz))}
   .case h4{font-size:calc(30px * var(--fz))}
   .case-cta,.phys-state{font-size:calc(14px * var(--fz))}
   .pp .pieces span{font-size:calc(12.5px * var(--fz))}

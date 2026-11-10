@@ -19,7 +19,7 @@ function abSvg(a) {
 <defs>
 <pattern id="ab-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1F1A14" stroke-opacity=".07"/></pattern>
 <marker id="ab-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5Z" fill="#776A56"/></marker>
-<linearGradient id="ab-glaze" x1="0" x2="1"><stop offset="0" stop-color="#2A0D3E"/><stop offset=".2" stop-color="#5A2183"/><stop offset=".38" stop-color="#AC79D1"/><stop offset=".56" stop-color="#7C2FA8"/><stop offset=".82" stop-color="#46195F"/><stop offset="1" stop-color="#240A35"/></linearGradient>
+<linearGradient id="ab-glaze" x1="0" x2="1"><stop offset="0" stop-color="#14110D"/><stop offset=".2" stop-color="#3A332A"/><stop offset=".38" stop-color="#8E8574"/><stop offset=".56" stop-color="#4A4237"/><stop offset=".82" stop-color="#2A241D"/><stop offset="1" stop-color="#15120E"/></linearGradient>
 <linearGradient id="ab-pla" x1="0" x2="1"><stop offset="0" stop-color="#8FB02A"/><stop offset=".36" stop-color="#E6FB98"/><stop offset=".6" stop-color="#C6E85A"/><stop offset="1" stop-color="#7F9E1F"/></linearGradient>
 <pattern id="ab-lay" width="20" height="9" patternUnits="userSpaceOnUse"><path d="M0 8.5H20" stroke="#1F1A14" stroke-opacity=".16"/></pattern>
 <radialGradient id="ab-mouth" cx=".5" cy=".3" r=".75"><stop offset="0" stop-color="#14051F"/><stop offset="1" stop-color="#3B1453"/></radialGradient>
@@ -43,7 +43,7 @@ function abSvg(a) {
 
 <g class="st st0">
 <rect width="1000" height="1000" fill="url(#ab-grid)"/>
-<line x1="500" y1="196" x2="500" y2="866" stroke="#7C2FA8" stroke-width="2" stroke-dasharray="28 8 4 8"/>
+<line x1="500" y1="196" x2="500" y2="866" stroke="#1F1A14" stroke-width="2" stroke-dasharray="28 8 4 8"/>
 <path id="ab-draw" pathLength="1" stroke-dasharray="1" d="${AB_PLAN}" fill="none" stroke="#1F1A14" stroke-width="3" stroke-linejoin="round"/>
 <g id="ab-dims">
 <g fill="none" stroke="#776A56" stroke-width="1.6"><path d="M392 240H262M392 820H262"/><path d="M282 246V814" marker-start="url(#ab-arr)" marker-end="url(#ab-arr)"/><path d="M329 640H671" marker-start="url(#ab-arr)" marker-end="url(#ab-arr)"/></g>
@@ -60,8 +60,8 @@ function abSvg(a) {
 
 <g class="st st1">
 <use href="#ab-sil" fill="none" stroke="#1F1A14" stroke-width="2.6"/>
-<g id="ab-rings" fill="none" stroke="#7C2FA8" stroke-width="1.6"></g>
-<g id="ab-mer" fill="none" stroke="#7C2FA8" stroke-width="1.6"></g>
+<g id="ab-rings" fill="none" stroke="#1F1A14" stroke-width="1.6"></g>
+<g id="ab-mer" fill="none" stroke="#1F1A14" stroke-width="1.6"></g>
 <ellipse cx="500" cy="240" rx="95" ry="17" fill="none" stroke="#1F1A14" stroke-width="2.6"/>
 </g>
 
@@ -83,7 +83,7 @@ function abSvg(a) {
 <rect x="170" y="160" width="660" height="720" rx="20" fill="url(#ab-studio)"/>
 <use href="#ab-vr"/>
 <path d="M210 250V200H260M790 250V200H740M210 790V840H260M790 790V840H740" fill="none" stroke="#1F1A14" stroke-width="3.2" stroke-linecap="round"/>
-<rect id="ab-focus" x="440" y="460" width="120" height="120" fill="none" stroke="#7C2FA8" stroke-width="3"/>
+<rect id="ab-focus" x="440" y="460" width="120" height="120" fill="none" stroke="#1F1A14" stroke-width="3"/>
 <text class="exif" x="236" y="824">ƒ2.8   1/125</text>
 <rect id="ab-flash" width="1000" height="1000" fill="#fff" opacity="0"/>
 </g>
@@ -110,10 +110,10 @@ function abSvg(a) {
 <g transform="translate(500 372) scale(.5) translate(-500 -538)"><use href="#ab-vr"/></g>
 <text class="big" x="296" y="664">${e(a.poster[0])}</text>
 <text class="sub" x="300" y="704">${e(a.poster[1])}</text>
-<g id="ab-sw"><circle cx="318" cy="800" r="17" fill="#7C2FA8"/><circle cx="364" cy="800" r="17" fill="#D4F36B"/><circle cx="410" cy="800" r="17" fill="#1F1A14"/><circle cx="456" cy="800" r="17" fill="#E9E1D3" stroke="#C9BDA6" stroke-width="1.5"/></g>
+<g id="ab-sw"><circle cx="318" cy="800" r="17" fill="#776A56"/><circle cx="364" cy="800" r="17" fill="#D4F36B"/><circle cx="410" cy="800" r="17" fill="#1F1A14"/><circle cx="456" cy="800" r="17" fill="#E9E1D3" stroke="#C9BDA6" stroke-width="1.5"/></g>
 <path id="ab-bezp" d="M540 812C580 760 640 840 700 776" fill="none" stroke="#1F1A14" stroke-width="3"/>
-<line id="ab-h1" x1="540" y1="812" x2="580" y2="760" stroke="#7C2FA8" stroke-width="1.6"/><line id="ab-h2" x1="700" y1="776" x2="640" y2="840" stroke="#7C2FA8" stroke-width="1.6"/>
-<circle id="ab-k1" cx="580" cy="760" r="6" fill="#7C2FA8"/><circle id="ab-k2" cx="640" cy="840" r="6" fill="#7C2FA8"/>
+<line id="ab-h1" x1="540" y1="812" x2="580" y2="760" stroke="#1F1A14" stroke-width="1.6"/><line id="ab-h2" x1="700" y1="776" x2="640" y2="840" stroke="#1F1A14" stroke-width="1.6"/>
+<circle id="ab-k1" cx="580" cy="760" r="6" fill="#1F1A14"/><circle id="ab-k2" cx="640" cy="840" r="6" fill="#1F1A14"/>
 <rect x="533" y="805" width="14" height="14" fill="#FFFEFA" stroke="#1F1A14" stroke-width="2"/><rect x="693" y="769" width="14" height="14" fill="#FFFEFA" stroke="#1F1A14" stroke-width="2"/>
 </g>
 
@@ -127,7 +127,7 @@ function abSvg(a) {
 <text class="nav" x="846" y="290" text-anchor="end">${e(w.nav[0])}   ${e(w.nav[1])}   ${e(w.nav[2])}</text>
 <text class="h" x="150" y="404">${e(w.title[0])}</text><text class="h" x="150" y="456">${e(w.title[1])}</text>
 <rect x="150" y="484" width="280" height="10" rx="5" fill="#DED5C4"/><rect x="150" y="506" width="240" height="10" rx="5" fill="#DED5C4"/><rect x="150" y="528" width="262" height="10" rx="5" fill="#DED5C4"/>
-<g id="ab-btn"><rect x="150" y="572" width="170" height="52" rx="26" fill="#7C2FA8"/><text class="btn" x="235" y="605" text-anchor="middle">${e(w.cta)}</text></g>
+<g id="ab-btn"><rect x="150" y="572" width="170" height="52" rx="26" fill="#1F1A14"/><text class="btn" x="235" y="605" text-anchor="middle">${e(w.cta)}</text></g>
 <rect x="480" y="318" width="370" height="438" rx="12" fill="#F1E6F8"/>
 <g transform="translate(665 540) scale(.58) translate(-500 -538)"><use href="#ab-vr"/></g>
 <path id="ab-cur" d="M0 0V36L10 27L17 43L24 40L17 24H30Z" fill="#1F1A14" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" transform="translate(760 700)"/>
@@ -177,7 +177,7 @@ function abStart(root, a) {
     const y = 466 + i * 72, [p, q] = [[700, 790], [716, 826], [690, 836]][i];
     mk("text", { class: "slbl", x: 646, y: y - 18 }, $("sl")).textContent = lbl;
     mk("line", { x1: 646, y1: y, x2: 872, y2: y, stroke: "#DED5C4", "stroke-width": 5, "stroke-linecap": "round" }, $("sl"));
-    return [mk("line", { x1: 646, y1: y, x2: p, y2: y, stroke: "#7C2FA8", "stroke-width": 5, "stroke-linecap": "round" }, $("sl")),
+    return [mk("line", { x1: 646, y1: y, x2: p, y2: y, stroke: "#1F1A14", "stroke-width": 5, "stroke-linecap": "round" }, $("sl")),
       mk("circle", { cx: p, cy: y, r: 11, fill: "#FFFEFA", stroke: "#1F1A14", "stroke-width": 2.4 }, $("sl")), p, q];
   });
   const ticks = Array.from({ length: AB_N }, (_, i) => mk("rect", { class: "tick", x: 100 + i * 30, y: 124, width: 24, height: 5, rx: 2.5 }, $("ticks")));

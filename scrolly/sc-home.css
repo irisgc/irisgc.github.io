@@ -3,14 +3,14 @@
    sc-engine.jsx empieza después, al llegar a «Sobre mí».
    Respecto al prototipo, sin filetes entre filas ni celdas (la tabla y el cajetín se
    separan con espacio y color), sin letter-spacing y sin subrayado al pasar el ratón. */
-.pa,.pp{--paper:#FFFEFA;--line-2:#C9BDA6;--accent-soft:#F1E6F8;--night:#1D1A23}
+.pa,.pp{--paper:#FFFEFA;--line-2:#C9BDA6;--accent-soft:#EFEADF;--night:#1D1A23}
 
 /* ============ Enfoque · vista explosionada ============ */
 .pa{position:relative;height:400vh}
 .pa .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--bg)}
 .sheet{position:absolute;inset:0;z-index:0;pointer-events:none}
-/* el marco es el contorno de la lámina, no separa contenido */
-.sheet .frame{position:absolute;inset:14px;border:1px solid var(--line-2)}
+/* sin marco visible: el div se queda porque sc-enfoque.jsx mide su borde para colocar las etiquetas */
+.sheet .frame{position:absolute;inset:14px}
 .pa-grid{position:relative;z-index:2;height:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(20px,3vw,44px);padding:78px var(--pad) 98px;align-items:center}
 .pa-title{margin-top:14px;font-size:clamp(34px,min(4.5vw,8vh),70px);line-height:1;font-weight:500}
 .pa-sub{margin-top:16px;font-size:clamp(15px,min(1.25vw,2.3vh),19px);line-height:1.45;color:var(--ink-soft);max-width:42ch}
@@ -132,7 +132,7 @@
 .pp [id^="p-"]{scroll-margin-top:96px}
 /* al llegar desde la tabla de «Enfoque», la tarjeta se resalta un momento */
 .live:target,.case:target,.phys:target{animation:pp-hl 2s var(--ease)}
-@keyframes pp-hl{0%,45%{box-shadow:0 0 0 3px var(--accent),var(--card-sh)}100%{box-shadow:0 0 0 0 rgba(124,47,168,0),var(--card-sh)}}
+@keyframes pp-hl{0%,45%{box-shadow:0 0 0 3px var(--accent),var(--card-sh)}100%{box-shadow:0 0 0 0 rgba(31,26,20,0),var(--card-sh)}}
 /* las tres clases de tarjeta (en producción, casos de estudio y 3D) tienen el mismo aspecto:
    fondo de papel sin borde, una sombra suave detrás y esquinas de 20 px; el vídeo o la imagen
    llena su hueco. La sombra va en --card-sh para que el resaltado al llegar desde la tabla la mantenga */
@@ -216,7 +216,7 @@
 .sc-about-anim [data-s="4"] .st4,.sc-about-anim [data-s="5"] .st5,.sc-about-anim [data-s="6"] .st6,.sc-about-anim [data-s="7"] .st7{opacity:1}
 .sc-about-anim .cap-t{font-size:32px;font-weight:500}
 .sc-about-anim .tick{fill:#C9BDA6;transition:fill .3s}
-.sc-about-anim .tick.on{fill:#7C2FA8}
+.sc-about-anim .tick.on{fill:#1F1A14}
 .sc-about-anim .back{opacity:.25}
 .sc-about-anim .dimt{font-size:23px;fill:#776A56}
 .sc-about-anim .cj text{font-size:15px;fill:#463C2E;letter-spacing:.04em}

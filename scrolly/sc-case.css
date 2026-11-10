@@ -1,5 +1,5 @@
 /* Iris García — páginas de caso (scrollytelling). Hereda tokens de scrolly.css */
-:root{--stripe:color-mix(in oklab,rgba(31,26,20,.055),rgba(31,26,20,.075) var(--m2));--hl:rgba(124,47,168,.26);--nav-band:calc(clamp(10px,1.4vw,18px) + 60px)}
+:root{--stripe:color-mix(in oklab,rgba(31,26,20,.055),rgba(31,26,20,.075) var(--m2));--hl:rgba(31,26,20,.16);--nav-band:calc(clamp(10px,1.4vw,18px) + 60px)}
 .cs-prose em{color:var(--accent)}
 .cs-cover-box,.cs-proc-media,.cs-proc-slide .cell,.cs-gcard .box{transition:background-color .25s linear,border-color .25s linear}
 .cs-prose mark{background:none;color:var(--accent);padding:0}

@@ -1,5 +1,5 @@
 /* Iris García — portfolio scrollytelling */
-:root{--t:0;--m1:0%;--m2:0%;--m2c:0%;--nav-bg:color-mix(in oklab,color-mix(in oklab,rgba(251,250,245,.68),rgba(238,238,238,.72) var(--m1)),rgba(224,224,224,.74) var(--m2));--nav-line:color-mix(in oklab,rgba(31,26,20,.1),rgba(31,26,20,.16) var(--m2));--bg:color-mix(in oklab,color-mix(in oklab,#FBFAF5,#EEEEEE var(--m1)),#E0E0E0 var(--m2));--bg-2:color-mix(in oklab,color-mix(in oklab,#F3EFE4,#E6E6E6 var(--m1)),#D5D5D5 var(--m2c));--ink:#1F1A14;--ink-soft:#463C2E;--ink-mute:color-mix(in oklab,#776A56,#665941 var(--m2));--line:color-mix(in oklab,color-mix(in oklab,#DED5C4,#C8C8C8 var(--m1)),#BABABA var(--m2));--accent:#7C2FA8;--accent-fixed:#7C2FA8;--tone-1:color-mix(in oklab,color-mix(in oklab,#EDE7DA,#DCDCDC var(--m1)),#CECECE var(--m2c));--tone-2:color-mix(in oklab,color-mix(in oklab,#E3DBCB,#D0D0D0 var(--m1)),#C2C2C2 var(--m2c));--tone-3:color-mix(in oklab,color-mix(in oklab,#D2C9B5,#BDBDBD var(--m1)),#B0B0B0 var(--m2c));--font:"Bricolage Grotesque","Helvetica Neue",Helvetica,sans-serif;--font-display:var(--font);--font-mono:var(--font);--ease:cubic-bezier(.22,.61,.36,1);--pad:clamp(20px,3.6vw,64px)}
+:root{--t:0;--m1:0%;--m2:0%;--m2c:0%;--nav-bg:color-mix(in oklab,color-mix(in oklab,rgba(251,250,245,.68),rgba(238,238,238,.72) var(--m1)),rgba(224,224,224,.74) var(--m2));--nav-line:color-mix(in oklab,rgba(31,26,20,.1),rgba(31,26,20,.16) var(--m2));--bg:color-mix(in oklab,color-mix(in oklab,#FBFAF5,#EEEEEE var(--m1)),#E0E0E0 var(--m2));--bg-2:color-mix(in oklab,color-mix(in oklab,#F3EFE4,#E6E6E6 var(--m1)),#D5D5D5 var(--m2c));--ink:#1F1A14;--ink-soft:#463C2E;--ink-mute:color-mix(in oklab,#776A56,#665941 var(--m2));--line:color-mix(in oklab,color-mix(in oklab,#DED5C4,#C8C8C8 var(--m1)),#BABABA var(--m2));--accent:#1F1A14;--accent-fixed:#1F1A14;--cv:#7C2FA8;--tone-1:color-mix(in oklab,color-mix(in oklab,#EDE7DA,#DCDCDC var(--m1)),#CECECE var(--m2c));--tone-2:color-mix(in oklab,color-mix(in oklab,#E3DBCB,#D0D0D0 var(--m1)),#C2C2C2 var(--m2c));--tone-3:color-mix(in oklab,color-mix(in oklab,#D2C9B5,#BDBDBD var(--m1)),#B0B0B0 var(--m2c));--font:"Bricolage Grotesque","Helvetica Neue",Helvetica,sans-serif;--font-display:var(--font);--font-mono:var(--font);--ease:cubic-bezier(.22,.61,.36,1);--pad:clamp(20px,3.6vw,64px)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html,body{background:var(--bg);color:var(--ink);font-family:var(--font);font-feature-settings:"ss01","ss02";-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -24,7 +24,7 @@ html.kb .cur2{opacity:0}
 .cur2.live{visibility:visible}
 .cur2 .ring{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border:1px solid var(--ink);border-radius:50%;opacity:.55;transition:width .32s var(--ease),height .32s var(--ease),margin .32s var(--ease),opacity .3s,background .3s}
 .cur2 .dot{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--accent);transition:opacity .25s}
-.cur2.on .ring{width:58px;height:58px;margin:-29px 0 0 -29px;opacity:1;background:rgba(124,47,168,.12)}
+.cur2.on .ring{width:58px;height:58px;margin:-29px 0 0 -29px;opacity:1;background:rgba(31,26,20,.1)}
 .cur2.on .dot{opacity:0}
 .cur2.tx .ring{width:2px;height:26px;margin:-13px 0 0 -1px;border-radius:2px;background:var(--ink);opacity:.8}
 .cur2 .sy-g{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:16px;line-height:1;color:var(--ink);opacity:0;transition:opacity .2s var(--ease)}
@@ -61,7 +61,7 @@ html.kb .cur2{opacity:0}
 .sc-lang{display:flex;gap:2px;padding:3px;border-radius:999px;background:rgba(31,26,20,.06);font-size:13px}
 .sc-lang button{padding:5px 12px;border-radius:999px;color:var(--ink-mute);transition:color .25s,background .25s}
 .sc-lang button.on{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px rgba(31,26,20,.08)}
-.sc-nav-cv{padding:8px 17px;border-radius:999px;background:var(--accent);color:#FBFAF5;font-size:14px;transition:background .3s,color .3s}
+.sc-nav-cv{padding:8px 17px;border-radius:999px;background:var(--cv);color:#FBFAF5;font-size:14px;transition:background .3s,color .3s}
 @media (hover:hover){.sc-nav-cv:hover{background:var(--ink);color:var(--bg)}}
 
 /* cabecera de sección */

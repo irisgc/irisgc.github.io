@@ -64,23 +64,9 @@
 .vr-ph-scr img{transition:none!important}
 }
 
-/* ── Portada simplificada de la tarjeta: público en movimiento + logo ── */
-.vr-cover{isolation:isolate}
-.vr-cover-photo{position:absolute;inset:-4%;overflow:hidden}
-.vr-loop .vr-cover-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%;transform-origin:60% 45%;animation:vrCoverDrift 16s ease-in-out infinite alternate,vrCoverJump 1.9s ease-in-out infinite}
-/* acercamiento lento y un leve vaivén, como una cámara sobre el público */
-@keyframes vrCoverDrift{0%{scale:1.04;translate:0 0}100%{scale:1.16;translate:-2.5% -1.5%}}
-/* pulso sutil al ritmo, como el público saltando */
-@keyframes vrCoverJump{0%,100%{transform:translateY(0)}45%{transform:translateY(-.9%)}}
-/* focos del escenario barriendo sobre el público */
-.vr-cover-beam{position:absolute;top:-30%;width:42%;height:150%;mix-blend-mode:screen;pointer-events:none;transform-origin:50% 0}
-.vr-cover-beam--a{left:8%;background:radial-gradient(ellipse 26% 95% at 50% 0,rgba(215,30,23,.6),rgba(215,30,23,0) 100%);animation:vrCoverSweepA 7s ease-in-out infinite alternate}
-.vr-cover-beam--b{right:6%;background:radial-gradient(ellipse 24% 90% at 50% 0,rgba(255,226,190,.45),rgba(255,226,190,0) 100%);animation:vrCoverSweepB 9s ease-in-out infinite alternate}
-@keyframes vrCoverSweepA{0%{rotate:-22deg;opacity:.55}50%{opacity:1}100%{rotate:18deg;opacity:.6}}
-@keyframes vrCoverSweepB{0%{rotate:20deg;opacity:.35}50%{opacity:.85}100%{rotate:-16deg;opacity:.4}}
+/* ── Portada simplificada de la tarjeta: vídeo del público + logo fijo ── */
+.vr-cover-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%;display:block}
 /* oscurece el centro para que el logo se lea */
-.vr-cover-veil{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(20,17,16,.62) 0%,rgba(20,17,16,.35) 55%,rgba(20,17,16,.7) 100%)}
-.vr-loop .vr-cover-logo{position:absolute;left:50%;top:50%;width:min(66%,520px);height:auto;translate:-50% -50%;filter:drop-shadow(0 6px 22px rgba(0,0,0,.55)) drop-shadow(0 0 28px rgba(215,30,23,.35));animation:vrCoverBeat 1.9s ease-in-out infinite}
-@keyframes vrCoverBeat{0%,100%{scale:1}12%{scale:1.035}30%{scale:1}}
+.vr-cover-veil{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(20,17,16,.6) 0%,rgba(20,17,16,.32) 55%,rgba(20,17,16,.62) 100%)}
+.vr-loop .vr-cover-logo{position:absolute;left:50%;top:50%;width:min(66%,520px);height:auto;translate:-50% -50%;filter:drop-shadow(0 6px 22px rgba(0,0,0,.55))}
 @container (aspect-ratio < 1.15){.vr-loop .vr-cover-logo{width:78%}}
-@media (prefers-reduced-motion:reduce){.vr-cover *{animation:none!important}}

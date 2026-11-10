@@ -20,21 +20,24 @@ html.kb .cur2{opacity:0}
 
 /* cursor: anillo fino con retardo, sin etiquetas */
 .cur2{position:fixed;top:0;left:0;z-index:100;pointer-events:none;visibility:hidden}
-/* no se enseña hasta que se mueve un ratón de verdad: hay móviles que dicen tener hover */
-.cur2.live{visibility:visible}
-.cur2 .ring{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border:1px solid var(--ink);border-radius:50%;opacity:.55;transition:width .32s var(--ease),height .32s var(--ease),margin .32s var(--ease),opacity .3s,background .3s}
-.cur2 .dot{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--accent);transition:opacity .25s}
-.cur2.on .ring{width:58px;height:58px;margin:-29px 0 0 -29px;opacity:1;background:rgba(31,26,20,.1)}
+/* no se enseña hasta que se mueve un ratón de verdad: hay móviles que dicen tener hover.
+   Clase «is-live» y no «live»: «.live» es la tarjeta de Mañez y Lozano (sc-home.css) y su
+   overflow:hidden recortaba el cursor hasta hacerlo desaparecer */
+.cur2.is-live{visibility:visible}
+/* blanco con mezcla «diferencia»: se invierte sobre lo que tenga debajo, así se ve igual sobre
+   crema, negro o vídeo. Antes el punto era morado y no hacía falta; con el acento en negro,
+   sobre los botones negros y «Contacto» el cursor desaparecía */
+.cur2{mix-blend-mode:difference}
+.cur2 .ring{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border:1px solid #fff;border-radius:50%;opacity:.8;transition:width .32s var(--ease),height .32s var(--ease),margin .32s var(--ease),opacity .3s,background .3s}
+.cur2 .dot{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#fff;transition:opacity .25s}
+.cur2.on .ring{width:58px;height:58px;margin:-29px 0 0 -29px;opacity:1;background:#fff}
 .cur2.on .dot{opacity:0}
-.cur2.tx .ring{width:2px;height:26px;margin:-13px 0 0 -1px;border-radius:2px;background:var(--ink);opacity:.8}
-.cur2 .sy-g{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:16px;line-height:1;color:var(--ink);opacity:0;transition:opacity .2s var(--ease)}
+.cur2.tx .ring{width:2px;height:26px;margin:-13px 0 0 -1px;border-radius:2px;background:#fff;opacity:.9}
+.cur2 .sy-g{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:16px;line-height:1;color:#fff;opacity:0;transition:opacity .2s var(--ease)}
 .cur2 .sy-g::before{content:"\2195"}
-.cur2.sy .ring{width:46px;height:46px;margin:-23px 0 0 -23px;opacity:1;background:color-mix(in oklab,var(--bg) 78%,transparent);backdrop-filter:blur(2px)}
+.cur2.sy .ring{width:46px;height:46px;margin:-23px 0 0 -23px;opacity:1}
 .cur2.sy .sy-g{opacity:.9}
 .cur2.sy .dot{opacity:0}
-/* sobre superficies oscuras ([data-surface="dark"]) el anillo pasa a claro */
-.cur2.dk .ring{border-color:#FAFAFA}
-.cur2.dk.tx .ring{background:#FAFAFA}
 
 /* chrome */
 .sc-progress{position:fixed;top:0;left:0;right:0;height:1px;z-index:60;pointer-events:none;background:var(--line)}

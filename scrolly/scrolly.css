@@ -360,6 +360,7 @@ body,button{cursor:auto}
 .sc-contact-mail{padding-top:10px}
 .sc-contact-block{min-height:44px;justify-content:center}
 .sc-cv-langs label{padding:11px 16px}
+.cs-next-row a{display:inline-flex;align-items:center;min-height:44px}
 }
 @media (max-width:880px){
 /* sobre fotos y fondos oscuros la barra translúcida no se leía: más opaca y sin desenfoque */

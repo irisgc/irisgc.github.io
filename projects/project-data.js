@@ -551,7 +551,6 @@ window.PROJECT_REVERB = {
   layout: "rv",
   logo: "assets/reverb/logo.svg",
   mim: "assets/reverb/mim.svg",
-  img: { laura: "assets/reverb/v2/laura.webp", shego: "assets/reverb/v2/shego.webp" },
   // relleno «REVERB · Térmico» del héroe de la home del prototipo
   thermal: { heat: 0.42, scale: 1.6, warp: 1.6, speed: 0.35, focus: [0.62, 0.42] },
   // el cartel de septiembre: diez días revelados y veinte por revelar (exportados de Figma,
@@ -598,7 +597,6 @@ window.PROJECT_REVERB = {
       kick: "Un altavoz para las mujeres de la industria musical",
       sub: "Datos, testimonios y voces: el eco de lo que no siempre se escucha.",
       chips: ["Web responsive", "Diseño inclusivo", "Sistema de diseño"],
-      ui: { tag: "Técnica de sonido", name: "Laura", next: "Próxima voz en", real: "La realidad · 2024", song: "La fiesta", artist: "shego" },
     },
     facts: [
       { k: "Mi papel", v: "Investigación, concepto, UX/UI, sistema de diseño y prototipo" },
@@ -703,7 +701,6 @@ window.PROJECT_REVERB = {
       kick: "A loudspeaker for women in the music industry",
       sub: "Data, testimonies and voices: the echo of what isn't always heard.",
       chips: ["Responsive web", "Inclusive design", "Design system"],
-      ui: { tag: "Sound technician", name: "Laura", next: "Next voice in", real: "The reality · 2024", song: "La fiesta", artist: "shego" },
     },
     facts: [
       { k: "My role", v: "Research, concept, UX/UI, design system and prototype" },

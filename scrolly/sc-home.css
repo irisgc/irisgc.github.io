@@ -6,7 +6,7 @@
 .pa,.pp{--paper:#FFFEFA;--line-2:#C9BDA6;--accent-soft:#EFEADF;--night:#1D1A23}
 
 /* ============ Enfoque · vista explosionada ============ */
-.pa{position:relative;height:400vh}
+.pa{position:relative;height:460vh}
 .pa .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--bg)}
 .sheet{position:absolute;inset:0;z-index:0;pointer-events:none}
 /* sin marco visible: el div se queda porque sc-enfoque.jsx mide su borde para colocar las etiquetas */

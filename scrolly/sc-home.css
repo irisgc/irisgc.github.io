@@ -13,7 +13,6 @@
 .sheet .frame{position:absolute;inset:14px}
 .pa-grid{position:relative;z-index:2;height:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(20px,3vw,44px);padding:78px var(--pad) 98px;align-items:center}
 .pa-title{margin-top:14px;font-size:clamp(34px,min(4.5vw,8vh),70px);line-height:1;font-weight:500}
-.pa-sub{margin-top:16px;font-size:clamp(15px,min(1.25vw,2.3vh),19px);line-height:1.45;color:var(--ink-soft);max-width:42ch}
 .bom{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:clamp(16px,3vh,30px);max-width:560px}
 .bom li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;padding:clamp(5px,.9vh,8px) 10px;border-radius:10px;font-size:clamp(14px,1.1vw,16px);transition:color .35s var(--ease),background-color .35s var(--ease)}
 .bom .t small{display:block;max-height:0;opacity:0;overflow:hidden;font-size:13px;line-height:1.35;color:var(--ink-soft);transition:max-height .45s var(--ease),opacity .35s,margin .45s var(--ease)}
@@ -80,7 +79,6 @@
   .pa-stage{order:-1}
   .iso-wrap{left:50%}
   .pa-title{font-size:30px;margin-top:8px}
-  .pa-sub{display:none}
   .bom{margin-top:12px}
   .bom li{padding:4px 8px;font-size:14px}
   .bom .t small{font-size:12px}
@@ -111,7 +109,7 @@
 }
 /* móvil en horizontal: la lista a un lado y la pila al otro */
 @media (max-width:980px) and (max-height:500px){
-  .pa-sub,.cajetin,.pa-svg.front,.pa-bals{display:none}
+  .cajetin,.pa-svg.front,.pa-bals{display:none}
   .pa-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);grid-template-rows:none;align-items:center;gap:12px;padding:62px var(--pad) 20px}
   .pa-stage{order:0}
   .iso-wrap{left:50%}
@@ -305,7 +303,6 @@
 @media (min-width:1500px){
   .pa-grid,.pp-in{max-width:calc(1440px * var(--fz))}
   .pa-title{font-size:max(clamp(34px,min(4.5vw,8vh),70px),calc(4.2 * var(--u)))}
-  .pa-sub{font-size:calc(clamp(15px,min(1.25vw,2.3vh),19px) * var(--fz))}
   .bom{max-width:calc(560px * var(--fz))}
   .bom li{font-size:calc(16px * var(--fz))}
   .bom .t small,.bom .p,.bal,.cajetin .v{font-size:calc(13px * var(--fz))}

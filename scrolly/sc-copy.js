@@ -20,10 +20,9 @@ window.SC = {
     enfoque: {
       label: "Enfoque",
       title: "Lo que hago",
-      sub: "Así aplico mis conocimientos y experiencia en distintas ramas del diseño.",
       rows: [
         { i: 0, t: "Diseño web", d: "Web oficial y tienda de recambios en producción, con WordPress y Claude Code.", link: "manezylozano.com", href: "#p-mzl" },
-        { i: 1, t: "Diseño App, interfaz y prototipo", d: "Diseño App para Android con prototipo navegable.", link: "Horizonte", href: "#p-horizonte" },
+        { i: 1, t: "Diseño app, interfaz y prototipo", d: "App Android de aventuras con impacto local.", link: "Horizonte", href: "#p-horizonte" },
         { i: 2, t: "Investigación UX y arquitectura", d: "Mejora de la experiencia de usuario para el uso de la web del festival.", link: "Viña Rock", href: "#p-vinarock" },
         { i: 3, t: "Investigación, concepto, UX/UI, sistema de diseño", d: "Concepto y prototipo navegable de una web destinada a la visibilización.", link: "REVERB", href: "#p-reverb" },
         { i: 5, t: "Modelado y render", d: "CAD, render, IA generativa", link: "visual", href: "#p-3d" }
@@ -78,10 +77,9 @@ window.SC = {
     enfoque: {
       label: "Approach",
       title: "What I do",
-      sub: "This is how I apply my knowledge and experience across different fields of design.",
       rows: [
         { i: 0, t: "Web design", d: "Official website and spare-parts shop, live, built with WordPress and Claude Code.", link: "manezylozano.com", href: "#p-mzl" },
-        { i: 1, t: "App design, interface and prototype", d: "Android app design with an interactive prototype.", link: "Horizonte", href: "#p-horizonte" },
+        { i: 1, t: "App design, interface and prototype", d: "Android adventure app with local impact.", link: "Horizonte", href: "#p-horizonte" },
         { i: 2, t: "UX research and information architecture", d: "Improving the user experience of the festival's website.", link: "Viña Rock", href: "#p-vinarock" },
         { i: 3, t: "Research, concept, UX/UI, design system", d: "Concept and interactive prototype of a website aimed at raising visibility.", link: "REVERB", href: "#p-reverb" },
         { i: 5, t: "3D modelling and rendering", d: "CAD, rendering, generative AI", link: "visual", href: "#p-3d" }

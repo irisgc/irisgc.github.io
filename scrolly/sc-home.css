@@ -88,15 +88,16 @@
   .cajetin>div:nth-child(n+2){display:none}
   .cajetin>div.cj-m{display:flex}
 }
-/* móvil: la descripción de la fila activa va debajo, a todo el ancho; antes iba en la columna
-   estrecha y se cortaba. El tamaño de la pila baja en pantallas cortas para que nada quede
-   detrás del cajetín, y en las muy cortas el cajetín se quita */
+/* móvil: la descripción de la fila activa va debajo del título y en su misma columna, sin
+   meterse bajo el enlace (25/11/2026); el tope de alto es mayor para que quepan tres líneas.
+   El tamaño de la pila baja en pantallas cortas para que nada quede detrás del cajetín, y en
+   las muy cortas el cajetín se quita */
 @media (max-width:880px){
   /* al esconderse la barra del navegador la lámina llega hasta abajo */
   .pa .sticky{height:100dvh}
   .bom li{row-gap:0}
   .bom .t{display:contents}
-  .bom .t small{grid-column:1 / -1;grid-row:2}
+  .bom .t small{grid-column:1;grid-row:2}
   .bom li.on .t small{max-height:6em}
   .bom .p{margin:-10px 0;padding:12px 0 10px 12px}
 }

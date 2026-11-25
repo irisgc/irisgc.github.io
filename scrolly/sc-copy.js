@@ -21,13 +21,13 @@ window.SC = {
       label: "Enfoque",
       title: "Lo que hago",
       rows: [
-        { i: 0, t: "Diseño web", d: "Web oficial y tienda de recambios en producción, con WordPress y Claude Code.", link: "manezylozano.com", href: "#p-mzl" },
-        { i: 1, t: "Diseño app, interfaz y prototipo", d: "App Android de aventuras con impacto local.", link: "Horizonte", href: "#p-horizonte" },
-        { i: 2, t: "Investigación UX y arquitectura", d: "Mejora de la experiencia de usuario para el uso de la web del festival.", link: "Viña Rock", href: "#p-vinarock" },
-        { i: 3, t: "Investigación, concepto, UX/UI, sistema de diseño", d: "Concepto y prototipo navegable de una web destinada a la visibilización.", link: "REVERB", href: "#p-reverb" },
-        { i: 5, t: "Modelado y render", d: "CAD, render, IA generativa", link: "visual", href: "#p-3d" }
+        { i: 0, t: "Diseño web", d: "Web oficial y tienda online de recambios", link: "manezylozano.com", href: "#p-mzl" },
+        { i: 1, t: "Diseño app", d: "Aplicación para SO Android", link: "Horizonte", href: "#p-horizonte" },
+        { i: 2, t: "Rediseño UX web", d: "Mejora de la experiencia de usuario y la arquitectura de la información", link: "Viña Rock", href: "#p-vinarock" },
+        { i: 3, t: "Investigación, concepto y diseño web", d: "Web para visibilizar a las mujeres en la música", link: "REVERB", href: "#p-reverb" },
+        { i: 5, t: "Modelado y render", d: "CAD, render, web", link: "visual", href: "#p-3d" }
       ],
-      names: { web: "Diseño web", app: "Diseño app", ux: "Investigación y|arquitectura", ds: "Sistema de diseño", r3d: "Modelado y render" },
+      names: { web: "Diseño web", app: "Diseño app", ux: "Rediseño UX web", ds: "Concepto y diseño web", r3d: "Modelado y render" },
       webAlt: "Home de manezylozano.com",
       vrAlt: "Portada del caso Viña Rock",
       hzSub: "App de aventuras con impacto local",
@@ -78,13 +78,13 @@ window.SC = {
       label: "Approach",
       title: "What I do",
       rows: [
-        { i: 0, t: "Web design", d: "Official website and spare-parts shop, live, built with WordPress and Claude Code.", link: "manezylozano.com", href: "#p-mzl" },
-        { i: 1, t: "App design, interface and prototype", d: "Android adventure app with local impact.", link: "Horizonte", href: "#p-horizonte" },
-        { i: 2, t: "UX research and information architecture", d: "Improving the user experience of the festival's website.", link: "Viña Rock", href: "#p-vinarock" },
-        { i: 3, t: "Research, concept, UX/UI, design system", d: "Concept and interactive prototype of a website aimed at raising visibility.", link: "REVERB", href: "#p-reverb" },
-        { i: 5, t: "3D modelling and rendering", d: "CAD, rendering, generative AI", link: "visual", href: "#p-3d" }
+        { i: 0, t: "Web design", d: "Official website and online spare-parts shop", link: "manezylozano.com", href: "#p-mzl" },
+        { i: 1, t: "App design", d: "App for Android OS", link: "Horizonte", href: "#p-horizonte" },
+        { i: 2, t: "UX web redesign", d: "Improving the user experience and the information architecture", link: "Viña Rock", href: "#p-vinarock" },
+        { i: 3, t: "Research, concept and web design", d: "Website giving visibility to women in music", link: "REVERB", href: "#p-reverb" },
+        { i: 5, t: "3D modelling and rendering", d: "CAD, rendering, web", link: "visual", href: "#p-3d" }
       ],
-      names: { web: "Web design", app: "App design", ux: "Research and|architecture", ds: "Design system", r3d: "3D modelling|and rendering" },
+      names: { web: "Web design", app: "App design", ux: "UX web redesign", ds: "Concept and web design", r3d: "3D modelling|and rendering" },
       webAlt: "manezylozano.com home page",
       vrAlt: "Viña Rock case cover",
       hzSub: "Adventure app with local impact",

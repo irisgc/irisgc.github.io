@@ -12,12 +12,12 @@
 /* sin marco visible: el div se queda porque sc-enfoque.jsx mide su borde para colocar las etiquetas */
 .sheet .frame{position:absolute;inset:14px}
 .pa-grid{position:relative;z-index:2;height:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(20px,3vw,44px);padding:78px var(--pad) 98px;align-items:center}
-.pa-title{margin-top:14px;font-size:clamp(34px,min(4.5vw,8vh),70px);line-height:1;font-weight:500}
-.bom{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:clamp(16px,3vh,30px);max-width:560px}
-.bom li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;padding:clamp(5px,.9vh,8px) 10px;border-radius:10px;font-size:clamp(14px,1.1vw,16px);transition:color .35s var(--ease),background-color .35s var(--ease)}
+/* sin título (25/11/2026): la lista lleva el peso de la columna */
+.bom{list-style:none;display:flex;flex-direction:column;gap:clamp(2px,.7vh,6px);max-width:560px}
+.bom li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;padding:clamp(6px,1.2vh,12px) 12px;border-radius:10px;font-size:clamp(16px,min(1.4vw,2.6vh),20px);line-height:1.3;transition:color .35s var(--ease),background-color .35s var(--ease)}
 .bom .t small{display:block;max-height:0;opacity:0;overflow:hidden;font-size:13px;line-height:1.35;color:var(--ink-soft);transition:max-height .45s var(--ease),opacity .35s,margin .45s var(--ease)}
 .bom li.on .t small{max-height:3em;margin-top:3px;opacity:1}
-.bom .p{padding-top:2px;font-size:13px;color:var(--ink-mute);transition:color .25s}
+.bom .p{padding-top:.2em;font-size:14px;color:var(--ink-mute);transition:color .25s}
 .bom .p:hover,.bom li.on .p{color:var(--accent)}
 .bom li.on{background:var(--accent-soft);color:var(--accent)}
 .pa-stage{position:relative;align-self:stretch;min-height:0}
@@ -75,23 +75,28 @@
 .cajetin .cj-name{font-size:18px;font-weight:500;line-height:1.1}
 .cajetin .cj-m{display:none}
 @media (max-width:880px){
-  .pa-grid{grid-template-columns:1fr;grid-template-rows:38svh auto;align-items:start;gap:6px;padding:70px 20px 84px}
+  /* de arriba abajo: pila, lista y cajetín, con los mismos márgenes. La pila se lleva lo que dejan
+     libre los otros dos (--bom-h y --caj-h, medidos en sc-enfoque.jsx) en svh, para que no cambie
+     de tamaño cuando Safari esconde su barra; lo que sobre lo reparten las filas de la lista */
+  .pa{--bom-h:230px;--caj-h:58px}
+  .pa .sticky{display:flex;flex-direction:column}
+  .pa-grid{--air:clamp(10px,2.2svh,24px);flex:1;width:100%;height:auto;min-height:0;grid-template-columns:1fr;grid-template-rows:clamp(28svh,calc(100svh - 66px - var(--bom-h) - var(--caj-h) - 15px - var(--air) * 2),102vw) minmax(0,1fr);align-items:stretch;gap:var(--air);padding:66px 20px var(--air)}
   .pa-stage{order:-1}
-  .iso-wrap{left:50%}
-  .pa-title{font-size:30px;margin-top:8px}
-  .bom{margin-top:12px}
-  .bom li{padding:4px 8px;font-size:14px}
-  .bom .t small{font-size:12px}
+  .iso-wrap{left:50%;top:50%}
+  .pa-copy{display:flex;min-height:0}
+  .bom{flex:1;max-width:none;gap:2px;justify-content:space-between}
+  /* tamaño justo para que «Investigación, concepto y diseño web» quepa en una línea desde 375 px */
+  .bom li{padding:clamp(5px,.9svh,10px) 8px;font-size:clamp(14px,min(calc((100vw - 130px) / 17.7),2.1svh),19px)}
+  .bom .t small,.bom .p{font-size:13px}
   .pa-svg.front,.pa-bals{display:none}
-  .cajetin{grid-auto-flow:row;grid-template-columns:1fr 1.3fr}
-  .cajetin>div{padding:8px 10px}
+  .cajetin{position:relative;left:auto;right:auto;bottom:auto;flex:none;margin:0 20px 15px;padding:0;grid-auto-flow:row;grid-template-columns:auto auto;justify-content:space-between}
+  .cajetin>div{padding:8px}
   .cajetin>div:nth-child(n+2){display:none}
-  .cajetin>div.cj-m{display:flex}
+  .cajetin>div.cj-m{display:flex;justify-content:flex-end;text-align:right}
 }
 /* móvil: la descripción de la fila activa va debajo del título y en su misma columna, sin
    meterse bajo el enlace (25/11/2026); el tope de alto es mayor para que quepan tres líneas.
-   El tamaño de la pila baja en pantallas cortas para que nada quede detrás del cajetín, y en
-   las muy cortas el cajetín se quita */
+   En pantallas muy cortas el cajetín se quita */
 @media (max-width:880px){
   /* al esconderse la barra del navegador la lámina llega hasta abajo */
   .pa .sticky{height:100dvh}
@@ -101,12 +106,8 @@
   .bom li.on .t small{max-height:6em}
   .bom .p{margin:-10px 0;padding:12px 0 10px 12px}
 }
-@media (max-width:880px) and (max-height:759px){
-  .pa-grid{grid-template-rows:30svh auto}
-}
 @media (max-width:880px) and (max-height:639px){
   .cajetin{display:none}
-  .pa-grid{padding-bottom:16px}
 }
 /* móvil en horizontal: la lista a un lado y la pila al otro */
 @media (max-width:980px) and (max-height:500px){
@@ -114,9 +115,9 @@
   .pa-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);grid-template-rows:none;align-items:center;gap:12px;padding:62px var(--pad) 20px}
   .pa-stage{order:0}
   .iso-wrap{left:50%}
-  .pa-title{font-size:24px;margin-top:0}
-  .bom{margin-top:6px}
-  .bom li{padding:2px 8px;font-size:13px}
+  .bom{max-width:560px;gap:4px}
+  .bom li{padding:4px 8px;font-size:15px}
+  .bom .t small,.bom .p{font-size:13px}
 }
 
 /* ============ Proyectos ============ */
@@ -303,10 +304,10 @@
    con --u y los textos pequeños, las tarjetas y la pila, con --fz (sc-enfoque.jsx lo lee) */
 @media (min-width:1500px){
   .pa-grid,.pp-in{max-width:calc(1440px * var(--fz))}
-  .pa-title{font-size:max(clamp(34px,min(4.5vw,8vh),70px),calc(4.2 * var(--u)))}
   .bom{max-width:calc(560px * var(--fz))}
-  .bom li{font-size:calc(16px * var(--fz))}
-  .bom .t small,.bom .p,.bal,.cajetin .v{font-size:calc(13px * var(--fz))}
+  .bom li{font-size:calc(20px * var(--fz))}
+  .bom .p{font-size:calc(14px * var(--fz))}
+  .bom .t small,.bal,.cajetin .v{font-size:calc(13px * var(--fz))}
   .cajetin .l{font-size:calc(11px * var(--fz))}
   .cajetin .cj-name{font-size:calc(18px * var(--fz))}
   .pp-title{font-size:max(clamp(40px,5.6vw,88px),calc(5.6 * var(--u)))}

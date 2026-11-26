@@ -19,7 +19,6 @@ window.SC = {
     // `i` es la fila de la tabla que enciende cada capa
     enfoque: {
       label: "Enfoque",
-      title: "Lo que hago",
       rows: [
         { i: 0, t: "Diseño web", d: "Web oficial y tienda online de recambios", link: "manezylozano.com", href: "#p-mzl" },
         { i: 1, t: "Diseño app", d: "Aplicación para SO Android", link: "Horizonte", href: "#p-horizonte" },
@@ -76,7 +75,6 @@ window.SC = {
     contactH2: "talk?",
     enfoque: {
       label: "Approach",
-      title: "What I do",
       rows: [
         { i: 0, t: "Web design", d: "Official website and online spare-parts shop", link: "manezylozano.com", href: "#p-mzl" },
         { i: 1, t: "App design", d: "App for Android OS", link: "Horizonte", href: "#p-horizonte" },

@@ -91,6 +91,10 @@ html.kb .cur2{opacity:0}
 .sc-hero-origin{margin:0 0 auto;padding-left:.09em;font-size:clamp(18px,max(min(1.9vw,29px),min(1.9vw,3.5svh)),54px);line-height:1;font-weight:400;color:var(--accent);position:relative;z-index:3;will-change:transform}
 .sc-hero-figure{position:absolute;right:calc(var(--pad) * .55);bottom:0;width:var(--figw);max-height:min(92svh,1190px);z-index:1;animation:figIn 1.2s var(--ease) both}
 .sc-hero-figure .stage{display:block;perspective:1500px;perspective-origin:50% 42%}
+/* al deslizar, la base de la foto se funde con el fondo (--fi y --fd, sc-hero.jsx); en reposo --fi
+   es 0 y no hay degradado. La máscara va en cada fotograma y no en un contenedor: con el giro 3D de
+   .body, la imagen asomaba por debajo */
+.sc-hero-figure .fr{-webkit-mask-image:linear-gradient(to top,transparent,#000 calc(max(var(--fd,10%),48px) * var(--fi,0)));mask-image:linear-gradient(to top,transparent,#000 calc(max(var(--fd,10%),48px) * var(--fi,0)))}
 .sc-hero-figure .body{position:relative;display:block;transform-origin:50% 46%;transform-style:preserve-3d;animation:jitter .62s linear infinite;animation-play-state:paused}
 .sc-hero-figure img{width:100%;height:auto;display:block;will-change:transform}
 .sc-hero-figure .f1{position:relative}
@@ -370,6 +374,15 @@ body,button{cursor:auto}
 /* Si la pantalla es alta, la foto crece para llenar el hueco bajo el texto (unos 330 px).
    En móviles bajos sigue en el 72 % de siempre */
 .sc-hero{--figw:min(84vw,max(72vw,calc((100svh - 330px) / 1.2122)))}
+}
+/* iPhone en vertical: la barra de Safari flota sobre la página y 100svh acaba unos 98 px antes del
+   borde de la pantalla, así que el corte de la foto quedaba a la vista encima de la barra. El hero
+   se alarga --bar y la foto sale por abajo; crece un poco para que la cara apenas baje. La consulta
+   @supports solo la cumple WebKit en iOS: Android, tablet y ordenador no cambian. */
+@supports (-webkit-touch-callout:none){
+@media (max-width:560px) and (orientation:portrait){
+.sc-hero{--bar:106px;min-height:calc(100svh + var(--bar));--figw:min(94vw,max(72vw,calc((100svh + var(--bar) * .7 - 330px) / 1.2122)))}
+}
 }
 /* barra compacta: en 320-375 px el nombre de la sección se cortaba o se pegaba a «Home» */
 @media (max-width:420px){

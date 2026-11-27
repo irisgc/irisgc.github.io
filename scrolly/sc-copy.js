@@ -55,7 +55,7 @@ window.SC = {
         { id: "p-reverb", k: "Web responsive", name: "REVERB" }
       ],
       r3d: "Modelado 3D y render",
-      conf: { state: "En desarrollo", name: "Configurador 3D", body: "Web interactiva para configurar atomizadores a medida y visualizar todos los componentes de cada máquina para Mañez y Lozano.", video: "Configurador 3D: la máquina se separa en conjuntos y se abre el despiece de la bomba" },
+      conf: { state: "En desarrollo", name: "Configurador 3D", body: "Web interactiva para configurar atomizadores a medida y visualizar todos los componentes de cada máquina para Mañez y Lozano.", video: "Configurador 3D: se cambian el ventilador y la torre, la máquina se separa en conjuntos y se abre el despiece de la bomba" },
       play: "Reproducir vídeo",
       pause: "Pausar vídeo",
       full: "Ver a pantalla completa"
@@ -110,7 +110,7 @@ window.SC = {
         { id: "p-reverb", k: "Responsive web", name: "REVERB" }
       ],
       r3d: "3D modelling and rendering",
-      conf: { state: "In development", name: "3D configurator", body: "Interactive website for Mañez y Lozano to configure made-to-order air-blast sprayers and see every component of each machine.", video: "3D configurator: the machine separates into its assemblies and the pump opens into an exploded view" },
+      conf: { state: "In development", name: "3D configurator", body: "Interactive website for Mañez y Lozano to configure made-to-order air-blast sprayers and see every component of each machine.", video: "3D configurator: the fan and tower are swapped, the machine separates into its assemblies and the pump opens into an exploded view" },
       play: "Play video",
       pause: "Pause video",
       full: "Watch full screen"
